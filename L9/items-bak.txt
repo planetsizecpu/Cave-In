@@ -21,7 +21,8 @@
 # ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
 #
 CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
-#AGENT1|agent1|age1|22x34|1550x20|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
+AGENT1|fagent1|age1|22x34|600x15|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
+AGENT2|agent2|age2|22x34|1530x15|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
 GOLDBG|gold1|gld1|8x12|75x50|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold2|gld2|8x12|75x240|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold3|gld3|8x12|75x320|0:0|0x0|0:0|0|1|gold1.png
