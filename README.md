@@ -55,20 +55,20 @@ that may be used in the future, so I recommend to use the same color for kart an
 OBJECTS CONFIGURATION FILE:
 
 This is where we locate te objects that appear in the level, including the scenario file.
+A line contains this:
+ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+- ItemTypes start with: (A)gent (B)and (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (P)assage (S)pider (T)ools (W)barrow
+- Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
+- Location (Stop #)
+- Direction (1 Down/Right -1 Up/Left)
+- For (B)and first stop indicates axis displacement 1x0 -> Horizontal  Other value -> Vertical
+- (P)assages must be grouped pairs passage1 and passage2, passage3 and passage4 ... (use direction as grouping field)
+- For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
+- To modify default GameData/word values:  & word value   (value can be tuple! logic! or integer!)
 
 Each comment line starts with "#"
-
 EXAMPLE:
-# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
-# ItemTypes start with: (A)gent (B)and (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (P)assage (S)pider (T)ools (W)barrow
-# Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
-# Location (Stop #)
-# Direction (1 Down/Right -1 Up/Left)
-# For (B)and first stop indicates axis displacement 1x0 -> Horizontal  Other value -> Vertical
-# (P)assages must be grouped pairs passage1 and passage2, passage3 and passage4 ... (use direction as grouping field)
-# For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
-#
-# To modify default GameData/word values:  & word value   (value can be tuple! logic! or integer!)
+
 & TerrainColor 89.89.89.0
 & StairsColor1 200.191.231
 & StairsColor2 63.72.204.0
