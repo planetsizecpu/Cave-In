@@ -1,0 +1,46 @@
+# Level 05 items configuration file
+#
+# The program will load all of them and put in locations.
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+# ItemTypes start with: (A)gent (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (S)pider (T)ools (W)barrow
+# Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
+# Location (Stop #)
+# Direction (1 Down/Right -1 Up/Left)
+# For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
+#
+# To modify default GameData/word values:  & word value   (value can be tuple! or logic!)
+& TerrainColor 220.242.248.0
+& Slide true
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
+AGENT1|agent1|age1|22x34|1500x540|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
+AGENT3|fagent2|age2|22x34|645x300|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
+GOLDBG|gold1|gld1|8x12|100x190|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold2|gld2|8x12|100x280|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold3|gld3|8x12|230x190|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold4|gld4|8x12|230x280|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold5|gld5|8x12|360x60|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold6|gld6|8x12|450x235|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold7|gld7|8x12|670x135|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold8|gld8|8x12|670x235|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold9|gld9|8x12|915x135|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold10|gld10|8x12|915x235|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold11|gld11|8x12|1240x60|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold12|gld12|8x12|1135x235|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold13|gld13|8x12|1365x190|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold14|gld14|8x12|1365x280|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold15|gld15|8x12|1485x190|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold16|gld16|8x12|1485x280|0:0|0x0|0:0|0|1|gold1.png
+LIFT1|lifter1|lif1|35x10|534x60|0:0:0.0001|534x60,534x340|0:0|1|0|lifter-1.png
+LIFT2|lifter2|lif2|35x10|783x340|0:0:0.0001|783x70,783x160,783x250,783x340|0:0|-1|0|lifter-1.png
+LIFT3|lifter3|lif3|35x10|1029x60|0:0:0.0001|1029x60,1029x340|0:0|1|0|lifter-1.png
+DROP1|drop1|drp1|7x9|407x401|0:0:1.0|0x0|0:0|0|1|drop1.png
+DROP2|drop2|drp2|7x9|1192x401|0:0:1.0|0x0|0:0|0|1|drop1.png
+SPIDER1|spider1|spi1|9x7|135x30|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
+SPIDER2|spider2|spi2|9x7|1460x30|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
+WBARROW|wbarrow1|wba1|26x17|1510x540|0:0|0x0|0:0|0|1|barrow-r1.png
+JOHN|john|doe|22x34|700x540|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
