@@ -68,11 +68,14 @@ ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction
 
 Each comment line starts with "#"
 EXAMPLE:
-
 & TerrainColor 89.89.89.0
+
 & StairsColor1 200.191.231
+
 & StairsColor2 63.72.204.0
+
 & DropGravity 1
+
 CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
 AGENT1|agent1|age1|22x34|1550x20|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
 GOLDBG|gold1|gld1|8x12|75x50|0:0|0x0|0:0|0|1|gold1.png
