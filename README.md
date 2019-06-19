@@ -68,6 +68,7 @@ ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction
 
 Each comment line starts with "#"
 EXAMPLE:
+
 & TerrainColor 89.89.89.0
 
 & StairsColor1 200.191.231
