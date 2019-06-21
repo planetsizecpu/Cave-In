@@ -1,0 +1,99 @@
+# Level 10 items configuration file
+#
+# The program will load all of them and put in locations.
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+# ItemTypes start with: (A)gent (B)and (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (P)assage (S)pider (T)ools (W)barrow
+# Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
+# Location (Stop #)
+# Direction (1 Down/Right -1 Up/Left)
+# For (B)and first stop indicates axis displacement 1x0 -> Horizontal  Other value -> Vertical
+# (P)assages must be grouped pairs passage1 and passage2, passage3 and passage4 ... (use direction as grouping field)
+# For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
+#
+# To modify default GameData/word values:  & word value   (value can be tuple! logic! or integer!)
+& TerrainColor 52.79.114.0
+& StairsColor1 200.191.231
+& StairsColor2 63.72.204.0
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
+#
+AGENT1|agent1|age1|22x34|15x540|0:0:0.04|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
+AGENT2|fagent2|age2|22x34|1555x505|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
+#
+GOLDBG|gold1|gld1|8x12|165x125|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold2|gld2|8x12|350x50|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold3|gld3|8x12|85x210|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold4|gld4|8x12|325x295|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold5|gld5|8x12|15x380|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold6|gld6|8x12|125x460|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold7|gld7|8x12|1270x525|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold8|gld8|8x12|1570x525|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold9|gld9|8x12|1350x90|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold10|gld10|8x12|1365x90|0:0|0x0|0:0|0|1|gold1.png
+#
+GOLDBG|gold11|gld11|8x12|440x210|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold12|gld12|8x12|440x295|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold13|gld13|8x12|440x380|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold14|gld14|8x12|440x460|0:0|0x0|0:0|0|1|gold1.png
+#
+GOLDBG|gold15|gld15|8x12|525x210|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold16|gld16|8x12|525x295|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold17|gld17|8x12|525x380|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold18|gld18|8x12|525x460|0:0|0x0|0:0|0|1|gold1.png
+#
+GOLDBG|gold19|gld19|8x12|610x210|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold20|gld20|8x12|610x295|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold21|gld21|8x12|610x380|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold22|gld22|8x12|610x460|0:0|0x0|0:0|0|1|gold1.png
+#
+GOLDBG|gold23|gld23|8x12|695x210|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold24|gld24|8x12|695x295|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold25|gld25|8x12|695x380|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold26|gld26|8x12|695x460|0:0|0x0|0:0|0|1|gold1.png
+#
+GOLDBG|gold27|gld27|8x12|778x210|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold28|gld28|8x12|778x295|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold29|gld29|8x12|778x380|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold30|gld30|8x12|778x460|0:0|0x0|0:0|0|1|gold1.png
+#
+GOLDBG|gold31|gld31|8x12|862x210|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold32|gld32|8x12|862x295|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold33|gld33|8x12|862x380|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold34|gld34|8x12|862x460|0:0|0x0|0:0|0|1|gold1.png
+#
+GOLDBG|gold35|gld35|8x12|950x210|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold36|gld36|8x12|950x295|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold37|gld37|8x12|950x380|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold38|gld38|8x12|950x460|0:0|0x0|0:0|0|1|gold1.png
+#
+GOLDBG|gold39|gld39|8x12|1034x210|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold40|gld40|8x12|1034x295|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold41|gld41|8x12|1034x380|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold42|gld42|8x12|1034x460|0:0|0x0|0:0|0|1|gold1.png
+#
+GOLDBG|gold43|gld43|8x12|1125x210|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold44|gld44|8x12|1125x295|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold45|gld45|8x12|1125x380|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold46|gld46|8x12|1125x460|0:0|0x0|0:0|0|1|gold1.png
+#
+PASSAGE1|passage1|pas1|20x20|1350x80|0:0:4|0x0|0:0|1|0|passage-G.png
+PASSAGE2|passage2|pas2|20x20|1512x280|0:0:4|0x0|0:0|1|0|passage-G.png
+#
+LIFT0|lifter0|lif0|30x10|1438x303|0:0:0.0001|1438x303,1438x545|0:0|1|0|lifter-2.png
+LIFT1|lifter1|lif1|36x10|383x230|0:0:0.0001|383x230,383x315,383x400,383x480,383x585|0:0|1|0|lifter-2.png
+LIFT2|lifter2|lif2|36x10|469x480|0:0:0.0001|469x230,469x315,469x400,469x480|0:0|-1|0|lifter-2.png
+LIFT3|lifter3|lif3|36x10|554x230|0:0:0.0001|554x230,554x315,554x400,554x480|0:0|1|0|lifter-2.png
+LIFT4|lifter4|lif4|36x10|639x480|0:0:0.0001|639x230,639x315,639x400,639x480|0:0|-1|0|lifter-2.png
+LIFT5|lifter5|lif5|36x10|723x230|0:0:0.0001|723x230,723x315,723x400,723x480|0:0|1|0|lifter-2.png
+LIFT6|lifter6|lif6|36x10|807x480|0:0:0.0001|807x230,807x315,807x400,807x480|0:0|-1|0|lifter-2.png
+LIFT7|lifter7|lif7|36x10|892x230|0:0:0.0001|892x230,892x315,892x400,892x480|0:0|1|0|lifter-2.png
+LIFT8|lifter8|lif8|36x10|979x480|0:0:0.0001|979x230,979x315,979x400,979x480|0:0|-1|0|lifter-2.png
+LIFT9|lifter9|lif9|36x10|1066x230|0:0:0.0001|1066x230,1066x315,1066x400,1066x480|0:0|1|0|lifter-2.png
+LIFT10|lifter10|lif10|36x10|1154x585|0:0:0.0001|1154x230,1154x315,1154x400,1154x480,1154x585|0:0|-1|0|lifter-2.png
+#
+WBARROW|wbarrow1|wba1|26x17|155x550|0:0|0x0|0:0|0|1|barrow-r1.png
+JOHN|john|doe|22x34|160x200|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
