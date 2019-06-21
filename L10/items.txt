@@ -95,5 +95,8 @@ LIFT8|lifter8|lif8|36x10|979x480|0:0:0.0001|979x230,979x315,979x400,979x480|0:0|
 LIFT9|lifter9|lif9|36x10|1066x230|0:0:0.0001|1066x230,1066x315,1066x400,1066x480|0:0|1|0|lifter-2.png
 LIFT10|lifter10|lif10|36x10|1154x585|0:0:0.0001|1154x230,1154x315,1154x400,1154x480,1154x585|0:0|-1|0|lifter-2.png
 #
+TPICKAX|pickax1|pkx1|9x10|1250x215|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax2|pkx2|9x10|115x210|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax3|pkx3|9x10|750x570|0:0|0x0|0:0:10|0|1|pickax1.png
 WBARROW|wbarrow1|wba1|26x17|155x550|0:0|0x0|0:0|0|1|barrow-r1.png
 JOHN|john|doe|22x34|160x200|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
