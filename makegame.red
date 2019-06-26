@@ -819,6 +819,7 @@ MakeGame: does [
 			f/extra/handle: false
 			f/extra/gravity: true
 			f/extra/inertia: 0.0
+			f/extra/altitude: 0
 			f/offset/y: add f/offset/y 8
 			f/size: f/extra/size
 			f/image: f/extra/images/7		
