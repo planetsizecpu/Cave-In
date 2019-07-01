@@ -21,10 +21,11 @@
 #
 CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
 #
+JOHN|john|doe|22x34|160x200|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
 AGENT1|agent1|age1|22x34|15x540|0:0:0.04|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
 AGENT2|fagent2|age2|22x34|1555x505|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
 #
-GOLDBG|gold1|gld1|8x12|165x125|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold1|gld1|8x12|185x125|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold2|gld2|8x12|350x50|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold3|gld3|8x12|85x210|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold4|gld4|8x12|325x295|0:0|0x0|0:0|0|1|gold1.png
@@ -99,4 +100,3 @@ TPICKAX|pickax1|pkx1|9x10|1250x215|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|115x210|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax3|pkx3|9x10|750x570|0:0|0x0|0:0:10|0|1|pickax1.png
 WBARROW|wbarrow1|wba1|26x17|155x550|0:0|0x0|0:0|0|1|barrow-r1.png
-JOHN|john|doe|22x34|160x200|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
