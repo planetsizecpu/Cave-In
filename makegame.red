@@ -111,7 +111,7 @@ MakeGame: does [
 		unset 'f
 	]
 	
-	; Set agents difficulty rate level 
+	; Set agents difficulty level rate 
 	SetAgentsRate: function [r [time!]][
 		foreach-face GameData/CaveFace [
 			; Check if face is visible 
@@ -1067,7 +1067,7 @@ MakeGame: does [
 		]
 
 		; Homing functions vary their behavior by the tool status! 
-		; if no tool they go straigth forward, if tool they go counterway
+		; if no tool they go direction to thief, if tool they go counterway
 		
 		; When agent must go UP
 		if (GameData/PlayerFace/offset/y) < f/offset/y [
@@ -1081,11 +1081,13 @@ MakeGame: does [
 				]
 			][
 				; When agent can go UP then go
-				either ((CheckStairsUP f) or (CheckStairsDN f)) and (not CheckCeiling f) [
-					f/extra/blockedLT: true
-					f/extra/blockedRT: true
-					GoUp f 
-					return 0 ; To avoid agent walking on stairs
+				either ((CheckStairsUP f) or (CheckStairsDN f)) [
+					if (not CheckCeiling f) [
+						f/extra/blockedLT: true
+						f/extra/blockedRT: true
+						GoUp f 
+						return 0 ; To avoid agent walking on stairs
+					]
 				][
 					GoUp f; The agent can't go up but it must, that is TBD
 				]
