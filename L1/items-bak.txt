@@ -12,6 +12,10 @@
 #
 # To modify default GameData/word values:  & word value   (value can be tuple! or logic!)
 #
+& CeilingDist 18
+& TerrainColor 187.145.0.0
+& StairsColor1 68.68.68.0
+& StairsColor2 127.127.127.0
 # ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
 CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
 AGENT1|agent1|age1|22x34|750x29|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
@@ -25,14 +29,14 @@ GOLDBG|gold6|gld6|8x12|900x473|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold7|gld7|8x12|1100x473|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold8|gld8|8x12|1330x473|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold9|gld9|8x12|1330x340|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold10|gld10|8x12|1460x151|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold10|gld10|8x12|1350x151|0:0|0x0|0:0|0|1|gold1.png
 TPICKAX|pickax1|pkx1|9x10|200x566|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|150x463|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax3|pkx3|9x10|1250x475|0:0|0x0|0:0:10|0|1|pickax1.png
-TPICKAX|pickax4|pkx4|9x10|1430x152|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax4|pkx4|9x10|1400x152|0:0|0x0|0:0:10|0|1|pickax1.png
 WBARROW|wbarrow1|wba1|26x17|150x46|0:0|0x0|0:0|0|1|barrow-r1.png
-KART1|kart1|krt1|35x19|425x557|0:0:0.0001|425x557,1462x557|0:0|1|0|kart1.png
-LIFT1|lifter1|lif1|35x10|376x58|0:0:0.0001|376x58,376x202,376x372,376x482,376x570|0:0|1|0|lifter-1.png
+KART1|kart1|krt1|35x19|425x557|0:0:0.0001|425x557,1462x557|0:0|2|0|kart1.png
+LIFT1|lifter1|lif1|35x10|376x570|0:0:0.0001|376x58,376x202,376x372,376x482,376x570|0:0|-1|0|lifter-1.png
 LIFT2|lifter2|lif2|35x10|1004x566|0:0:0.0001|1004x223,1004x355,1004x480,1004x570|0:0|-1|0|lifter-1.png
 LIFT3|lifter3|lif3|35x10|1186x58|0:0:0.0001|1186x58,1186x206,118x355,1186x480|0:0|1|0|lifter-1.png
 JOHN|john|doe|22x34|250x28|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
