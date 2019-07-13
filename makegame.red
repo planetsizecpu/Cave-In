@@ -283,7 +283,7 @@ MakeGame: does [
 	
 	; Look to left of face coordinates for stairs or lifter
 	LookForStairLT: function [face [object!]][
-		Ret: none
+		Ret: false
 		FSize: face/size
 		FOffset: face/offset
 
@@ -300,7 +300,7 @@ MakeGame: does [
 			] 
 			if ((Terrain = GameData/StairsColor1) or (Terrain = GameData/StairsColor2) or (Terrain = GameData/LifterCable)) [
 				print "LEFT-LOOK FOUND STAIR OR LIFTER"
-				Ret: (FOffset/x - CheckPointX)
+				Ret: true
 				break
 			]
 		]
@@ -309,7 +309,7 @@ MakeGame: does [
 
 	; Look to right of face coordinates for stairs or lifter
 	LookForStairRT: function [face [object!]][
-		Ret: none
+		Ret: false
 		FSize: face/size
 		FOffset: face/offset
 
@@ -326,7 +326,7 @@ MakeGame: does [
 			] 
 			if ((Terrain = GameData/StairsColor1) or (Terrain = GameData/StairsColor2) or (Terrain = GameData/LifterCable)) [
 				print "RIGHT-LOOK FOUND STAIR OR LIFTER"
-				Ret: (CheckPointX - FOffset/x)
+				Ret: true
 				break
 			]
 		]
@@ -559,7 +559,7 @@ MakeGame: does [
 	; Some face going left
 	GoLeft: function [f [object!]][
 		if f/extra/handle [return 0]
-		f/extra/direction: -1
+		if f/extra/type = "J" [f/extra/direction: -1]
 		if CheckTerrainLT f [return 0]
 		if CheckSlopeLT f [f/offset/y: f/offset/y - 1]
 
@@ -581,7 +581,7 @@ MakeGame: does [
 	; Some face going right
 	GoRight: function [f [object!]][
 		if f/extra/handle [return 0]
-		f/extra/direction: 1
+		if f/extra/type = "J" [f/extra/direction: 1]
 		if CheckTerrainRT f [return 0]
 		if CheckSlopeRT f [f/offset/y: f/offset/y - 1]
 
@@ -608,6 +608,7 @@ MakeGame: does [
 
 		y: f/offset/y
 		y: subtract y GameData/StepValue
+		if f/extra/type = "A" [y: subtract y GameData/StepValue]
 		f/offset/y: y
 
 		GoWalkStairs f
@@ -620,6 +621,7 @@ MakeGame: does [
 
 		y: f/offset/y
 		y: add y GameData/StepValue
+		if f/extra/type = "A" [y: add y GameData/StepValue]
 		f/offset/y: y
 
 		GoWalkStairs f 
@@ -936,17 +938,17 @@ MakeGame: does [
 		
 		; We use direction on kart to allow easy displacement
 		f/offset/x: add f/offset/x f/extra/direction
-		if f/offset/x = fst/x [f/extra/direction:  1]
-		if f/offset/x = lst/x [f/extra/direction: -1]
+		if f/offset/x <= fst/x [f/extra/direction:  2]
+		if f/offset/x >= lst/x [f/extra/direction: -2]
 
 		; Check for kart stops and set next delay
-		foreach stp f/extra/stops [if stp/x = f/offset/x [
+		foreach stp f/extra/stops [if (stp/x = f/offset/x) or (stp/x = (f/offset/x - 1)) [
 				f/extra/stopdelay: GameData/KartStopDelay
 			]
 		]
 	]
 	
-	; Kart jump-in (from handle status on GoAction function)
+	; Kart jump-in (from handle status)
 	KartJumpIn: function [f [object!] OtherFace [object!]][
 		OtherFace/offset: f/offset  	 ;The jumping face follows kart hidden
 		OtherFace/visible?: false		 ;Make jumping face not visible
@@ -958,7 +960,7 @@ MakeGame: does [
 		OtherFace/extra/onkart: true     ;Signal jumping face as loaded on kart
 		f/extra/loaded: true 			 ;Signal kart as loaded
 		f/extra/altitude: 0 			 ;Don't use altitude on kart
-		either f/extra/direction = 1 [f/image: Kart-TR1][f/image: Kart-TL1]	;Set loaded kart image
+		either f/extra/direction > 0 [f/image: Kart-TR1][f/image: Kart-TL1]	;Set loaded kart image
 		print "ON KART"
 	]
 	
@@ -1030,24 +1032,26 @@ MakeGame: does [
 		if not none? OtherFace [
 			; Check if other face is agent and guide them away
 			if OtherFace/extra/type = "A" [
-				either (not CheckStairsUP f) and (not CheckStairsDN f) [
-					either OtherFace/extra/direction < 0 [
-						f/extra/blockedLT: true
-						GoRight f
-						return 0
-					][
-						f/extra/blockedRT: true
-						GoLeft f
-						return 0
-					]
+				f/extra/blockedLT: false
+				f/extra/blockedRT: false
+				OtherFace/extra/blockedLT: false
+				OtherFace/extra/blockedRT: false
+				if (not CheckStairsUP f) and (not CheckStairsDN f) [
+					f/offset/x: f/offset/x - f/size/x
+					f/extra/direction: 9 
+					f/extra/blockedRT: true
+					f/extra/blockedLT: false
+					OtherFace/offset/x: OtherFace/offset/x + f/size/x
+					OtherFace/extra/direction: 3
+					OtherFace/extra/blockedLT: true
+					OtherFace/extra/blockedRT: false
+				]
+			]
+			if OtherFace/extra/type = "L" [ 
+				either (GameData/PlayerFace/offset/x < (f/offset/x - 2)) [
+					either (not GameData/PlayerFace/extra/tool) [f/extra/direction: 9][f/extra/direction: 3]
 				][
-					either (GameData/PlayerFace/offset/y < f/offset/y) [
-						GoDown f
-						return 0
-					][
-						GoUp f
-						return 0
-					]
+					either (not GameData/PlayerFace/extra/tool) [f/extra/direction: 3][f/extra/direction: 9]
 				]
 			]
 			
@@ -1066,102 +1070,73 @@ MakeGame: does [
 			]
 		]
 
-		; Homing functions vary their behavior by the tool status! 
-		; if no tool they go direction to thief, if tool they go counterway
-		
-		; When agent must go UP
-		if (GameData/PlayerFace/offset/y) < f/offset/y [
-			either GameData/PlayerFace/extra/tool [
-				; When thief has tool then agent go in inverse direction
-				if (CheckStairsDN f) [
-					f/extra/blockedLT: true
-					f/extra/blockedRT: true
-					GoDown f
-					return 0 ; To avoid agent walking on stairs
-				]
-			][
-				; When agent can go UP then go
-				either ((CheckStairsUP f) or (CheckStairsDN f)) [
-					if (not CheckCeiling f) [
-						f/extra/blockedLT: true
-						f/extra/blockedRT: true
-						GoUp f 
-						return 0 ; To avoid agent walking on stairs
-					]
+		; HOMING FUNCTION vary their behavior by the tool status! 
+		; Negative direction means recalculate new direction
+		; if there is a direction follow it until the end or some finding
+		if f/extra/direction > 0 [
+			if f/extra/direction = 12 [
+				GoUp f 
+				if not CheckStairsUP f [f/extra/direction: -1]
+			]	
+			if f/extra/direction = 6 [
+				GoDown f 
+				if not CheckStairsDN f [f/extra/direction: -1]				
+			]		
+			if f/extra/direction = 9 [
+				if (f/extra/blockedLT) or (CheckTerrainLT f) [f/extra/direction: -1]
+				GoLeft f 
+			]
+			if f/extra/direction = 3 [
+				if (f/extra/blockedRT) or (CheckTerrainRT f) [f/extra/direction: -1]			
+				GoRight f
+			]		
+			; If we find stairs or have pickax we must check for new direction
+			if (CheckStairsUP f) or (CheckStairsDN f) or GameData/PlayerFace/extra/tool [f/extra/direction: -1]
+			return 0
+		]
+				
+		; Get best vertical direction first, as it need stairs to move
+		if (GameData/PlayerFace/offset/y < (f/offset/y - 2)) [
+			if ((CheckStairsUP f) or (CheckStairsDN f)) [
+				either (not CheckCeiling f) [
+					either (not GameData/PlayerFace/extra/tool) [f/extra/direction: 12][f/extra/direction: 6]
+					return 0 ; For prevalence of vertical directions
 				][
-					GoUp f; The agent can't go up but it must, that is TBD
+					f/extra/direction: -1
+				]
+			]
+		]
+		if (GameData/PlayerFace/offset/y > (f/offset/y + 2)) [
+			if ((CheckStairsUP f) or (CheckStairsDN f)) [
+				either (not CheckFloor f) [
+					either (not GameData/PlayerFace/extra/tool) [f/extra/direction: 6][f/extra/direction: 12]
+					return 0 ; For prevalence of vertical directions
+				][
+					f/extra/direction: -1				
 				]
 			]
 		]
 
-		; When agent must go DOWN
-		if (GameData/PlayerFace/offset/y - 3) > f/offset/y [
-			either GameData/PlayerFace/extra/tool [
-				; When thief has tool then agent go in inverse direction
-				if ((CheckStairsUP f) or (CheckStairsDN f)) and (not CheckCeiling f) [
-					GoUp f
-					return 0
-				]
+		; Agent is at the same y level, so we get best horizontal direction
+		either (GameData/PlayerFace/offset/x < f/offset/x) [
+			either not CheckTerrainLT f [
+				either not GameData/PlayerFace/extra/tool [f/extra/direction: 9][f/extra/direction: 3]
 			][
-				; When agent can go DOWN then go
-				if (CheckStairsDN f) [
-					GoDown f 
-					return 0
+				f/extra/blockedLT: true
+				if (not CheckTerrainRT f) [
+					f/extra/direction: 3
 				]
 			]
-		]		
-				
-		; When agent must go LEFT
-		if (GameData/PlayerFace/offset/x < f/offset/x) [
-			; When thief has tool or galery is blocked then agent go in inverse direction
-			either GameData/PlayerFace/extra/tool or f/extra/blockedLT [
-				; Here we go on invese direction -> right
-				either (not CheckTerrainRT f) [
-					GoRight f
-					return 0 ; To avoid agent walking on stairs
-				][
-					; Finally agent go left due to galery blocked
-					if CheckFloor f [f/extra/blockedLT: false f/extra/blockedRT: true]
-					GoLeft f
-					return 0 ; To avoid agent walking on stairs
-				]
+		][
+			either not CheckTerrainRT f [
+				either not GameData/PlayerFace/extra/tool [f/extra/direction: 3][f/extra/direction: 3]
 			][
-				; Here agent go on correct direction -> left
-				either (not CheckTerrainLT f) [
-					GoLeft f
-				][
-					; Finally agent go right due to galery blocked
-					if CheckFloor f [f/extra/blockedLT: true f/extra/blockedRT: false]				
-					GoRight f
+				f/extra/blockedRT: true
+				if (not CheckTerrainLT f) [
+					f/extra/direction: 9
 				]
-			]
-		]		
-		
-		; When agent must go RIGHT
-		if (GameData/PlayerFace/offset/x > f/offset/x) [
-			; When thief has tool or galery is blocked then agent go in inverse direction
-			either GameData/PlayerFace/extra/tool or f/extra/blockedRT [
-				; Here we go on inverse direction -> left
-				either (not CheckTerrainLT f) [
-					GoLeft f
-					return 0 ; To avoid agent walking on stairs
-				][
-					; Finally agent go right due to galery blocked
-					if CheckFloor f [f/extra/blockedLT: true f/extra/blockedRT: false]
-					GoRight f
-					return 0 ; To avoid agent walking on stairs
-				]
-			][
-				; Here agent go in correct direction -> right
-				either (not CheckTerrainRT f) [
-					GoRight f
-				][
-					; Finally agent go left due to galery blocked
-					if CheckFloor f [f/extra/blockedLT: false f/extra/blockedRT: true]
-					GoLeft f
-				]
-			]
-		]		
+			]				
+		]
 	]
 	
 	;-------------------------------------------------------------------------
@@ -1276,7 +1251,7 @@ MakeGame: does [
 		
 		; Check for band overlap 
 		OtherFace: CheckOverlaps f 
-		Axis: first f/extra/stops ;First stop is axis
+		Axis: first f/extra/stops ;First stop is rolling axis
 		
 		; Check for dead if touch the band
 		if not none? OtherFace [

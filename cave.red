@@ -9,6 +9,7 @@ Red [Needs: 'View
 ; Credit to @gltewald for help on png files transparency
 ; Credit to @endo64 for help on difficulty level
 
+recycle/off
 system/view/auto-sync?:  yes
 
 ; Load librarys
@@ -34,7 +35,7 @@ GameData: make object! [
 	Inertia: 0.5
 	MaxInertia: 2.0
 	AddInertia: 0.02
-	CeilingDist: 25
+	CeilingDist: 18
 	ThiefDeadDelay: 0.1
 	SpiderDeadDelay: 0.01
 	AgentDeadDelay: 0.03
