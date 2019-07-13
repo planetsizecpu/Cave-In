@@ -11,6 +11,7 @@
 # For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
 #
 # To modify default GameData/word values:  & word value   (value can be tuple! or logic!)
+& CeilingDist 18
 & TerrainColor 220.242.248.0
 & Slide true
 #
