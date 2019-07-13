@@ -11,11 +11,11 @@
 # For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
 #
 # To modify default GameData/word values:  & word value   (value can be tuple! or logic!)
+& CeilingDist 21
 & TerrainColor 220.242.248.0
 & Slide true
 #
 # ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
-#
 CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
 AGENT1|agent1|age1|22x34|1310x220|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
 AGENT2|fagent2|age2|22x34|700x400|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
