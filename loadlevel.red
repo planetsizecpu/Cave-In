@@ -12,7 +12,6 @@ LoadLevel: func [lv][
 	; Level selection & loading
 	Ldata: to-file "DATA"
 	Level: to-file lv
-	StdCavern: load to-file (Level/cavern.png)
 	LastPassage: copy " "
 
 	; Read level config file
@@ -132,6 +131,7 @@ LoadLevel: func [lv][
 									]
 					append GameScr/pane get (w)
 					GameData/CaveFace: get (w)
+					GameData/CaveFaceHalfSizeX: GameData/CaveFace/size/x / 2
 				]
 			"D" [set (w) make face! [type: 'base size: ItemObj/size offset: ItemObj/offset image: copy ItemObj/image extra: ItemObj
 									 rate: ItemObj/rate actors: context [on-time: func [f e][DropMotion f]]

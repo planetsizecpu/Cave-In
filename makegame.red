@@ -25,7 +25,8 @@ MakeGame: does [
 		GoGravity
 		
 		; Check for screen roll
-		either GameData/PlayerFace/offset/x > (GameData/CaveFace/size/x / 2) [
+		either GameData/PlayerFace/offset/x > GameData/CaveFaceHalfSizeX [
+
 			cave/offset/x: 0 - (GameData/CaveFace/size/x / 2)
 		][
 			cave/offset/x: 0 
@@ -133,7 +134,7 @@ MakeGame: does [
 		Ret: none
 		foreach-face GameData/CaveFace [
 			if face <> f [
-				if overlap? face f [Ret: face]
+				if overlap? face f [Ret: face] ;break would help here, but it crash the console by now
 			]
 		]
 		return Ret

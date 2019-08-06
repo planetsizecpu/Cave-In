@@ -22,7 +22,8 @@ GameData: make object! [
 	GameRate: 0:00:00.005 
 	CaveName: "cave"
 	CaveFace: object []
-	PlayerFace: object [image: []] ;image must be defined to avoid error when compile to release mode
+	CaveFaceHalfSizeX: 800 ;Half x cave size will be updated as we load the level cave image, it saves a div operation on each GameRate cycle!
+	PlayerFace: object [image: []] ;Must be defined to avoid error when compile to release mode
 	Items: [] 
 	Curlevel: "" 
 	Stock: 0 
@@ -51,14 +52,14 @@ GameData: make object! [
 	StairsColor2: 127.127.127.0
 	HandleColor: 195.195.195.0
 	LifterCable: 128.64.64.0
-	ThiefGetup: [ThiefGetup-X1 ThiefGetup-X2]
-	ThiefDead: [ThiefDead-X1 ThiefDead-X2 ThiefDead-X3 ThiefDead-X4]
-	AgentGetup: [AgentGetup-X1 AgentGetup-X2]
-	AgentDead: [AgentDead-X1 AgentDead-X2 AgentDead-X3 AgentDead-X4]
-	FAgentGetup: [FAgentGetup-X1 FAgentGetup-X2]
-	FAgentDead: [FAgentDead-X1 FAgentDead-X2 FAgentDead-X3 FAgentDead-X4]
-	SpiderDead: [SpiderDead-X1 SpiderDead-X2 SpiderDead-X3 SpiderDead-X4]
-	DropDead: [DropDead-X1 DropDead-X2 DropDead-X3 DropDead-X4]
+	ThiefGetup: [ThiefGetup-X1 ThiefGetup-X2] ;Thief getup sequence
+	ThiefDead: [ThiefDead-X1 ThiefDead-X2 ThiefDead-X3 ThiefDead-X4] ;Thief dead sequence
+	AgentGetup: [AgentGetup-X1 AgentGetup-X2] ;Agent getup sequence
+	AgentDead: [AgentDead-X1 AgentDead-X2 AgentDead-X3 AgentDead-X4] ;Agent dead sequence
+	FAgentGetup: [FAgentGetup-X1 FAgentGetup-X2] ;Female agent getup sequence
+	FAgentDead: [FAgentDead-X1 FAgentDead-X2 FAgentDead-X3 FAgentDead-X4] ;Female agent dead sequence
+	SpiderDead: [SpiderDead-X1 SpiderDead-X2 SpiderDead-X3 SpiderDead-X4] ;Spider dead sequence
+	DropDead: [DropDead-X1 DropDead-X2 DropDead-X3 DropDead-X4] ;Drop crash sequence 
 ]
 
 ; Set game screen layout
@@ -68,7 +69,7 @@ GameScr: layout [
 	origin 0x0
 	space 0x0
 	
-	; Info field is used for event management!
+	; Info field is also used for event management!
 	at 10x610 info: base 780x30 orange blue font [name: "Arial" size: 14 style: 'bold] focus 
 	rate GameData/GameRate on-time [
 		info/rate: none 
@@ -96,7 +97,7 @@ OpenBrowser: function [face event][
 	]
 ]
 
-; Check for agents rate adder
+; Check for agents difficulty rate 
 CheckDifficulty: function [][
 	if Gdeasy/data [GameData/AgentRate: 0:00:00.07 SetAgentsRate GameData/AgentRate]
 	if Gdnorm/data [GameData/AgentRate: 0:00:00.05 SetAgentsRate GameData/AgentRate]
