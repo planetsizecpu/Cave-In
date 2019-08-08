@@ -41,15 +41,18 @@ that way we can change the color of the scenario and dynamically set the value t
 The design of the scenario is free hand, you just have to bear in mind that you have to use 
 those colors in the areas where objects move, for the subject of gravity. A part of this, is 
 very important properly place the stairs, and make sure each upper end of stair have a ceiling 
-at the adecuate distance (50 pixels), for the guards to detect end of climbing. It is also 
-noticeable not to locate stairs at the side of walls not being external perimeter, so the
-guards would be able to turn back and exit dead ends. The kart handles must be placed at the 
-point iver the kart stops, the distance is about 45 pixels, but the handle routine will look up
-of the boy for 45 pixels to locate the HandleColor value, so it have some flexibility on distance.
+at the adecuate distance, 18 pixels by default, for the guards to detect end of climbing, this
+parameter may be also modifyied by the configuration file as setting & CeilingDist 25 for example.
+It is also noticeable not to locate stairs at the side of walls not being external perimeter, so the
+guards would be able to turn back and exit dead ends. 
+
+The kart handles must be placed at the x point where the kart stops, the vertical distance must be 
+at no more than 45 pixels from the boy y coordinate when it is located under the handle, as the handle 
+routine will look up when action key is pressed to find the & HandleColor value, so we have some flexibility.
 
 You must draw the kart cable and stop terminator marks, the lifters holes and cables (if any) and
-use the LifterCable value as color for them, there is an unused function that looks for this color
-that may be used in the future, so I recommend to use the same color for kart and lifter cables.
+use the & LifterCable value as color for them, there is an unused function that looks for this color
+that may be used in the future, so I recommend to use the same color for kart rails and lifter cables.
 
 
 OBJECTS CONFIGURATION FILE:
