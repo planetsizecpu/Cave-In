@@ -21,7 +21,7 @@ Then we have to amend the (current) line 20 of cave.red file. That line contains
 holding the level names as:  Levels: ["L1" "L2" "L3" "L4"]  to 	Levels: ["L1" "L2" "L3" "L4" "X1"]  
 for example. I do change this line for the first level to be the one I'm working, so the
 line would have this aspect:  Levels: ["X1" "L2" "L3" "L4" "X1"] so you will start the game
-at the desired level, then when level is done will restore to his normal content.
+at the desired level, then when level is done then restore to line the normal content.
 
 SCENARIO IMAGE:
 
