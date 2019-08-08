@@ -8,7 +8,9 @@ I know it does not have the quality of the true arcade game, but the goal is not
 
 To run it just download the folders tree and click on cave.red file. Have fun!
 
+**********************************************************************************************************
 INSTRUCTIONS FOR CREATING NEW LEVELS:
+**********************************************************************************************************
 
 Levels are made of one folder with two files inside, the scenario image cavern.png, and the 
 objects configuration file items.txt. The level name would be the folder name.
