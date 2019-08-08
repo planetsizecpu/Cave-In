@@ -53,10 +53,10 @@ The kart handles must be placed at the x point where the kart stops, the vertica
 at no more than 45 pixels from the boy y coordinate when it is located under the handle, as the handle 
 routine will look up when action key is pressed to find the & HandleColor value, so we have some flexibility.
 
-You must draw the kart cable and stop terminator marks, the lifters holes and cables (if any) and
-use the & LifterCable value as color for them, there is an unused function that looks for this color
-that may be used in the future, so I recommend to use the same color for kart rails and lifter cables.
-
+You must draw the kart cable and stop terminator marks, the lifters holes and cables (if any) to match theyr
+stop points related at the configuration file, and use the & LifterCable value as color for them. There is an 
+unused function that looks for this color that may be used in the future, so I recommend to use the same color
+for kart rails and lifter cables.
 
 OBJECTS CONFIGURATION FILE:
 
