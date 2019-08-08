@@ -45,8 +45,9 @@ those colors in the areas where objects move, for the subject of gravity. A part
 very important properly place the stairs, and make sure each upper end of stair have a ceiling 
 at the adecuate distance, 18 pixels by default, for the guards to detect end of climbing, this
 parameter may be also modifyied by the configuration file as setting & CeilingDist 25 for example.
-It is also noticeable not to locate stairs at the side of walls not being external perimeter, so the
-guards would be able to turn back and exit dead ends. 
+It is also noticeable not to locate stairs at the side of walls not being external perimeter, there
+must be some space between the stair and the wall, so the guards would be able to turn back and exit 
+from dead ends. 
 
 The kart handles must be placed at the x point where the kart stops, the vertical distance must be 
 at no more than 45 pixels from the boy y coordinate when it is located under the handle, as the handle 
