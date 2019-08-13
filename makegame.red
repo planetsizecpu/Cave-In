@@ -26,7 +26,6 @@ MakeGame: does [
 		
 		; Check for screen roll
 		either GameData/PlayerFace/offset/x > GameData/CaveFaceHalfSizeX [
-
 			cave/offset/x: 0 - (GameData/CaveFace/size/x / 2)
 		][
 			cave/offset/x: 0 
@@ -66,7 +65,8 @@ MakeGame: does [
 			either none? GameData/Curlevel [
 				print "***************************************************"		
 				print " NO MORE LEVELS! " 
-				print "***************************************************"			
+				print "***************************************************"		
+				Message "Congratulations you win"
 				alert "CONGRATULATIONS YOU WIN"
 				quit
 			][
@@ -75,9 +75,10 @@ MakeGame: does [
 				print "***************************************************"			
 				Message "Loading new level"
 				LoadLevel first GameData/Levels
-				john/lives: add john/lives 1
+				john/lives: add john/lives 1 ;One extra life for level ending
 				Glives/text: copy "LIVES:  " 
 				append Glives/text to-string john/lives
+				Message "You awarded one extra life"
 			]
 		]
 		
