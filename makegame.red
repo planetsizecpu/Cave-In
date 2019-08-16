@@ -135,7 +135,7 @@ MakeGame: does [
 		Ret: none
 		foreach-face GameData/CaveFace [
 			if face <> f [
-				if overlap? face f [Ret: face] ;break would help here, but it crash the console by now
+				if overlap? face f [Ret: face] ;Break would help here
 			]
 		]
 		return Ret
@@ -511,10 +511,7 @@ MakeGame: does [
 						if face/extra/altitude > GameData/FallingFaceAltitude [face/image: Thief-S4]
 						if face/extra/altitude > GameData/GetupAltitude [face/extra/getup: true]
 						if face/extra/altitude > GameData/DeadAltitude [face/extra/dead: true]
-					]
-					if face/extra/type = "S" [
-						if face/extra/altitude > GameData/FallingFaceAltitude [DrawSilk face]
-					]						
+					]					
 				][
 					; Zero altitude over terrain, if not persons may die on floor!
 					face/extra/altitude: 0
@@ -546,18 +543,6 @@ MakeGame: does [
 		]
 	]
 	
-	; Draw silk thread on main cave (modify bitmap does not update screen by now)
-	DrawSilk: function [face [object!]][
-		Ret: false
-		FSize: face/size
-		FOffset: face/offset
-		CheckPointNow: ((FOffset/y * GameData/CaveFace/size/x) + FOffset/x ) + (FSize/x / 2)
-		CheckPointPast: (((FOffset/y - (GameData/Gravity * 5)) * GameData/CaveFace/size/x) + FOffset/x ) + (FSize/x / 2)
-		GameData/CaveFace/image/(CheckPointNow): white
-		GameData/CaveFace/image/(CheckPointPast): black		
-		return Ret
-	]	
-
 	; Some face going left
 	GoLeft: function [f [object!]][
 		if f/extra/handle [return 0]
@@ -708,7 +693,7 @@ MakeGame: does [
 		OtherFace: CheckOverlaps f 
 	
 		; Check if we leave gold
-		if (f/extra/gold) and (not CheckStairsDN f) and (not CheckTerrainLT f) and (not CheckTerrainRT f) [
+		if (f/extra/gold) and (not CheckStairsDN f) and (not CheckTerrainLT f) and (not CheckTerrainRT f) and (not CheckHandle f) [
 			either (none? OtherFace) [
 				OtherFace: f/extra/getobject		
 				; We use direction to leave gold 
@@ -781,7 +766,7 @@ MakeGame: does [
 		]			
 		
 		; Check if we leave tool
-		if (f/extra/tool) and (not CheckStairsDN f) and (not CheckTerrainLT f) and (not CheckTerrainRT f) and (none? OtherFace) [
+		if (f/extra/tool) and (not CheckStairsDN f) and (not CheckTerrainLT f) and (not CheckTerrainRT f) and (not CheckHandle f) and (none? OtherFace) [
 			OtherFace: f/extra/getobject
 			; We use direction to leave tool
 			either f/extra/direction < 0 [
@@ -840,7 +825,7 @@ MakeGame: does [
 		][
 			; Check if face is under handle and got them
 			if (CheckHandle f) [ 
-				if (not f/extra/gold) and (not f/extra/tool) and (not f/extra/wbarrow) [
+				if not f/extra/wbarrow [
 					f/visible?: true
 					f/extra/gravity: false
 					f/extra/handle: true
@@ -909,8 +894,8 @@ MakeGame: does [
 		
 		; Check for kart overlap 
 		OtherFace: CheckOverlaps f 
-		
-		; Check for run over other face if not loaded
+				
+		; Check for run over thief face if not loaded
 		if not f/extra/loaded [
 			if not none? OtherFace [
 				if OtherFace/extra/type = "J" [
@@ -922,6 +907,12 @@ MakeGame: does [
 						return 0
 					]
 				]
+				if OtherFace/extra/type = "K" [
+					OtherFace/extra/dead: true
+					print " AGENT DEAD BY KART"
+					Message "Agent dead by kart"
+					return 0
+				]
 			]
 		]
 		
@@ -932,9 +923,7 @@ MakeGame: does [
 		][
 			; No on stop delay, overlapping face (hidden) must follow the kart when moving
 			if f/extra/loaded [
-				if not none? OtherFace [
-					if OtherFace/extra/type = "J" [OtherFace/offset: f/offset]
-				]
+				f/extra/getobject/offset: f/offset
 			]
 		]
 		
@@ -961,6 +950,7 @@ MakeGame: does [
 		OtherFace/extra/wound: false	 ;Clear wound status as kart have medkit
 		OtherFace/extra/onkart: true     ;Signal jumping face as loaded on kart
 		f/extra/loaded: true 			 ;Signal kart as loaded
+		f/extra/getobject: OtherFace	 ;Save thief face as loaded on kart
 		f/extra/altitude: 0 			 ;Don't use altitude on kart
 		either f/extra/direction > 0 [f/image: Kart-TR1][f/image: Kart-TL1]	;Set loaded kart image
 		print "ON KART"
@@ -969,6 +959,7 @@ MakeGame: does [
 	; Kart jump-out (to handle status on GoAction function)
 	KartJumpOut: function [f [object!] OtherFace [object!]][
 		f/extra/loaded: false			;Signal kart as unloaded
+		f/extra/getobject: copy []		;Erase thief face from kart
 		f/extra/altitude: 0 			;Don't use altitude on kart
 		f/image: f/extra/image 			;Set unloaded kart image 
 		OtherFace/visible?: true		;Make jumping face visible
