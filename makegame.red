@@ -830,8 +830,19 @@ MakeGame: does [
 					f/extra/gravity: false
 					f/extra/handle: true
 					f/offset/y: subtract f/offset/y 8
-					f/size: ThiefHandle/size
-					f/image: ThiefHandle
+						
+					if f/extra/gold [
+						f/size: ThiefHandleb/size
+						f/image: ThiefHandleb
+					]
+					if f/extra/tool [
+						f/size: ThiefHandlet/size
+						f/image: ThiefHandlet
+					]
+					if (not f/extra/gold) and (not f/extra/tool) [
+						f/size: ThiefHandle/size
+						f/image: ThiefHandle
+					]
 					print "GOT HANDLE"	
 					Message "Got handle"
 				]

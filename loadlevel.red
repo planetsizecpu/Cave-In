@@ -255,7 +255,9 @@ LoadDfltImages: func [][
 	ThiefDead-X4: load to-file (Ldata/thiefd-x4.png)
 	
 	ThiefHandle: load to-file (Ldata/thiefh1.png)
-		
+	ThiefHandleb: load to-file (Ldata/thiefh1-b.png)
+	ThiefHandlet: load to-file (Ldata/thiefh1-t.png)	
+	
 	Agent-S1: load to-file (Ldata/agent-s1.png)
 	Agent-S2: load to-file (Ldata/agent-s2.png)
 	Agent-S3: load to-file (Ldata/agent-s3.png)
