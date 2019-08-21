@@ -119,7 +119,7 @@ MakeGame: does [
 			; Check if face is visible 
 			if face/visible? [
 				; If there is an agent or a spider, then apply difficulty level rate
-				if (face/extra/type = "A") or (face/extra/type = "S") [
+				if any [face/extra/type = "A" face/extra/type = "S"] [
 					face/rate: r
 				]
 			]
@@ -152,7 +152,7 @@ MakeGame: does [
 		TerrainU: GameData/CaveFace/image/(CheckPointU)
 		TerrainC: GameData/CaveFace/image/(CheckPointC)		
 		TerrainD: GameData/CaveFace/image/(CheckPointD)
-		if (TerrainU = GameData/TerrainColor) or (TerrainC = GameData/TerrainColor) or (TerrainD = GameData/TerrainColor) [Ret: true]
+		if any [TerrainU = GameData/TerrainColor TerrainC = GameData/TerrainColor TerrainD = GameData/TerrainColor] [Ret: true]
 		return Ret
 	]
 
@@ -167,7 +167,7 @@ MakeGame: does [
 		TerrainU: GameData/CaveFace/image/(CheckPointU)
 		TerrainC: GameData/CaveFace/image/(CheckPointC)		
 		TerrainD: GameData/CaveFace/image/(CheckPointD)
-		if (TerrainU = GameData/TerrainColor) or (TerrainC = GameData/TerrainColor) or (TerrainD = GameData/TerrainColor) [Ret: true]		
+		if any [TerrainU = GameData/TerrainColor TerrainC = GameData/TerrainColor TerrainD = GameData/TerrainColor] [Ret: true]		
 		return Ret
 	]
 	
@@ -178,7 +178,7 @@ MakeGame: does [
 		FOffset: face/offset
 		CheckPoint: (((FOffset/y + (FSize/y)) * GameData/CaveFace/size/x) + FOffset/x ) - 8
 		Terrain: GameData/CaveFace/image/(CheckPoint)
-		if (Terrain = GameData/TerrainColor) or (Terrain = GameData/StairsColor1) or (Terrain = GameData/StairsColor2) [Ret: true]
+		if any [Terrain = GameData/TerrainColor Terrain = GameData/StairsColor1 Terrain = GameData/StairsColor2] [Ret: true]
 		return Ret
 	]
 
@@ -189,7 +189,7 @@ MakeGame: does [
 		FOffset: face/offset
 		CheckPoint: (((FOffset/y + (FSize/y)) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x + 8
 		Terrain: GameData/CaveFace/image/(CheckPoint)
-		if (Terrain = GameData/TerrainColor) or (Terrain = GameData/StairsColor1) or (Terrain = GameData/StairsColor2) [Ret: true]
+		if any [Terrain = GameData/TerrainColor Terrain = GameData/StairsColor1 Terrain = GameData/StairsColor2] [Ret: true]
 		return Ret
 	]
 	
@@ -202,7 +202,7 @@ MakeGame: does [
 		CheckPointR: (((FOffset/y - GameData/CeilingDist) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x		
 		TerrainL: GameData/CaveFace/image/(CheckPointL)
 		TerrainR: GameData/CaveFace/image/(CheckPointR)	
-		if (TerrainL = GameData/TerrainColor) or (TerrainR = GameData/TerrainColor) [Ret: true]
+		if any [TerrainL = GameData/TerrainColor TerrainR = GameData/TerrainColor] [Ret: true]
 		return Ret
 	]	
 
@@ -215,7 +215,7 @@ MakeGame: does [
 		CheckPointR: (((FOffset/y + FSize/y + 1) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x
 		TerrainL: GameData/CaveFace/image/(CheckPointL)
 		TerrainR: GameData/CaveFace/image/(CheckPointR)	
-		if (TerrainL = GameData/TerrainColor) or (TerrainR = GameData/TerrainColor) [Ret: true]
+		if any [TerrainL = GameData/TerrainColor TerrainR = GameData/TerrainColor] [Ret: true]
 		return Ret
 	]
 
@@ -234,7 +234,7 @@ MakeGame: does [
 		TerrainOR: GameData/CaveFace/image/(CheckPointOR)
 		; prin TerrainOL prin " - " print TerrainOR
 	
-		; Check stairs over the face
+		; Check stairs over the face 
 		if ((TerrainOL = GameData/StairsColor1) or (TerrainOL = GameData/StairsColor2)) and
 				((TerrainOR = GameData/StairsColor1) or (TerrainOR = GameData/StairsColor2)) [Ret: true]
 	
@@ -283,7 +283,7 @@ MakeGame: does [
 	]
 	
 	
-	; Look to left of face coordinates for stairs or lifter
+	; Look to left of face coordinates for stairs or lifter (function for further use)
 	LookForStairLT: function [face [object!]][
 		Ret: false
 		FSize: face/size
@@ -309,7 +309,7 @@ MakeGame: does [
 		return Ret
 	]
 
-	; Look to right of face coordinates for stairs or lifter
+	; Look to right of face coordinates for stairs or lifter (function for further use)
 	LookForStairRT: function [face [object!]][
 		Ret: false
 		FSize: face/size
@@ -318,7 +318,7 @@ MakeGame: does [
 		; Loop to right from face until external wall
 		CheckPointY: (FOffset/y + FSize/y) * GameData/CaveFace/size/x
 		CheckPointX: FOffset/x
-		while [CheckPointX < 1585][
+		while [CheckPointX < (GameData/CaveFace/size/x - 14)][
 			CheckPointX: add CheckPointX 1
 			CheckPoint: (CheckPointY + CheckPointX )
 			Terrain: GameData/CaveFace/image/(CheckPoint)
@@ -370,6 +370,7 @@ MakeGame: does [
 		if f/extra/type = "A" [
 			Message "An agent is dead"
 			either f/extra/lives > 0 [f/extra/lives: subtract f/extra/lives 1][f/rate: none return true]
+			;Show female/male agents dead image cycle
 			either ((first f/extra/name) = #"f") [
 				foreach img GameData/FAgentDead [f/image: get img wait GameData/AgentDeadDelay]		
 			][
@@ -381,6 +382,7 @@ MakeGame: does [
 		if f/extra/type = "J" [
 			Message "You dead"
 			either f/extra/lives > 0 [f/extra/lives: subtract f/extra/lives 1][return true]
+			;If thief is dead on air wait for hit the ground
 			while [(not CheckFloor f) and (not CheckOverlaps f)] [GoGravity wait 0.01]
 			foreach img GameData/ThiefDead [f/image: get img wait GameData/ThiefDeadDelay]		
 		]		
@@ -399,7 +401,7 @@ MakeGame: does [
 		]				
 		
 		; If it is some object on hands leave them at place and make it visible
-		if f/extra/gold or f/extra/tool or f/extra/wbarrow [
+		if any [f/extra/gold f/extra/tool f/extra/wbarrow] [
 			f/extra/getobject/offset: f/offset
 			f/extra/getobject/extra/gravity: true
 			f/extra/getobject/visible?: true
@@ -442,7 +444,7 @@ MakeGame: does [
 		foreach-face GameData/CaveFace [
 			
 			; If object has gravity apply them when no floor no stairs and no lifter under the face
-			if face/visible? and face/extra/gravity [
+			if all [face/visible? face/extra/gravity] [
 
 				; Check for overlaps when falling
 				OtherFace: CheckOverlaps face
@@ -450,7 +452,7 @@ MakeGame: does [
 				
 					; Check for lifter surface for stop fall of persons
 					if OtherFace/extra/type = "L" [
-						if (face/extra/type = "A") or (face/extra/type = "J") [
+						if any [face/extra/type = "A" face/extra/type = "J"] [
 							; If have barrow, then can't take lifter
 							if not face/extra/wbarrow [
 								; Counteract the gravity effect
@@ -461,8 +463,8 @@ MakeGame: does [
 					]
 					
 					; Check for something hit on agent or spider to knock it out
-					if (OtherFace/extra/type = "A") or (OtherFace/extra/type = "S") [
-						if (face/extra/type = "G") or (face/extra/type = "T") or (face/extra/type = "W") or (face/extra/type = "D") [
+					if any [OtherFace/extra/type = "A" OtherFace/extra/type = "S"] [
+						if any [face/extra/type = "G" face/extra/type = "T" face/extra/type = "W" face/extra/type = "D"] [
 							if face/extra/altitude > GameData/KnockAltitude [
 								OtherFace/extra/dead: true
 							]
@@ -485,7 +487,7 @@ MakeGame: does [
 				]	
 				
 				; If no floor and no stairs then face fall down
-				either (not CheckFloor face) and (not CheckStairsDN face) [
+				either all [(not CheckFloor face) (not CheckStairsDN face)] [
 					; Drops may have different gravity (lava)
 					either face/extra/type = "D" [
 						face/offset/y: add face/offset/y GameData/DropGravity
@@ -505,7 +507,7 @@ MakeGame: does [
 								face/image: Agent-S4
 							]
 						]
-						if face/extra/altitude > GameData/GetupAltitude [face/extra/getup: true]
+						if face/extra/altitude > GameData/GetupAltitude [face/extra/getup: true] ; Agents can not die by fall or game is not playable
 					]
 					if face/extra/type = "J" [
 						if face/extra/altitude > GameData/FallingFaceAltitude [face/image: Thief-S4]
@@ -533,7 +535,7 @@ MakeGame: does [
 						]
 					]
 					
-					; If there is a drop then dead it and relocate up
+					; If it is a drop now on floor then kill it
 					if face/extra/type = "D" [
 						face/extra/dead: true
 						GoDead face
@@ -591,11 +593,11 @@ MakeGame: does [
 	GoUp: function [f [object!]][
 		if f/extra/handle [return 0]
 		if CheckCeiling f [return 0]	
-		if (not CheckStairsUP f) and (not CheckStairsDN f) [return 0]
+		if all [(not CheckStairsUP f) (not CheckStairsDN f)] [return 0]
 
 		y: f/offset/y
 		y: subtract y GameData/StepValue
-		if f/extra/type = "A" [y: subtract y GameData/StepValue]
+		if f/extra/type = "A" [y: subtract y GameData/StepValue] ;Agents need extra speed on stairs
 		f/offset/y: y
 
 		GoWalkStairs f
@@ -608,7 +610,7 @@ MakeGame: does [
 
 		y: f/offset/y
 		y: add y GameData/StepValue
-		if f/extra/type = "A" [y: add y GameData/StepValue]
+		if f/extra/type = "A" [y: add y GameData/StepValue] ;Agents need extra speed on stairs
 		f/offset/y: y
 
 		GoWalkStairs f 
@@ -631,18 +633,20 @@ MakeGame: does [
 	
 	; Some face walking on floor
 	GoWalkFloor: function [f [object!] dir [integer!]][
-		onhands: " "
-		if f/extra/gold [onhands: "G"]
-		if f/extra/tool [onhands: "T"]
-		if f/extra/wbarrow [onhands: "W"]
+		
+		; Check if face has something loaded on hands 
+		OnHands: " "
+		if f/extra/gold [OnHands: "G"]
+		if f/extra/tool [OnHands: "T"]
+		if f/extra/wbarrow [OnHands: "W"]
 		
 		
 		; Set proper image regarding direction
 		f/extra/walking: add f/extra/walking 1
 		if f/extra/walking > 4 [f/extra/walking: 1]
-		switch onhands [
+		switch OnHands [
 			" " [switch f/extra/walking [
-					; This code works for thief & agents
+					; This code works for loaded thief & agents
 					1 [either dir = 1 [f/image: f/extra/images/1][f/image: f/extra/images/2]]
 					2 [either dir = 1 [f/image: f/extra/images/3][f/image: f/extra/images/4]]
 					3 [either dir = 1 [f/image: f/extra/images/5][f/image: f/extra/images/6]]
@@ -693,7 +697,7 @@ MakeGame: does [
 		OtherFace: CheckOverlaps f 
 	
 		; Check if we leave gold
-		if (f/extra/gold) and (not CheckStairsDN f) and (not CheckTerrainLT f) and (not CheckTerrainRT f) and (not CheckHandle f) [
+		if all [f/extra/gold (not CheckStairsDN f) (not CheckTerrainLT f) (not CheckTerrainRT f) (not CheckHandle f)] [
 			either (none? OtherFace) [
 				OtherFace: f/extra/getobject		
 				; We use direction to leave gold 
@@ -766,7 +770,7 @@ MakeGame: does [
 		]			
 		
 		; Check if we leave tool
-		if (f/extra/tool) and (not CheckStairsDN f) and (not CheckTerrainLT f) and (not CheckTerrainRT f) and (not CheckHandle f) and (none? OtherFace) [
+		if all [f/extra/tool (not CheckStairsDN f) (not CheckTerrainLT f) (not CheckTerrainRT f) (not CheckHandle f) (none? OtherFace)] [
 			OtherFace: f/extra/getobject
 			; We use direction to leave tool
 			either f/extra/direction < 0 [
@@ -787,7 +791,7 @@ MakeGame: does [
 		]
 		
 		; Check if we leave barrow
-		if (f/extra/wbarrow) and (none? OtherFace) [
+		if all [f/extra/wbarrow (none? OtherFace)] [
 			OtherFace: f/extra/getobject
 			OtherFace/offset/x: f/offset/x + 5
 			OtherFace/offset/y: f/offset/y + (f/size/y - OtherFace/size/y) 
@@ -859,7 +863,8 @@ MakeGame: does [
 		
 		; Check overlap on other face and get it if main face don't have anything in hands
 		if (not none? OtherFace) [
-			if (not f/extra/handle) and (not f/extra/tool) and (not f/extra/gold) and (not f/extra/wbarrow) [
+			;if (not f/extra/handle) and (not f/extra/tool) and (not f/extra/gold) and (not f/extra/wbarrow) [
+			if all [(not f/extra/handle) (not f/extra/tool) (not f/extra/gold) (not f/extra/wbarrow)] [
 				switch OtherFace/extra/type [
 					none	[]
 					"G"	[prin "GOT GOLD " print OtherFace/extra/name
@@ -896,7 +901,7 @@ MakeGame: does [
 	]
 	
 	;-------------------------------------------------------------------------
-	; Karts motion & effects functions
+	; Karts motion & effects functions 
 	;-------------------------------------------------------------------------
 	KartMotion: function [f [object!]][
 		/local fst: first f/extra/stops
