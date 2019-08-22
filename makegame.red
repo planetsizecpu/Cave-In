@@ -957,12 +957,12 @@ MakeGame: does [
 	
 	; Kart jump-in (from handle status)
 	KartJumpIn: function [f [object!] OtherFace [object!]][
+		OtherFace/extra/handle: false	 ;Clear jumping face handle status
+		OtherFace/extra/blockedLT: false ;Clear locks
+		OtherFace/extra/blockedRT: false ;Clear locks 
 		OtherFace/offset: f/offset  	 ;The jumping face follows kart hidden
 		OtherFace/visible?: false		 ;Make jumping face not visible
 		OtherFace/extra/gravity: false   ;Gravity does not affect on kart
-		OtherFace/extra/handle: false	 ;Leave jumping face handle status
-		OtherFace/extra/blockedLT: false ;Clear locks
-		OtherFace/extra/blockedRT: false ;Clear locks 
 		OtherFace/extra/wound: false	 ;Clear wound status as kart have medkit
 		OtherFace/extra/onkart: true     ;Signal jumping face as loaded on kart
 		f/extra/loaded: true 			 ;Signal kart as loaded
@@ -1004,9 +1004,9 @@ MakeGame: does [
 
 		; Check for altitude and force horizontal center other face to avoid walls 
 		if not none? OtherFace [
-			if (OtherFace/extra/type = "J") or (OtherFace/extra/type = "A") [
+			if any [OtherFace/extra/type = "J" OtherFace/extra/type = "A"] [
 				; If have barrow, then can't take lifter
-				if (not OtherFace/extra/wbarrow) and (not OtherFace/extra/onkart) [
+				if all [not OtherFace/extra/wbarrow not OtherFace/extra/onkart] [
 					OtherFace/offset/x: f/offset/x + (f/size/x / 2) - 7
 					OtherFace/offset/y: f/offset/y - 30
 					if OtherFace/extra/altitude > GameData/DeadAltitude [GoDead OtherFace return 0]
@@ -1045,7 +1045,7 @@ MakeGame: does [
 				f/extra/blockedRT: false
 				OtherFace/extra/blockedLT: false
 				OtherFace/extra/blockedRT: false
-				if (not CheckStairsUP f) and (not CheckStairsDN f) [
+				if all [not CheckStairsUP f  not CheckStairsDN f] [
 					f/offset/x: f/offset/x - f/size/x
 					f/extra/direction: 9 
 					f/extra/blockedRT: true
@@ -1067,7 +1067,7 @@ MakeGame: does [
 			; Check if other face is thief
 			if OtherFace/extra/type = "J" [
 				; Check if thief has tool or is on kart and kill thief if not
-				either OtherFace/extra/tool or OtherFace/extra/onkart [
+				either any [OtherFace/extra/tool OtherFace/extra/onkart] [
 					; Set get-up status on the agent to disturb it
 					print "JOHN HAS TOOL, NO FEAR."					
 					f/extra/dead: true
@@ -1100,15 +1100,15 @@ MakeGame: does [
 				GoRight f
 			]		
 			; If we find stairs or have pickax we must check for new direction
-			if (CheckStairsUP f) or (CheckStairsDN f) or GameData/PlayerFace/extra/tool [f/extra/direction: -1]
+			if any [CheckStairsUP f CheckStairsDN f GameData/PlayerFace/extra/tool] [f/extra/direction: -1]
 			return 0
 		]
 				
 		; Get best vertical direction first, as it need stairs to move
-		if (GameData/PlayerFace/offset/y < (f/offset/y - 2)) [
-			if ((CheckStairsUP f) or (CheckStairsDN f)) [
-				either (not CheckCeiling f) [
-					either (not GameData/PlayerFace/extra/tool) [f/extra/direction: 12][f/extra/direction: 6]
+		if GameData/PlayerFace/offset/y < (f/offset/y - 2) [
+			if any [CheckStairsUP f CheckStairsDN f] [
+				either not CheckCeiling f [
+					either not GameData/PlayerFace/extra/tool [f/extra/direction: 12][f/extra/direction: 6]
 					return 0 ; For prevalence of vertical directions
 				][
 					f/extra/direction: -1
@@ -1116,9 +1116,9 @@ MakeGame: does [
 			]
 		]
 		if (GameData/PlayerFace/offset/y > (f/offset/y + 2)) [
-			if ((CheckStairsUP f) or (CheckStairsDN f)) [
-				either (not CheckFloor f) [
-					either (not GameData/PlayerFace/extra/tool) [f/extra/direction: 6][f/extra/direction: 12]
+			if any [CheckStairsUP f CheckStairsDN f] [
+				either not CheckFloor f [
+					either not GameData/PlayerFace/extra/tool [f/extra/direction: 6][f/extra/direction: 12]
 					return 0 ; For prevalence of vertical directions
 				][
 					f/extra/direction: -1				
@@ -1127,7 +1127,7 @@ MakeGame: does [
 		]
 
 		; Agent is at the same y level, so we get best horizontal direction
-		either (GameData/PlayerFace/offset/x < f/offset/x) [
+		either GameData/PlayerFace/offset/x < f/offset/x [
 			either not CheckTerrainLT f [
 				either not GameData/PlayerFace/extra/tool [f/extra/direction: 9][f/extra/direction: 3]
 			][
