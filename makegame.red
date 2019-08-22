@@ -1058,9 +1058,9 @@ MakeGame: does [
 			]
 			if OtherFace/extra/type = "L" [ 
 				either (GameData/PlayerFace/offset/x < (f/offset/x - 2)) [
-					either (not GameData/PlayerFace/extra/tool) [f/extra/direction: 9][f/extra/direction: 3]
+					either not GameData/PlayerFace/extra/tool [f/extra/direction: 9][f/extra/direction: 3]
 				][
-					either (not GameData/PlayerFace/extra/tool) [f/extra/direction: 3][f/extra/direction: 9]
+					either not GameData/PlayerFace/extra/tool [f/extra/direction: 3][f/extra/direction: 9]
 				]
 			]
 			
@@ -1092,11 +1092,11 @@ MakeGame: does [
 				if not CheckStairsDN f [f/extra/direction: -1]				
 			]		
 			if f/extra/direction = 9 [
-				if (f/extra/blockedLT) or (CheckTerrainLT f) [f/extra/direction: -1]
+				if any [f/extra/blockedLT CheckTerrainLT f] [f/extra/direction: -1]
 				GoLeft f 
 			]
 			if f/extra/direction = 3 [
-				if (f/extra/blockedRT) or (CheckTerrainRT f) [f/extra/direction: -1]			
+				if any [f/extra/blockedRT CheckTerrainRT f] [f/extra/direction: -1]			
 				GoRight f
 			]		
 			; If we find stairs or have pickax we must check for new direction
@@ -1170,7 +1170,7 @@ MakeGame: does [
 			; Check if other face is thief
 			if OtherFace/extra/type = "J" [
 				; Check if thief has tool or is on kart and kill thief if not
-				either OtherFace/extra/tool or OtherFace/extra/onkart [
+				either any [OtherFace/extra/tool OtherFace/extra/onkart] [
 					; Set get-up status on the spider to disturb it
 					print "JOHN HAS TOOL, NO FEAR."
 					f/extra/dead: true
@@ -1192,8 +1192,8 @@ MakeGame: does [
 		
 		; When spider must go LEFT
 		if f/extra/altitude = 0 [
-			if (GameData/PlayerFace/offset/x < f/offset/x) or (f/extra/blockedRT) [
-				either (not CheckTerrainLT f) [
+			if any [GameData/PlayerFace/offset/x < f/offset/x  f/extra/blockedRT] [
+				either not CheckTerrainLT f [
 					GoLeft f
 					f/extra/blockedLT: false
 				][	
@@ -1207,8 +1207,8 @@ MakeGame: does [
 						
 		; When spider must go RIGHT
 		if f/extra/altitude = 0 [		
-			if (GameData/PlayerFace/offset/x > f/offset/x) or (f/extra/blockedLT) [
-				either (not CheckTerrainRT f) [
+			if any [GameData/PlayerFace/offset/x > f/offset/x  f/extra/blockedLT] [
+				either not CheckTerrainRT f [
 					GoRight f
 					f/extra/blockedRT: false
 				][			
@@ -1227,7 +1227,7 @@ MakeGame: does [
 	DropMotion: function [f [object!]][		
 
 		; Check for this drop dead
-		if f/extra/dead [GoDead f]
+		if f/extra/dead [GoDead f return 0]
 
 		; Check for drop overlap  
 		OtherFace: CheckOverlaps f 
@@ -1253,8 +1253,9 @@ MakeGame: does [
 			]
 		]
 	]
+	
 	;-------------------------------------------------------------------------
-	; Bands motion 
+	; Bands motion
 	;-------------------------------------------------------------------------
 	BandMotion: function [f [object!]][
 		
@@ -1264,13 +1265,12 @@ MakeGame: does [
 		
 		; Check for dead if touch the band
 		if not none? OtherFace [
-			if (OtherFace/extra/type = "A") or (OtherFace/extra/type = "D") 
-				or (OtherFace/extra/type = "J") or (OtherFace/extra/type = "S") [
-				prin OtherFace/extra/name
-				print " DEAD BY BAND"
-				Message "You dead"
-				GoDead OtherFace
-				return 0
+			if any [OtherFace/extra/type = "A" OtherFace/extra/type = "D" 
+					OtherFace/extra/type = "J" OtherFace/extra/type = "S"] [
+						prin OtherFace/extra/name
+						print " DEAD BY BAND"
+						GoDead OtherFace
+						return 0
 			]
 		]
 		
