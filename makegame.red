@@ -26,7 +26,7 @@ MakeGame: does [
 		
 		; Check for screen roll
 		either GameData/PlayerFace/offset/x > GameData/CaveFaceHalfSizeX [
-			cave/offset/x: 0 - (GameData/CaveFace/size/x / 2)
+			cave/offset/x: GameData/CaveFaceRollOffsetX
 		][
 			cave/offset/x: 0 
 		]
@@ -1303,7 +1303,7 @@ MakeGame: does [
 		if sp/extra/loaded [return 0]
 		
 		; Do nothing if face is not allowed to travel
-		if (f/extra/type <> "A") and (f/extra/type <> "J") [return 0]
+		if all [f/extra/type <> "A" f/extra/type <> "J"] [return 0]
 		
 		; Init destination passage
 		dp: copy []

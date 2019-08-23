@@ -114,7 +114,7 @@ LoadLevel: func [lv][
 		w: to-word ItemObj/facename
 		
 		; Make new face for item object depending on its type and attach to cave panel
-		switch ItemObj/type [
+		switch/default ItemObj/type [
 			"A" [set (w) make face! [type: 'base size: ItemObj/size offset: ItemObj/offset image: copy ItemObj/image extra: ItemObj
 									 rate: ItemObj/rate actors: context [on-time: func [f e][AgentMotion f]]
 									 ItemObj/lives: 32
@@ -132,6 +132,7 @@ LoadLevel: func [lv][
 					append GameScr/pane get (w)
 					GameData/CaveFace: get (w)
 					GameData/CaveFaceHalfSizeX: GameData/CaveFace/size/x / 2
+					GameData/CaveFaceRollOffsetX: 0 - GameData/CaveFaceHalfSizeX
 				]
 			"D" [set (w) make face! [type: 'base size: ItemObj/size offset: ItemObj/offset image: copy ItemObj/image extra: ItemObj
 									 rate: ItemObj/rate actors: context [on-time: func [f e][DropMotion f]]
@@ -175,7 +176,7 @@ LoadLevel: func [lv][
 			"W" [set (w) make face! [type: 'base size: ItemObj/size offset: ItemObj/offset image: copy ItemObj/image extra: ItemObj]
 					append cave/pane (get w)
 				]				
-		] 	
+		] [prin "UNKNOWN OBJECT ON CONFIG FILE " print x alert "UNKNOWN OBJECT ON CONFIG FILE" quit]
 		
 		; Set object's face, now object/face points to face and face/extra points to object, to easy data I/O 
 		ItemObj/face: (get w)

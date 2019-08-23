@@ -22,7 +22,8 @@ GameData: make object! [
 	GameRate: 0:00:00.005 
 	CaveName: "cave"
 	CaveFace: object []
-	CaveFaceHalfSizeX: 800 ;Half x cave size will be updated as we load the level cave image, it saves a div operation on each GameRate cycle!
+	CaveFaceHalfSizeX: 800 ;Half x cave size will be updated as we load the level cave image
+	CaveFaceRollOffsetX: 0 - CaveFaceHalfSizeX
 	PlayerFace: object [image: []] ;Must be defined to avoid error when compile to release mode
 	Items: [] 
 	Curlevel: "" 
