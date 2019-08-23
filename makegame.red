@@ -93,7 +93,24 @@ MakeGame: does [
 		up [GoUp GameData/PlayerFace]
 		down [GoDown GameData/PlayerFace]
 		#" " [GoAction GameData/PlayerFace]
-		#"." [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ; Cheat! 
+		#"." [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat! 
+		#"#" [info/rate: none
+				EraseLevel GameData/CaveFace 
+				GameData/Stock: 0 
+				GameData/Goldbags: 0 
+				OldLevel: GameData/Curlevel
+				either not none? rd: request-dir [
+					rs: split to-string rd "/"
+					alter rs ""
+					alter rs ""
+					GameData/Curlevel: last rs
+					LoadLevel GameData/Curlevel 
+					info/rate: GameData/GameRate][
+					GameData/Curlevel: OldLevel
+					LoadLevel GameData/Curlevel 
+					info/rate: GameData/GameRate
+				]
+			 ] ;Cheat!
 		]
 	]
 	
@@ -300,7 +317,7 @@ MakeGame: does [
 				print "LEFT-LOOK FOUND TERRAIN"
 				break
 			] 
-			if ((Terrain = GameData/StairsColor1) or (Terrain = GameData/StairsColor2) or (Terrain = GameData/LifterCable)) [
+			if  any [Terrain = GameData/StairsColor1 Terrain = GameData/StairsColor2 Terrain = GameData/LifterCable] [
 				print "LEFT-LOOK FOUND STAIR OR LIFTER"
 				Ret: true
 				break
@@ -326,7 +343,7 @@ MakeGame: does [
 				print "RIGHT-LOOK FOUND TERRAIN"
 				break
 			] 
-			if ((Terrain = GameData/StairsColor1) or (Terrain = GameData/StairsColor2) or (Terrain = GameData/LifterCable)) [
+			if any [Terrain = GameData/StairsColor1 Terrain = GameData/StairsColor2 Terrain = GameData/LifterCable] [
 				print "RIGHT-LOOK FOUND STAIR OR LIFTER"
 				Ret: true
 				break
@@ -483,6 +500,33 @@ MakeGame: does [
 					; Check for passage travel
 					if OtherFace/extra/type = "P" [
 						PassageMotion face OtherFace
+					]
+					
+					; Check for gold hit on barrow so we carry
+					if OtherFace/extra/type = "W" [
+						if face/extra/type = "G" [
+							prin "CARRY GOLD " 
+							prin face/extra/name 
+							prin " ON " 
+							print OtherFace/extra/name
+							Message "Load gold"
+					
+							; We use direction to set loaded barrow image
+							either OtherFace/extra/direction < 0 [OtherFace/image: Wbarrow-LG1][OtherFace/image: Wbarrow-RG1]				
+							OtherFace/extra/goldbags: add OtherFace/extra/goldbags 1
+							GameData/Goldbags: OtherFace/extra/goldbags
+				
+							prin "WHEELBARROW " prin OtherFace/extra/name 
+							prin " NOW HAS " prin OtherFace/extra/goldbags
+							print " GOLD BAGS"
+							Ggbags/text: copy "CARRY: "
+							append Ggbags/text to-string GameData/Goldbags
+				
+							face/enabled?: false
+							face/visible?: false
+							face/extra/gravity: false
+							face/offset: -25x-25
+						]
 					]
 				]	
 				
