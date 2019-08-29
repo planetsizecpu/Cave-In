@@ -53,6 +53,7 @@ GameData: make object! [
 	StairsColor2: 127.127.127.0
 	HandleColor: 195.195.195.0
 	LifterCable: 128.64.64.0
+	DemoMode: false
 	ThiefGetup: [ThiefGetup-X1 ThiefGetup-X2] ;Thief getup sequence
 	ThiefDead: [ThiefDead-X1 ThiefDead-X2 ThiefDead-X3 ThiefDead-X4] ;Thief dead sequence
 	AgentGetup: [AgentGetup-X1 AgentGetup-X2] ;Agent getup sequence

@@ -31,6 +31,9 @@ MakeGame: does [
 			cave/offset/x: 0 
 		]
 		
+		; Check for demo mode
+		if GameData/DemoMode [PlayDemoMode]
+		
 		; Check for thief tools timing
 		if GameData/PlayerFace/extra/tool [
 			GameData/PlayerFace/extra/getobject/extra/usedtool: add GameData/PlayerFace/extra/getobject/extra/usedtool GameData/GameRate
@@ -87,36 +90,73 @@ MakeGame: does [
 	
 	; Check keyboard for handling
 	CheckKeyboard: function [face key][
-	switch key [
-		left [GoLeft GameData/PlayerFace]
-		right [GoRight GameData/PlayerFace]
-		up [GoUp GameData/PlayerFace]
-		down [GoDown GameData/PlayerFace]
-		#" " [GoAction GameData/PlayerFace]
-		#"." [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat! 
-		#"#" [info/rate: none
-				EraseLevel GameData/CaveFace 
-				GameData/Stock: 0 
-				GameData/Goldbags: 0 
-				OldLevel: GameData/Curlevel
-				either not none? rd: request-dir [
-					rs: split to-string rd "/"
-					alter rs ""
-					alter rs ""
-					GameData/Curlevel: last rs
-					LoadLevel GameData/Curlevel 
-					info/rate: GameData/GameRate][
-					GameData/Curlevel: OldLevel
-					LoadLevel GameData/Curlevel 
-					info/rate: GameData/GameRate
-				]
-			 ] ;Cheat!
+		switch key [
+			left [GoLeft GameData/PlayerFace]
+			right [GoRight GameData/PlayerFace]
+			up [GoUp GameData/PlayerFace]
+			down [GoDown GameData/PlayerFace]
+			#" " [GoAction GameData/PlayerFace]
+			#"." [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat! 
+			#"#" [AskLevel] ;Cheat!
+			#"@" [SetDemoMode]
 		]
 	]
 	
 	; Message to player
 	Message: function [s [string!]][
 		info/text: copy s 
+	]
+	
+	; Set demo mode 
+	SetDemoMode: function [][
+		either GameData/DemoMode [
+			GameData/DemoMode: false 
+			john/lives: 3
+			Glives/text: copy "LIVES:  " 
+			append Glives/text to-string john/lives
+			message "DEMO MODE OFF"
+		][
+			GameData/DemoMode: true 
+			john/lives: 99 
+			Glives/text: copy "LIVES:  " 
+			append Glives/text to-string john/lives
+			message "DEMO MODE ON"
+		]
+	]
+	
+	; Play demo mode
+	PlayDemoMode: has [][
+		drn: 3 seq: third now/time
+		if seq > 14 [drn: 9]
+		if seq > 29 [drn: 3]
+		if seq > 44 [drn: 9]
+		switch drn [
+			9  [GoLeft GameData/PlayerFace]
+			3  [GoRight GameData/PlayerFace]
+			12 [GoUp GameData/PlayerFace]
+			6  [GoDown GameData/PlayerFace]
+		]
+	]
+	
+	; Ask for new level
+	AskLevel: has [][
+		info/rate: none
+		EraseLevel GameData/CaveFace 
+		GameData/Stock: 0 
+		GameData/Goldbags: 0 
+		OldLevel: GameData/Curlevel
+		either not none? rd: request-dir [
+			rs: split to-string rd "/"
+			alter rs ""
+			alter rs ""
+			GameData/Curlevel: last rs
+			LoadLevel GameData/Curlevel 
+			info/rate: GameData/GameRate]
+		[
+			GameData/Curlevel: OldLevel
+			LoadLevel GameData/Curlevel 
+			info/rate: GameData/GameRate
+		]
 	]
 	
 	; Erase level data
