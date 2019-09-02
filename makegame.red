@@ -53,7 +53,7 @@ MakeGame: does [
 		]
 		
 		; Check for level goals
-		if GameData/Goldbags = GameData/Stock [
+		if GameData/Goldbags >= GameData/Stock [
 			print "***************************************************"
 			prin  "ENDING LEVEL " print GameData/Curlevel
 			print "***************************************************"
@@ -777,6 +777,7 @@ MakeGame: does [
 	; Thief interaction some object
 	GoAction: function [f [object!]][
 
+
 		; Check if it is overlap
 		OtherFace: CheckOverlaps f 
 	
@@ -1123,21 +1124,31 @@ MakeGame: does [
 		; Check for agent overlap  
 		OtherFace: CheckOverlaps f 
 		if not none? OtherFace [
-			; Check if other face is agent and guide them away
+			; Check if other face is agent and push them away if not on stairs (on lifter is unnecesary)
 			if OtherFace/extra/type = "A" [
-				f/extra/blockedLT: false
-				f/extra/blockedRT: false
-				OtherFace/extra/blockedLT: false
-				OtherFace/extra/blockedRT: false
-				if all [not CheckStairsUP f  not CheckStairsDN f] [
-					f/offset/x: f/offset/x - f/size/x
-					f/extra/direction: 9 
-					f/extra/blockedRT: true
+				if all [not CheckStairsDN f  not CheckStairsUP f] [
+					; Push away first agent
 					f/extra/blockedLT: false
-					OtherFace/offset/x: OtherFace/offset/x + f/size/x
-					OtherFace/extra/direction: 3
-					OtherFace/extra/blockedLT: true
-					OtherFace/extra/blockedRT: false
+					f/extra/blockedRT: false					
+					f/offset/x: f/offset/x - f/size/x
+					either any [CheckTerrainLT f CheckTerrainRT f] [
+						f/offset: f/extra/offset ; Avoid agent buried on terrain by going home
+					][
+						f/extra/direction: 9 
+						f/extra/blockedRT: true
+						f/extra/blockedLT: false
+					]
+					; Push away second agent
+					OtherFace/extra/blockedLT: false
+					OtherFace/extra/blockedRT: false					
+					OtherFace/offset/x: OtherFace/offset/x + OtherFace/size/x
+					either any [CheckTerrainLT OtherFace CheckTerrainRT OtherFace] [
+						OtherFace/offset: OtherFace/extra/offset ; Avoid agent buried on terrain by going home
+					][					
+						OtherFace/extra/direction: 3
+						OtherFace/extra/blockedLT: true
+						OtherFace/extra/blockedRT: false
+					]
 				]
 			]
 			if OtherFace/extra/type = "L" [ 
