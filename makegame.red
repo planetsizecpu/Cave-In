@@ -812,9 +812,11 @@ MakeGame: does [
 					Message "Load gold"
 					
 					; We use direction to set loaded barrow image
-					either f/extra/direction < 0 [OtherFace/image: Wbarrow-LG1][OtherFace/image: Wbarrow-RG1]				
+					either f/extra/direction < 0 [OtherFace/image: Wbarrow-LG1][OtherFace/image: Wbarrow-RG1]
+
+					; Account gold
 					OtherFace/extra/goldbags: add OtherFace/extra/goldbags 1
-					GameData/Goldbags: OtherFace/extra/goldbags
+					GameData/Goldbags: add GameData/Goldbags 1
 				
 					prin "WHEELBARROW " prin OtherFace/extra/name 
 					prin " NOW HAS " prin OtherFace/extra/goldbags
