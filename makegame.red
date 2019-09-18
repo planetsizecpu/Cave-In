@@ -96,7 +96,7 @@ MakeGame: does [
 			up [GoUp GameData/PlayerFace]
 			down [GoDown GameData/PlayerFace]
 			#" " [GoAction GameData/PlayerFace]
-			#"." [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat! 
+			#"%" [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat! 
 			#"#" [AskLevel] ;Cheat!
 			#"@" [SetDemoMode]
 		]
@@ -1121,7 +1121,7 @@ MakeGame: does [
 
 		; Check for this agent getup & dead
 		if f/extra/getup [GoGetup f]
-		if f/extra/dead [GoDead f]
+		if f/extra/dead [GoDead f return 0]
 
 		; Check for agent overlap  
 		OtherFace: CheckOverlaps f 
@@ -1177,7 +1177,7 @@ MakeGame: does [
 		]
 
 		; HOMING FUNCTION vary their behavior by the tool status! 
-		; Negative direction means recalculate new direction
+		; Negative direction means compute new direction (clock wise)
 		; if there is a direction follow it until the end or some finding
 		if f/extra/direction > 0 [
 			if f/extra/direction = 12 [
@@ -1196,7 +1196,7 @@ MakeGame: does [
 				if any [f/extra/blockedRT CheckTerrainRT f] [f/extra/direction: -1]			
 				GoRight f
 			]		
-			; If we find stairs or have pickax we must check for new direction
+			; If we find stairs or thief have pickax we must check for new direction
 			if any [CheckStairsUP f CheckStairsDN f GameData/PlayerFace/extra/tool] [f/extra/direction: -1]
 			return 0
 		]
