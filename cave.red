@@ -19,7 +19,7 @@ system/view/auto-sync?:  yes
 ; Game data & defaults object
 GameData: make object! [
 	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10"] 
-	GameRate: 0:00:00.005 
+	GameRate: 0:00:00.004 
 	CaveName: "cave"
 	CaveFace: object []
 	CaveFaceHalfSizeX: 800 ;Half x cave size will be updated as we load the level cave image
