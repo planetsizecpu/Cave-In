@@ -1178,7 +1178,7 @@ MakeGame: does [
 
 		; HOMING FUNCTION vary their behavior by the tool status! 
 		; Negative direction means compute new direction (clock wise)
-		; if there is a direction follow it until the end or some finding
+		; if there is a direction follow it while we can or find stairs
 		if f/extra/direction > 0 [
 			if f/extra/direction = 12 [
 				GoUp f 
@@ -1201,7 +1201,7 @@ MakeGame: does [
 			return 0
 		]
 				
-		; Get best vertical direction first, as it need stairs to move
+		; Get best vertical direction first, as it need stairs to move it takes precedence
 		if GameData/PlayerFace/offset/y < (f/offset/y - 2) [
 			if any [CheckStairsUP f CheckStairsDN f] [
 				either not CheckCeiling f [
@@ -1223,7 +1223,7 @@ MakeGame: does [
 			]
 		]
 
-		; Agent is at the same y level, so we get best horizontal direction
+		; Agent is at the same /y level, so we get best horizontal direction
 		either GameData/PlayerFace/offset/x < f/offset/x [
 			either not CheckTerrainLT f [
 				either not GameData/PlayerFace/extra/tool [f/extra/direction: 9][f/extra/direction: 3]
