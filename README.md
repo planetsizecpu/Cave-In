@@ -1,10 +1,9 @@
 # Cave-In
 Cave-In arcade game 
 
-Bagman was an arcade machine game from the early 80's, made by the french company Valadon Automation (we recognize any copyright if apply)
-where I spent a lot of coins. Now I'm learning Red language, I thought it was a good idea to try to imitate the game, just to learn while having fun.
+There was an arcade machine game from the early 80's, where I spent a lot of coins, now I'm learning Red language, I thought it was a good idea to try to imitate the game, just to learn while having fun, I never imagined it would be so easy to make games, I could hardly have done it with another language that was not human oriented.
 
-I know it does not have the quality of the true arcade game, but the goal is not to market it, but to learn, to play and share the code to others, so they can also learn in his way. In addition there are several known failures and others that will discover, so the development continues. I publish it just so that others can try it and have fun as me.
+I know it does not have the quality of the true arcade game, but the goal is not to market it, but to learn, to play and share the code to others, so they can also learn in his way. In addition there are several known failures, and for sure will discover many more, so the development continues. I publish it just so that others can try it and have fun as me.
 
 To run it just download the folders tree and click on cave.red file. Have fun!
 
