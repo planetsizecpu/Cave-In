@@ -96,8 +96,8 @@ MakeGame: does [
 			up [GoUp GameData/PlayerFace]
 			down [GoDown GameData/PlayerFace]
 			#" " [GoAction GameData/PlayerFace]
-			#"%" [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat! 
-			#"#" [AskLevel] ;Cheat!
+			#"#" [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat! 
+			#"%" [AskLevel] ;Cheat!
 			#"@" [SetDemoMode]
 		]
 	]
