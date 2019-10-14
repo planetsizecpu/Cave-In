@@ -45,7 +45,6 @@ LIFT2|lifter2|lif2|35x10|740x70|0:0:0.0001|740x70,740x570|0:0|1|0|lifter-1.png
 LIFT3|lifter3|lif3|35x10|826x570|0:0:0.0001|826x70,824x570|0:0|-1|0|lifter-1.png
 LIFT4|lifter4|lif4|35x10|1549x70|0:0:0.0001|1549x70,1549x405,1549x570|0:0|1|0|lifter-1.png
 DROP1|drop1|drp1|7x9|307x395|0:0:1.0|0x0|0:0|0|1|drop1.png
-DROP2|drop2|drp2|7x9|1182x395|0:0:1.0|0x0|0:0|0|1|drop1.png
 SPIDER1|spider1|spi1|9x7|1350x417|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
 SPIDER2|spider2|spi2|9x7|1375x417|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
 SPIDER3|spider3|spi3|9x7|1360x417|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
