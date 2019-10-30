@@ -180,6 +180,7 @@ LoadLevel: func [lv][
 		
 		; Set object's face, now object/face points to face and face/extra points to object, to easy data I/O 
 		ItemObj/face: (get w)
+
 	]
 	unset 'x unset 'w
 	

@@ -59,7 +59,7 @@ MakeGame: does [
 			print "***************************************************"
 			print
 			EraseLevel GameData/CaveFace
-			
+			alert "Congratulations you ended this level!"
 			GameData/Levels: next find GameData/Levels GameData/Curlevel
 			GameData/Curlevel: first GameData/Levels
 			GameData/Stock: 0
@@ -69,14 +69,15 @@ MakeGame: does [
 				print "***************************************************"		
 				print " NO MORE LEVELS! " 
 				print "***************************************************"		
-				Message "Congratulations you win"
+				Message "Congratulations you win the game"
 				alert "CONGRATULATIONS YOU WIN"
 				quit
 			][
 				print "***************************************************"		
 				prin  "LOADING LEVEL " print GameData/Curlevel
-				print "***************************************************"			
+				print "***************************************************"		
 				Message "Loading new level"
+				alert "Get ready for new level!"
 				LoadLevel first GameData/Levels
 				john/lives: add john/lives 1 ;One extra life for level ending
 				Glives/text: copy "LIVES:  " 
