@@ -524,6 +524,10 @@ MakeGame: does [
 					if any [OtherFace/extra/type = "A" OtherFace/extra/type = "S"] [
 						if any [face/extra/type = "G" face/extra/type = "T" face/extra/type = "W" face/extra/type = "D"] [
 							if face/extra/altitude > GameData/KnockAltitude [
+								; Account score
+								GameData/Score: add GameData/Score face/extra/value
+								Gscore/text: copy "SCORE: "
+								append Gscore/text to-string GameData/Score							
 								OtherFace/extra/dead: true
 							]
 						]
@@ -815,15 +819,20 @@ MakeGame: does [
 					; We use direction to set loaded barrow image
 					either f/extra/direction < 0 [OtherFace/image: Wbarrow-LG1][OtherFace/image: Wbarrow-RG1]
 
-					; Account gold
+					; Account gold 
 					OtherFace/extra/goldbags: add OtherFace/extra/goldbags 1
 					GameData/Goldbags: add GameData/Goldbags 1
-				
 					prin "WHEELBARROW " prin OtherFace/extra/name 
 					prin " NOW HAS " prin OtherFace/extra/goldbags
 					print " GOLD BAGS"
 					Ggbags/text: copy "CARRY: "
 					append Ggbags/text to-string GameData/Goldbags
+
+					; Account score
+					GameData/Score: add GameData/Score f/extra/getobject/extra/value
+					Gscore/text: copy "SCORE: "
+					append Gscore/text to-string GameData/Score
+
 				
 					f/extra/getobject/enabled?: false
 					f/extra/getobject/visible?: false

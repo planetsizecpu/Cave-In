@@ -17,7 +17,7 @@ system/view/auto-sync?:  yes
 #include %makegame.red
 	
 ; Game data & defaults object
-GameData: make object! [
+GameData: context [
 	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10"] 
 	GameRate: 0:00:00.004 
 	CaveName: "cave"
@@ -29,6 +29,7 @@ GameData: make object! [
 	Curlevel: "" 
 	Stock: 0 
 	Goldbags: 0
+	Score: 0
 	Gravity: 3
 	Antigravity: 3
 	DropGravity: 3
@@ -79,14 +80,15 @@ GameScr: layout [
 		info/rate: GameData/GameRate
 	]
 	below
-	at 10x655  Glevel: text 100x21 orange blue font [name: "Arial" size: 14 style: 'bold]
-	at 150x655 Glives: text 100x21 orange blue font [name: "Arial" size: 14 style: 'bold]
-	at 290x655 Gstock: text 100x21 orange blue font [name: "Arial" size: 14 style: 'bold]
-	at 430x655 Ggbags: text 100x21 orange blue font [name: "Arial" size: 14 style: 'bold]										
-	at 10x685  Gdeasy: radio orange blue "Easy"   on-change [CheckDifficulty]
-	at 150x685  Gdnorm: radio orange blue "Normal" on-change [CheckDifficulty]
-	at 290x685  Gddiff: radio orange blue "Difficult" on-change [CheckDifficulty]
-	at 430x685  Gdexpe: radio orange blue "Expert" on-change [CheckDifficulty]
+	at 10x655  Glevel: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
+	at 150x655 Glives: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
+	at 290x655 Gstock: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
+	at 430x655 Ggbags: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]										
+	at 570x655 Gscore: text 215x21 yellow blue font [name: "Arial" size: 14 style: 'bold]											
+	at 10x685  Gdeasy: radio yellow blue "Easy"   on-change [CheckDifficulty]
+	at 150x685  Gdnorm: radio yellow blue "Normal" on-change [CheckDifficulty]
+	at 290x685  Gddiff: radio yellow blue "Difficult" on-change [CheckDifficulty]
+	at 430x685  Gdexpe: radio yellow blue "Expert" on-change [CheckDifficulty]
 ]
 
 ; Open browser to red-lang HQ

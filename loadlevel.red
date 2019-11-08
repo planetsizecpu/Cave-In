@@ -77,6 +77,7 @@ LoadLevel: func [lv][
 			altitude: 0
 			goldbags: 0
 			lives: 0
+			value: 0 if ItemType = "G" [Value: 100]
 			gravity: false if lin/10 = "1" [gravity: true]
 			timetool: to-time lin/8
 			usedtool: 0:0:0.0
@@ -194,6 +195,8 @@ LoadLevel: func [lv][
 	append Gstock/text to-string GameData/Stock
 	Ggbags/text: copy "CARRY: " 
 	append Ggbags/text to-string GameData/Goldbags
+	Gscore/text: copy "SCORE: "
+	append Gscore/text to-string GameData/Score
 	Gdeasy/data: false
 	Gdnorm/data: true
 	Gddiff/data: false
