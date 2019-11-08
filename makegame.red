@@ -83,6 +83,9 @@ MakeGame: does [
 				Glives/text: copy "LIVES:  " 
 				append Glives/text to-string john/lives
 				Message "You awarded one extra life"
+				GameData/Score: add GameData/Score 250
+				Gscore/text: copy "SCORE: "
+				append Gscore/text to-string GameData/Score							
 			]
 		]
 		
@@ -426,6 +429,10 @@ MakeGame: does [
 		
 		; Check the lives of agents to stop births
 		if f/extra/type = "A" [
+			; Account score
+			GameData/Score: add GameData/Score 25
+			Gscore/text: copy "SCORE: "
+			append Gscore/text to-string GameData/Score				
 			Message "An agent is dead"
 			either f/extra/lives > 0 [f/extra/lives: subtract f/extra/lives 1][f/rate: none return true]
 			;Show female/male agents dead image cycle
@@ -524,10 +531,6 @@ MakeGame: does [
 					if any [OtherFace/extra/type = "A" OtherFace/extra/type = "S"] [
 						if any [face/extra/type = "G" face/extra/type = "T" face/extra/type = "W" face/extra/type = "D"] [
 							if face/extra/altitude > GameData/KnockAltitude [
-								; Account score
-								GameData/Score: add GameData/Score face/extra/value
-								Gscore/text: copy "SCORE: "
-								append Gscore/text to-string GameData/Score							
 								OtherFace/extra/dead: true
 							]
 						]
@@ -566,6 +569,10 @@ MakeGame: does [
 							print " GOLD BAGS"
 							Ggbags/text: copy "CARRY: "
 							append Ggbags/text to-string GameData/Goldbags
+							
+							GameData/Score: add GameData/Score face/extra/value
+							Gscore/text: copy "SCORE: "
+							append Gscore/text to-string GameData/Score	
 				
 							face/enabled?: false
 							face/visible?: false

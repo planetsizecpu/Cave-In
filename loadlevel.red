@@ -77,7 +77,7 @@ LoadLevel: func [lv][
 			altitude: 0
 			goldbags: 0
 			lives: 0
-			value: 0 if ItemType = "G" [Value: 100]
+			value: 0 if any [ItemType = "G" ItemType = "T" ItemType = "W"][Value: 100]
 			gravity: false if lin/10 = "1" [gravity: true]
 			timetool: to-time lin/8
 			usedtool: 0:0:0.0
