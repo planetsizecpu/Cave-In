@@ -36,7 +36,7 @@ GOLDBG|gold9|gld9|8x12|740x320|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold10|gld10|8x12|860x320|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold11|gld11|8x12|1165x460|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold12|gld12|8x12|1270x510|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold13|gld13|8x12|1435x230|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|hgold13|gld13|8x15|1435x230|0:0|0x0|0:0|0|1|gold3.png
 GOLDBG|gold14|gld14|8x12|1465x230|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold15|gld15|8x12|1065x510|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold16|gld16|8x12|1430x70|0:0|0x0|0:0|0|1|gold1.png
