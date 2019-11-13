@@ -43,7 +43,8 @@ GameData: context [
 	SpiderDeadDelay: 0.01
 	AgentDeadDelay: 0.03
 	AgentRate: 0:00:00.05
-	KnockAltitude: 10
+	AgentKnockPoints: 25
+	KnockAltitude: 10	
 	FallingFaceAltitude: 15
 	GetupAltitude: 40
 	DeadAltitude: 60

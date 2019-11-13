@@ -77,7 +77,7 @@ LoadLevel: func [lv][
 			altitude: 0
 			goldbags: 0
 			lives: 0
-			value: 0 if any [ItemType = "G" ItemType = "T" ItemType = "W"][Value: 100]
+			value: 0 if [ItemType = "G"][either (first name) = #"f" [Value: 250][Value: 100]]
 			gravity: false if lin/10 = "1" [gravity: true]
 			timetool: to-time lin/8
 			usedtool: 0:0:0.0
@@ -118,7 +118,7 @@ LoadLevel: func [lv][
 		switch/default ItemObj/type [
 			"A" [set (w) make face! [type: 'base size: ItemObj/size offset: ItemObj/offset image: copy ItemObj/image extra: ItemObj
 									 rate: ItemObj/rate actors: context [on-time: func [f e][AgentMotion f]]
-									 ItemObj/lives: 32
+									 ItemObj/lives: 64
 									]
 					append cave/pane (get w)
 				]
@@ -183,7 +183,7 @@ LoadLevel: func [lv][
 		ItemObj/face: (get w)
 
 	]
-	unset 'x unset 'w
+	unset 'x unset 'w unset 'LevelData
 	
 	; Show game info
 	Glevel/text: copy "LEVEL: " 

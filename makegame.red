@@ -430,7 +430,7 @@ MakeGame: does [
 		; Check the lives of agents to stop births
 		if f/extra/type = "A" [
 			; Account score
-			GameData/Score: add GameData/Score 25
+			GameData/Score: add GameData/Score GameData/AgentKnockPoints
 			Gscore/text: copy "SCORE: "
 			append Gscore/text to-string GameData/Score				
 			Message "An agent is dead"
