@@ -43,7 +43,7 @@ GameData: context [
 	SpiderDeadDelay: 0.01
 	AgentDeadDelay: 0.03
 	AgentRate: 0:00:00.05
-	AgentKnockPoints: 25
+	AgentKnockPoints: 25  ; We don't want to promote guards killing behaviors
 	KnockAltitude: 10	
 	FallingFaceAltitude: 15
 	GetupAltitude: 40
