@@ -46,7 +46,8 @@ at the adecuate distance, 18 pixels by default, for the guards to detect end of 
 parameter may be also modifyied by the configuration file as setting & CeilingDist 25 for example.
 It is also noticeable not to locate stairs at the side of walls not being external perimeter, there
 must be some space between the stair and the wall, so the guards would be able to turn back and exit 
-from dead ends. 
+from dead ends. Finally, the scenario must be saved as cavern.png if the config file remains having
+that name for the cave file.
 
 The kart handles must be placed at the x point where the kart stops, the vertical distance must be 
 at no more than 45 pixels from the boy y coordinate when it is located under the handle, as the handle 
