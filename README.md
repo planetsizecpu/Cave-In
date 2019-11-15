@@ -18,7 +18,7 @@ First of all we need to create a new folder with his name, better to use the sam
 of uppercase letter and number, I do prefer to use letter "L" for my own levels, but I 
 strongly reccomend to use a different one, as for example "X".
 
-Then we have to amend the (current) line 20 of cave.red file. That line contains the block 
+Then we have to amend the (current) line 21 of cave.red file. That line contains the block 
 holding the level names as:  Levels: ["L1" "L2" "L3" "L4"]  to 	Levels: ["L1" "L2" "L3" "L4" "X1"]  
 for example. I do change this line for the first level to be the one I'm working, so the
 line would have this aspect:  Levels: ["X1" "L2" "L3" "L4" "X1"] so you will start the game
