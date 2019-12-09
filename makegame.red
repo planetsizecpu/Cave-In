@@ -1043,7 +1043,7 @@ MakeGame: does [
 		][
 			; No on stop delay, overlapping face (hidden) must follow the kart when moving
 			if f/extra/loaded [
-				f/extra/getobject/offset: f/offset
+				f/extra/getobject/offset: f/offset	
 			]
 		]
 		
