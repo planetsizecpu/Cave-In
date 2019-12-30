@@ -18,7 +18,7 @@ system/view/auto-sync?:  yes
 	
 ; Game data & defaults object
 GameData: context [
-	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10"] 
+	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11"] 
 	GameRate: 0:00:00.004 
 	CaveName: "cave"
 	CaveFace: object []
