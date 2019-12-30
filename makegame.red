@@ -606,7 +606,7 @@ MakeGame: does [
 						if face/extra/altitude > GameData/GetupAltitude [face/extra/getup: true] ; Agents can not die by fall or game is not playable
 					]
 					if face/extra/type = "J" [
-						if face/extra/altitude > GameData/FallingFaceAltitude [face/image: Thief-S4]
+						if face/extra/altitude > GameData/FallingFaceAltitude [if not face/extra/wbarrow [face/image: Thief-S4]]
 						if face/extra/altitude > GameData/GetupAltitude [face/extra/getup: true]
 						if face/extra/altitude > GameData/DeadAltitude [face/extra/dead: true]
 					]					
