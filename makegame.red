@@ -794,7 +794,7 @@ MakeGame: does [
 		OtherFace: CheckOverlaps f 
 	
 		; Check if we leave gold
-		if all [f/extra/gold (not CheckStairsDN f) (not CheckTerrainLT f) (not CheckTerrainRT f) (not CheckHandle f)] [
+		if all [f/extra/gold (not CheckStairsDN f) (not CheckTerrainLT f) (not CheckTerrainRT f) (not CheckHandle f) (not f/extra/handle)] [
 			either (none? OtherFace) [
 				OtherFace: f/extra/getobject		
 				; We use direction to leave gold 
@@ -874,8 +874,10 @@ MakeGame: does [
 		]			
 		
 		; Check if we leave tool
-		if all [f/extra/tool (not CheckStairsDN f) (not CheckTerrainLT f) (not CheckTerrainRT f) (not CheckHandle f) (none? OtherFace)] [
+		if all [f/extra/tool (not CheckTerrainLT f) (not CheckTerrainRT f) (not CheckHandle f) (not f/extra/handle) (none? OtherFace)] [
+			; Recover tool object data
 			OtherFace: f/extra/getobject
+			
 			; We use direction to leave tool
 			either f/extra/direction < 0 [
 				OtherFace/offset/x: f/offset/x - OtherFace/size/x
@@ -1011,13 +1013,18 @@ MakeGame: does [
 		/local fst: first f/extra/stops
 		/local lst: last  f/extra/stops
 		/local stp: 0
+		OtherFace: CheckOverlaps f			
 		
-		; Check for kart overlap 
-		OtherFace: CheckOverlaps f 
-				
-		; Check for run over thief face if not loaded
-		if not f/extra/loaded [
-			if not none? OtherFace [
+		; Check for run over some face 
+		if not none? OtherFace [
+			either f/extra/loaded [
+				if OtherFace/extra/type = "A" [
+					OtherFace/extra/dead: true
+					print " AGENT DEAD BY KART"
+					Message "Agent dead by kart"
+					return 0
+				]		
+			][
 				if OtherFace/extra/type = "J" [
 					if not OtherFace/extra/handle [
 						prin OtherFace/extra/name
@@ -1026,12 +1033,6 @@ MakeGame: does [
 						GoDead OtherFace
 						return 0
 					]
-				]
-				if OtherFace/extra/type = "K" [
-					OtherFace/extra/dead: true
-					print " AGENT DEAD BY KART"
-					Message "Agent dead by kart"
-					return 0
 				]
 			]
 		]
@@ -1143,6 +1144,7 @@ MakeGame: does [
 		; Check for agent overlap  
 		OtherFace: CheckOverlaps f 
 		if not none? OtherFace [
+
 			; Check if other face is agent and push them away if not on stairs (on lifter is unnecesary)
 			if OtherFace/extra/type = "A" [
 				if all [not CheckStairsDN f  not CheckStairsUP f] [
@@ -1170,6 +1172,8 @@ MakeGame: does [
 					]
 				]
 			]
+			
+			; Check if agent is on lifter and guide in proper direction
 			if OtherFace/extra/type = "L" [ 
 				either (GameData/PlayerFace/offset/x < (f/offset/x - 2)) [
 					either not GameData/PlayerFace/extra/tool [f/extra/direction: 9][f/extra/direction: 3]
@@ -1180,10 +1184,10 @@ MakeGame: does [
 			
 			; Check if other face is thief
 			if OtherFace/extra/type = "J" [
-				; Check if thief has tool or is on kart and kill thief if not
+				; Check if thief has tool or is on kart and kill agent, otherwise kill thief
 				either any [OtherFace/extra/tool OtherFace/extra/onkart] [
 					; Set get-up status on the agent to disturb it
-					print "JOHN HAS TOOL, NO FEAR."					
+					print "JOHN HAS TOOL or IS ON KART, NO FEAR."					
 					f/extra/dead: true
 					return 0
 				][
