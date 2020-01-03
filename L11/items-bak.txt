@@ -54,7 +54,7 @@ TPICKAX|pickax4|pkx4|9x10|1400x570|0:0|0x0|0:0:10|0|1|pickax1.png
 #
 KART1|kart1|krt1|35x19|1440x133|0:0:0.00001|124x133,1440x133|0:0|-2|0|kart1.png
 KART2|kart2|krt2|35x19|124x291|0:0:0.00001|124x291,1440x291|0:0|2|0|kart1.png
-KART3|kart3|krt3|35x19|1440x447|0:0:0.00001|124x447,1440x447|0:0|-2|0|kart1.png
+KART3|kart3|krt3|35x19|1440x447|0:0:0.00001|195x447,1440x447|0:0|-2|0|kart1.png
 #
 WBARROW|wbarrow1|wba1|26x17|125x25|0:0|0x0|0:0|0|1|barrow-r1.png
 #
