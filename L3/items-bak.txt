@@ -43,7 +43,7 @@ TPICKAX|pickax3|pkx3|9x10|1290x500|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax4|pkx4|9x10|1535x45|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax5|pkx5|9x10|675x560|0:0|0x0|0:0:10|0|1|pickax1.png
 WBARROW|wbarrow1|wba1|26x17|120x35|0:0|0x0|0:0|0|1|barrow-r1.png
-KART1|kart1|krt1|35x19|1475x49|0:0:0.0001|197x49,1475x49|0:0|-2|0|kart1.png
+KART1|kart1|krt1|35x19|1425x49|0:0:0.0001|197x49,1425x49|0:0|-2|0|kart1.png
 LIFT1|lifter1|lif1|35x10|19x572|0:0:0.0001|19x63,19x325,19x572|0:0|-1|0|lifter-1.png
 LIFT2|lifter2|lif2|35x10|362x215|0:0:0.0001|362x220,362x325,362x572|0:0|1|0|lifter-1.png
 LIFT3|lifter3|lif3|35x10|835x154|0:0:0.0001|835x154,835x572|0:0|1|0|lifter-1.png
