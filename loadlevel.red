@@ -12,6 +12,7 @@ LoadLevel: func [lv][
 	; Level selection & loading
 	Ldata: to-file "DATA"
 	Level: to-file lv
+	GameData/Curlevel: to-string lv
 	LastPassage: copy " "
 
 	; Read level config file
@@ -189,9 +190,9 @@ LoadLevel: func [lv][
 	unset 'x unset 'w unset 'LevelData
 	
 	; Show game info
+	info/text: copy "Press (SPACE) as button, go for heavy gold!"
 	Glevel/text: copy "LEVEL: " 
 	append Glevel/text GameData/Curlevel	
-	info/text: copy "Press (SPACE) as button, go for heavy gold!"
 	Glives/text: copy "LIVES:  " 
 	append Glives/text to-string john/lives
 	Gstock/text: copy "STOCK: "

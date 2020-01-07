@@ -70,7 +70,7 @@ MakeGame: does [
 				print " NO MORE LEVELS! " 
 				print "***************************************************"		
 				Message "Congratulations you win the game"
-				alert "CONGRATULATIONS YOU WIN"
+				alert "CONGRATULATIONS YOU WIN THE GAME"
 				quit
 			][
 				print "***************************************************"		

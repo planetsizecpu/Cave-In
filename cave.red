@@ -19,7 +19,7 @@ system/view/auto-sync?:  yes
 ; Game data & defaults object
 GameData: context [
 	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11"] 
-	GameRate: 0:00:00.004 
+	GameRate: 0:00:00.003 
 	CaveName: "cave"
 	CaveFace: object []
 	CaveFaceHalfSizeX: 800 ;Half x cave size will be updated as we load the level cave image
@@ -81,7 +81,7 @@ GameScr: layout [
 		info/rate: GameData/GameRate
 	]
 	below
-	at 10x655  Glevel: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
+	at 10x655  Glevel: text 110x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
 	at 150x655 Glives: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
 	at 290x655 Gstock: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
 	at 430x655 Ggbags: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]										
