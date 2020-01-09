@@ -9,7 +9,7 @@ Red [Needs: 'View
 ; Credit to @gltewald for help on png files transparency
 ; Credit to @endo64 for help on difficulty level
 ; Credit to @greggirwin for help on L11 Sphinx teleporter door
-; Thanks to @dander for moral support on early stages 
+; Thanks to @dander & others for moral support on early stages 
 ; Thanks to @TheRedTeam for making this fantastic human-oriented language 
 
 recycle/off
