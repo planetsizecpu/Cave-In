@@ -52,11 +52,14 @@ TPICKAX|pickax2|pkx2|9x10|700x210|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax3|pkx3|9x10|700x570|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax4|pkx4|9x10|1400x570|0:0|0x0|0:0:10|0|1|pickax1.png
 #
+PASSAGE1|passage1|pas1|35x40|322x280|0:0:4|0x0|0:0|1|0|passage-G.png
+PASSAGE2|passage2|pas2|35x40|1200x360|0:0:4|0x0|0:0|1|0|passage-G.png
+#
 KART1|kart1|krt1|35x19|1440x133|0:0:0.00001|124x133,1440x133|0:0|-2|0|kart1.png
 KART2|kart2|krt2|35x19|123x291|0:0:0.00001|123x291,1440x291|0:0|2|0|kart1.png
 KART3|kart3|krt3|35x19|1440x447|0:0:0.00001|195x447,1440x447|0:0|-2|0|kart1.png
 #
-WBARROW|wbarrow1|wba1|26x17|125x25|0:0|0x0|0:0|0|1|barrow-r1.png
+WBARROW|wbarrow1|wba1|26x17|55x25|0:0|0x0|0:0|0|1|barrow-r1.png
 #
 AGENT1|agent1|age1|22x34|15x540|0:0:0.04|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
 AGENT2|fagent2|age2|22x34|1555x505|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
