@@ -50,7 +50,7 @@ GOLDBG|gold10|gld10|8x12|1050x210|0:0|0x0|0:0|0|1|gold1.png
 TPICKAX|pickax1|pkx1|9x10|1445x210|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|700x210|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax3|pkx3|9x10|700x570|0:0|0x0|0:0:10|0|1|pickax1.png
-TPICKAX|pickax4|pkx4|9x10|1400x570|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax4|pkx4|9x10|1200x495|0:0|0x0|0:0:10|0|1|pickax1.png
 #
 PASSAGE1|passage1|pas1|35x40|322x280|0:0:4|0x0|0:0|1|0|passage-G.png
 PASSAGE2|passage2|pas2|35x40|1200x360|0:0:4|0x0|0:0|1|0|passage-G.png
