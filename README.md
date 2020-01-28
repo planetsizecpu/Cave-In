@@ -72,7 +72,7 @@ ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction
 - For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
 - To modify default GameData/word values:  & word value   (value can be tuple! logic! or integer!)
 
-Each comment line starts with "#", it is important not to set white lines in the whole file as the game hangs.
+Each comment line starts with "#", it is important not to set white lines in the whole file (as I did here for clariry) or the game hangs.
 
 EXAMPLE:
 
