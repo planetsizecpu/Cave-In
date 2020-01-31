@@ -18,8 +18,8 @@
 # ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
 #
 CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
-AGENT1|agent1|age1|22x34|1500x540|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
-AGENT3|fagent2|age2|22x34|645x300|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
+AGENT1|agent1|age1|22x34|945x30|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
+AGENT2|fagent2|age2|22x34|645x300|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
 GOLDBG|fgold1|gld1|8x15|100x190|0:0|0x0|0:0|0|1|gold2.png
 GOLDBG|gold2|gld2|8x12|100x280|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold3|gld3|8x12|230x190|0:0|0x0|0:0|0|1|gold1.png
@@ -43,5 +43,7 @@ DROP1|drop1|drp1|7x9|407x401|0:0:1.0|0x0|0:0|0|1|drop1.png
 DROP2|drop2|drp2|7x9|1192x401|0:0:1.0|0x0|0:0|0|1|drop1.png
 SPIDER1|spider1|spi1|9x7|135x30|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
 SPIDER2|spider2|spi2|9x7|1460x30|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
-WBARROW|wbarrow1|wba1|26x17|1510x540|0:0|0x0|0:0|0|1|barrow-r1.png
+TPICKAX|pickax1|pkx1|9x10|250x560|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax2|pkx2|9x10|1100x560|0:0|0x0|0:0:10|0|1|pickax1.png
+WBARROW|wbarrow1|wba1|26x17|1265x540|0:0|0x0|0:0|0|1|barrow-r1.png
 JOHN|john|doe|22x34|700x540|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
