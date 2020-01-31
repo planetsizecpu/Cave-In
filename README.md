@@ -5,7 +5,9 @@ There was an arcade machine game from the early 80's where I spent a lot of coin
 
 I know it does not have the quality of the true arcade game, but the goal is not to market it, but to learn, to play and share the code to others, so they can also learn in his way. In addition there are several known failures, and for sure will discover many more, so the development continues. I publish it just so that others can try it and have fun as me.
 
-To run it just download the folders tree and click on cave.red file. Have fun!
+To run it just download the folders tree and click on cave.red file if you have Red language toolchain in your path, otherwise click on cave.exe
+
+Have fun!
 
 **********************************************************************************************************
 INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
