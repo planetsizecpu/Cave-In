@@ -8,5 +8,5 @@ I know it does not have the quality of the true arcade game, but the goal is not
 To run it just download the folders tree and click on cave.red file. Have fun!
 
 **********************************************************************************************************
-INSTRUCTIONS FOR CREATING NEW LEVELS: Read file zLevelsDesign.txt  please
+INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
 **********************************************************************************************************
