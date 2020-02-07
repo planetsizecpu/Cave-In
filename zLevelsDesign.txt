@@ -39,7 +39,8 @@ find the & HandleColor value, so we have some flexibility.
 
 You must draw the kart cable and stop terminator marks, the lifters holes and cables (if any) to match theyr stop points related
 at the configuration file, and use the & LifterCable value as color for them. There is an unused function that looks for this color
-that may be used in the future, so I recommend to use the same color for kart rails and lifter cables.
+that may be used in the future, so I recommend to use the same reddish 128.64.64.0 color for kart rails and lifter cables stored as
+LifterCable word.
 
 OBJECTS CONFIGURATION FILE:
 
