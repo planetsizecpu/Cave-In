@@ -52,10 +52,10 @@ ItemTypes start with: (A)gent (B)and (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art
 ObjectName & FaceName must be different for the same object, as they holds different info and meaning
 FaceSize must match the ImageFiles size to work properly
 FaceOffset is the born location for the object
-Rate is user for handler functions, I recommend to test the level with already defined ones Rate to check if works
-Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
+Rate is user for handler functions, I recommend to test the level with already defined ones Rate to check if works properly as desired
+Stops for lifters (up-down) or karts (left-right) in the way 0x0,0x0,... or 0x0 alone for other objects
 Location (Stop #)
-Direction (1 Down/Right -1 Up/Left)
+Direction (Positive value Down/Right or negative value Up/Left)
 For (B)and first stop indicates axis displacement 1x0 -> Horizontal displacement, Other value -> Vertical displacement
 (P)assages must be grouped pairs of passage1 and passage2, then passage3 and passage4 ... (we use direction field for pairing)
 For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
