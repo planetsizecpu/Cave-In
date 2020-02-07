@@ -54,7 +54,7 @@ Direction (1 Down/Right -1 Up/Left)
 For (B)and first stop indicates axis displacement 1x0 -> Horizontal displacement, Other value -> Vertical displacement
 (P)assages must be grouped pairs of passage1 and passage2, then passage3 and passage4 ... (we use direction field for pairing)
 For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
-For (G)old bags first ObjectName & image files letter can be "f" for fat (bag green neck) or "h" for heavy (24kt red) gold
+For (G)old bags first ObjectName letter can be "f" for fat (bag green neck) or "h" for heavy (24kt red) gold
 To modify default GameData/word values: & word value (value can be tuple! logic! or integer!)
 
 Each comment line starts with "#", it is important not to set white lines in the whole file (as I did here for clariry) or the
@@ -70,19 +70,32 @@ EXAMPLE:
 
 & DropGravity 1                   <--- Will override default gravity value for drops when loading this level
 
-CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png 
-AGENT1|agent1|age1|22x34|1550x20|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
-GOLDBG|gold1|gld1|8x12|75x50|0:0|0x0|0:0|0|1|gold1.png GOLDBG|gold2|gld2|8x12|75x240|0:0|0x0|0:0|0|1|gold1.png
-TPICKAX|pickax1|pkx1|9x10|350x320|0:0|0x0|0:0:10|0|1|pickax1.png
-TPICKAX|pickax2|pkx2|9x10|1400x230|0:0|0x0|0:0:10|0|1|pickax1.png
-LIFT1|lifter1|lif1|35x10|201x53|0:0:0.0001|201x53,201x185,201x257,201x337,201x417,201x586|0:0|1|0|lifter-1.png
-LIFT2|lifter2|lif2|35x10|1205x109|0:0:0.0001|1205x110,1205x235,1205x312|0:0|1|0|lifter-2.png
+CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png      <--- Main scenario image
+
+AGENT1|agent1|age1|22x34|945x30|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png    <--- Male gent
+AGENT2|fagent2|age2|22x34|645x300|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png    <--- Female agent
+
+GOLDBG|gold1|gld1|8x12|75x50|0:0|0x0|0:0|0|1|gold1.png      <--- Normal gold
+GOLDBG|gold2|gld2|8x12|75x240|0:0|0x0|0:0|0|1|gold1.png     <--- Normal gold
+GOLDBG|fgold3|gld3|8x12|1255x90|0:0|0x0|0:0|0|1|gold2.png   <--- Fat gold
+GOLDBG|hgold4|gld4|8x12|1290x90|0:0|0x0|0:0|0|1|gold3.png   <--- Heavy gold
+
+TPICKAX|pickax1|pkx1|9x10|350x320|0:0|0x0|0:0:10|0|1|pickax1.png     <--- pickax
+TPICKAX|pickax2|pkx2|9x10|1400x230|0:0|0x0|0:0:10|0|1|pickax1.png    <--- pickax
+
+LIFT1|lifter1|lif1|35x10|201x53|0:0:0.0001|201x53,201x185,201x257,201x337,201x417,201x586|0:0|1|0|lifter-1.png  <--- Lifters
+LIFT2|lifter2|lif2|35x10|1205x109|0:0:0.0001|1205x110,1205x235,1205x312|0:0|1|0|lifter-2.png  
 LIFT3|lifter3|lif3|35x10|1105x312|0:0:0.0001|1105x312,1105x400,1105x585|0:0|1|0|lifter-2.png
-BAND|band1|bnd1|100x1200|750x-600|0:0:0.1|0x1|0:0|1|0|lavafall100.png
-PASSAGE1|passage1|pas1|50x40|82x132|0:0:4|0x0|0:0|1|0|passage-G.png
-PASSAGE2|passage2|pas2|50x40|1196x55|0:0:4|0x0|0:0|1|0|passage-G.png
-PASSAGE3|passage3|pas3|50x40|82x132|0:0:4|0x0|0:0|2|0|passage-G.png
-PASSAGE4|passage4|pas4|50x40|1196x55|0:0:4|0x0|0:0|2|0|passage-G.png
-SPIDER1|spider1|spi1|9x7|510x325|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
-WBARROW|wbarrow1|wba1|26x17|155x550|0:0|0x0|0:0|0|1|barrow-r1.png
-JOHN|john|doe|22x34|160x15|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
+
+BAND|band1|bnd1|100x1200|750x-600|0:0:0.1|0x1|0:0|1|0|lavafall100.png     <--- Lava moving (horizontal) band
+
+PASSAGE1|passage1|pas1|50x40|82x132|0:0:4|0x0|0:0|1|0|passage-G.png    <--- Passage teleporter pair-1  member 1
+PASSAGE2|passage2|pas2|50x40|1196x55|0:0:4|0x0|0:0|1|0|passage-G.png   <--- Passage teleporter pair-1  member 2
+PASSAGE3|passage3|pas3|50x40|82x132|0:0:4|0x0|0:0|2|0|passage-G.png    <--- Passage teleporter pair-2  member 1
+PASSAGE4|passage4|pas4|50x40|1196x55|0:0:4|0x0|0:0|2|0|passage-G.png   <--- Passage teleporter pair-2  member 2
+
+SPIDER1|spider1|spi1|9x7|510x325|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png   <--- spider
+
+WBARROW|wbarrow1|wba1|26x17|155x550|0:0|0x0|0:0|0|1|barrow-r1.png   <--- Barrow, can have more than once
+
+JOHN|john|doe|22x34|160x15|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png  <--- Player object
