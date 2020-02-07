@@ -49,6 +49,10 @@ This is where we locate te objects that appear in the level, including the scena
 ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
 
 ItemTypes start with: (A)gent (B)and (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (P)assage (S)pider (T)ools (W)barrow
+ObjectName & FaceName must be different for the same object, as they holds different info and meaning
+FaceSize must match the ImageFiles size to work properly
+FaceOffset is the born location for the object
+Rate is user for handler functions, I recommend to test the level with already defined ones Rate to check if works
 Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
 Location (Stop #)
 Direction (1 Down/Right -1 Up/Left)
