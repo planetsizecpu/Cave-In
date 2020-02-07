@@ -22,8 +22,8 @@ Once this is done, we can begin to modify the appearance of the scenario, I alwa
 bitmaps editor works. It is important to preserve the color of the terrain and the stairs, since the game is based on that
 color to stop the effect of gravity, but you may use any color combination and these colors values can be changed in the level
 configuration file, items.txt, by using a line that starts with "&" such as: & TerrainColor 100.125.150.0 or & StairsColor1
-200.200.200.0 and & StairsColor2 150.150.150.0 that way we can change the color of the scenario and dynamically set the value 
-to the game.
+200.200.200.0 and & StairsColor2 150.150.150.0 that way we can change the color of the scenario and set the desired value in a
+for level basis.
 
 The design of the scenario is free hand, you just have to bear in mind that you have to use those colors in the areas where 
 objects move, for the subject of gravity. A part of this, is very important properly place the stairs, and make sure each upper
