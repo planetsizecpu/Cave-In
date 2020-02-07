@@ -1,13 +1,22 @@
-Levels are made of one folder with two files inside, the scenario image cavern.png, and the objects configuration file items.txt. The level name would be the folder name.
+INSTRUCTIONS FOR CREATING NEW LEVELS
 
-First of all we need to create a new folder with his name, better to use the same pattern of uppercase letter and number, I do prefer to use letter "L" for my own levels, but I strongly reccomend to use a different one, as for example "X".
+Levels are made of one folder with two files inside, the scenario image cavern.png, and the objects configuration file items.txt. 
+The level name would be the folder name.
 
-Then we have to amend the (current) line 21 of cave.red file. That line contains the block holding the level names as: Levels: ["L1" "L2" "L3" "L4"] to Levels: ["L1" "L2" "L3" "L4" "X1"]
-for example. I do change this line for the first level to be the one I'm working, so the line would have this aspect: Levels: ["X1" "L2" "L3" "L4" "X1"] so you will start the game at the desired level, then when level is done then restore the line the normal content.
+First of all we need to create a new folder with his name, better to use the same pattern of uppercase letter and number, I do 
+prefer to use letter "L" for my own levels, but I strongly reccomend to use a different one, as for example "X" as it do not interfer
+with my own levels, so we can share.
+
+Then we have to amend the (current) line 24 of cave.red file. That line contains the block holding the level names as: 
+Levels: ["L1" "L2" "L3" "L4"] to Levels: ["L1" "L2" "L3" "L4" "X1"] for example. I do change this line for the first level to be 
+the one I'm working, so the line would have this aspect: Levels: ["X1" "L2" "L3" "L4" "X1"] so you will start the game at the
+desired level, and then, when level is done, restore the line the normal content.
 
 SCENARIO IMAGE:
 
-Then we have to copy the files cavern.png and items.txt from an existing folder, from that way we will not start from scratch. It is important not to modify the dimensions of cavern.bmp that contains the scenario of the game, since it would produce unpredictable results in the game, these dimensions are 1599x600 pixel.
+Then we have to copy the files cavern.png and items.txt from an existing folder, from that way we will not start from scratch. 
+It is important not to modify the dimensions of cavern.bmp that contains the scenario of the game, since it would produce 
+unpredictable results in the game, these dimensions are 1599x600 pixel.
 
 Once this is done, we can begin to modify the appearance of the scenario, I always use paintbrush & pixelformer, but any bitmaps editor works. It is important to preserve the color of the terrain and the stairs, since the game is based on that color to stop the effect of gravity, you may use any color combination and these colors values can be changed in the level configuration file, items.txt, by using a line that starts with "&" such as: & TerrainColor 100.125.150.0 or & StairsColor1 200.200.200.0 and & StairsColor2 150.150.150.0 that way we can change the color of the scenario and dynamically set the value to the game.
 
