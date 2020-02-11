@@ -1249,9 +1249,9 @@ MakeGame: does [
 			either not CheckTerrainLT f [
 				either not GameData/PlayerFace/extra/tool [f/extra/direction: 9][f/extra/direction: 3]
 			][
-				f/extra/blockedLT: true
-				if (not CheckTerrainRT f) [
-					f/extra/direction: 3
+				f/extra/blockedLT: true  
+				if (not CheckTerrainRT f) and (not CheckStairsUP f) [
+					f/extra/direction: 3 ; We checked cannot go left and no on stairs
 				]
 			]
 		][
@@ -1259,8 +1259,8 @@ MakeGame: does [
 				either not GameData/PlayerFace/extra/tool [f/extra/direction: 3][f/extra/direction: 3]
 			][
 				f/extra/blockedRT: true
-				if (not CheckTerrainLT f) [
-					f/extra/direction: 9
+				if (not CheckTerrainLT f) and (not CheckStairsUP f) [
+					f/extra/direction: 9 ; We checked cannot go right and no on stairs
 				]
 			]				
 		]
