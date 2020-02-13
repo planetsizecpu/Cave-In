@@ -1111,7 +1111,13 @@ MakeGame: does [
 		if not none? OtherFace [
 			if any [OtherFace/extra/type = "J" OtherFace/extra/type = "A"] [
 				; If have barrow, then can't take lifter
-				if all [not OtherFace/extra/wbarrow not OtherFace/extra/onkart] [
+				if all [not OtherFace/extra/wbarrow not OtherFace/extra/onkart not OtherFace/extra/handle] [
+					if OtherFace/extra/handle [
+						OtherFace/extra/handle: false
+						OtherFace/extra/gravity: true
+						OtherFace/size: OtherFace/extra/size
+						OtherFace/image: OtherFace/extra/image
+					]
 					OtherFace/offset/x: f/offset/x + (f/size/x / 2) - 7
 					OtherFace/offset/y: f/offset/y - 30
 					if OtherFace/extra/altitude > GameData/DeadAltitude [GoDead OtherFace return 0]

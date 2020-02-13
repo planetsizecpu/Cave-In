@@ -116,7 +116,7 @@ CheckDifficulty: function [][
 ; View splash screen
 view/options [size 800x600 	
 	  at 1x1 Splash: image 800x600 %DATA/cave-in.jpg 
-	  at 650x450 button 100x50 red brick "P L A Y" on-click [unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]]
+	  at 650x450 button 100x50 red brick center "P L A Y" on-click [unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]]
 
 ; Level loading & play
 GameData/Curlevel: first GameData/Levels
