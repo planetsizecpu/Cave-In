@@ -969,7 +969,6 @@ MakeGame: does [
 		
 		; Check overlap on other face and get it if main face don't have anything in hands
 		if (not none? OtherFace) [
-			;if (not f/extra/handle) and (not f/extra/tool) and (not f/extra/gold) and (not f/extra/wbarrow) [
 			if all [(not f/extra/handle) (not f/extra/tool) (not f/extra/gold) (not f/extra/wbarrow)] [
 				switch OtherFace/extra/type [
 					none	[]
