@@ -23,6 +23,7 @@
 CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
 #
 JOHN|john|doe|22x34|160x25|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
+ROSE|rose|doer|22x34|555x200|0:0:0.06|0x0|0:0|0|1|rose-l1.png|rose-r1.png|rose-l2.png|rose-r2.png|rose-l3.png|rose-r3.png|rose-s1.png|rose-s2.png|rose-s3.png|rose-s4.png
 #
 GOLDBG|gold1|gld1|8x12|350x45|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold2|gld2|8x12|750x45|0:0|0x0|0:0|0|1|gold1.png
