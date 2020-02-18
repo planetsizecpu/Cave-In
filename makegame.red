@@ -5,7 +5,7 @@ Red [
 ]
 
 ;--------------------------------------------------------------------------------------------------
-; Create game functions
+; Create game functions 
 ;--------------------------------------------------------------------------------------------------
 MakeGame: does [
 
@@ -517,7 +517,7 @@ MakeGame: does [
 				
 					; Check for lifter surface for stop fall of persons
 					if OtherFace/extra/type = "L" [
-						if any [face/extra/type = "A" face/extra/type = "J"] [
+						if any [face/extra/type = "A" face/extra/type = "J" face/extra/type = "R"] [
 							; If have barrow, then can't take lifter
 							if not face/extra/wbarrow [
 								; Counteract the gravity effect
@@ -610,6 +610,9 @@ MakeGame: does [
 						if face/extra/altitude > GameData/GetupAltitude [face/extra/getup: true]
 						if face/extra/altitude > GameData/DeadAltitude [face/extra/dead: true]
 					]					
+					if face/extra/type = "R" [
+							if face/extra/altitude > GameData/FallingFaceAltitude [if not face/extra/wbarrow [face/image: Girl-S4]]
+					]
 				][
 					; Zero altitude over terrain, if not persons may die on floor!
 					face/extra/altitude: 0
@@ -1041,7 +1044,7 @@ MakeGame: does [
 			f/extra/stopdelay: subtract f/extra/stopdelay 1
 			return 0
 		][
-			; No on stop delay, overlapping face (hidden) must follow the kart when moving
+			; No on stop delay, overlapping (boy) face (hidden) must follow the kart when moving
 			if f/extra/loaded [
 				f/extra/getobject/offset: f/offset	
 			]
@@ -1108,7 +1111,7 @@ MakeGame: does [
 
 		; Check for altitude and force horizontal center other face to avoid walls 
 		if not none? OtherFace [
-			if any [OtherFace/extra/type = "J" OtherFace/extra/type = "A"] [
+			if any [OtherFace/extra/type = "J" OtherFace/extra/type = "A" OtherFace/extra/type = "R"] [
 				; If have barrow, then can't take lifter
 				if all [not OtherFace/extra/wbarrow not OtherFace/extra/onkart not OtherFace/extra/handle] [
 					if OtherFace/extra/handle [
@@ -1184,6 +1187,14 @@ MakeGame: does [
 					either not GameData/PlayerFace/extra/tool [f/extra/direction: 9][f/extra/direction: 3]
 				][
 					either not GameData/PlayerFace/extra/tool [f/extra/direction: 3][f/extra/direction: 9]
+				]
+			]
+			
+			; Chekc if the girlfriend is with the thief
+			if f/extra/type = "R" [
+				if OtherFace/extra/type = "J" [
+					f/image: GirlGetup-X3
+					return 0
 				]
 			]
 			
@@ -1289,7 +1300,12 @@ MakeGame: does [
 					f/extra/dead: true
 					return 0
 			]
-			
+			; Check if other face is girl to kill the spider 			
+			if OtherFace/extra/type = "R" [
+					print "THE GIRL HAS FLY SWATTER, NO FEAR."
+					f/extra/dead: true
+					return 0
+			]
 			; Check if other face is thief
 			if OtherFace/extra/type = "J" [
 				; Check if thief has tool or is on kart and kill thief if not
@@ -1426,7 +1442,7 @@ MakeGame: does [
 		if sp/extra/loaded [return 0]
 		
 		; Do nothing if face is not allowed to travel
-		if all [f/extra/type <> "A" f/extra/type <> "J"] [return 0]
+		if all [f/extra/type <> "A" f/extra/type <> "J" f/extra/type <> "R"] [return 0]
 		
 		; Init destination passage
 		dp: copy []

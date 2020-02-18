@@ -168,6 +168,12 @@ LoadLevel: func [lv][
 									 rate: ItemObj/rate actors: context [on-time: func [f e][PassageReset f]]
 									]
 					append cave/pane (get w)													
+				]		
+			"R" [set (w) make face! [type: 'base size: ItemObj/size offset: ItemObj/offset image: copy ItemObj/image extra: ItemObj
+									 rate: ItemObj/rate actors: context [on-time: func [f e][AgentMotion f]]
+									 ItemObj/lives: 64
+									]
+					append cave/pane (get w)
 				]				
 			"S" [set (w) make face! [type: 'base size: ItemObj/size offset: ItemObj/offset image: copy ItemObj/image extra: ItemObj
 									 rate: ItemObj/rate actors: context [on-time: func [f e][SpiderMotion f]]
@@ -290,6 +296,15 @@ LoadDfltImages: func [][
 	FAgentDead-X2: load to-file (Ldata/fagentd-x2.png)
 	FAgentDead-X3: load to-file (Ldata/fagentd-x3.png)
 	FAgentDead-X4: load to-file (Ldata/fagentd-x4.png)
+	
+	Girl-S1: load to-file (Ldata/rose-s1.png)
+	Girl-S2: load to-file (Ldata/rose-s2.png)
+	Girl-S3: load to-file (Ldata/rose-s3.png)
+	Girl-S4: load to-file (Ldata/rose-s4.png)	
+	
+	GirlGetup-X1: load to-file (Ldata/rose-x1.png)
+	GirlGetup-X2: load to-file (Ldata/rose-x2.png)		
+	GirlGetup-X3: load to-file (Ldata/rose-x3.png)
 	
 	Kart-TL1: load to-file (Ldata/Kart-tl1.png)
 	Kart-TR1: load to-file (Ldata/Kart-tr1.png)
