@@ -40,4 +40,5 @@ DROP1|drop1|drp1|7x9|1348x120|0:0:1.0|0x0|0:0|0|1|drop1.png
 KART1|kart1|krt1|35x19|210x61|0:0:0.0001|210x61,1342x61|0:0|1|0|kart1.png
 KART2|kart2|krt2|35x19|1383x565|0:0:0.0001|174x565,1383x565|0:0|-1|0|kart1.png
 WBARROW|wbarrow1|wba1|26x17|400x225|0:0|0x0|0:0|0|1|barrow-r1.png
+ROSE|rose|doer|22x34|750x220|0:0:0.06|0x0|0:0|0|1|rose-l1.png|rose-r1.png|rose-l2.png|rose-r2.png|rose-l3.png|rose-r3.png|rose-s1.png|rose-s2.png|rose-s3.png|rose-s4.png
 JOHN|john|doe|22x34|200x220|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
