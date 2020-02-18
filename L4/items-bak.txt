@@ -47,4 +47,5 @@ LIFT4|lifter4|lif4|35x10|1549x70|0:0:0.0001|1549x70,1549x405,1549x570|0:0|1|0|li
 DROP1|drop1|drp1|7x9|307x395|0:0:1.0|0x0|0:0|0|1|drop1.png
 SPIDER1|spider1|spi1|9x7|1350x417|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
 SPIDER4|spider4|spi4|9x7|520x410|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
+ROSE|rose|doer|22x34|500x28|0:0:0.06|0x0|0:0|0|1|rose-l1.png|rose-r1.png|rose-l2.png|rose-r2.png|rose-l3.png|rose-r3.png|rose-s1.png|rose-s2.png|rose-s3.png|rose-s4.png
 JOHN|john|doe|22x34|100x25|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
