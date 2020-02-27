@@ -293,7 +293,6 @@ MakeGame: does [
 		; Get terrain color
 		TerrainOL: GameData/CaveFace/image/(CheckPointOL)
 		TerrainOR: GameData/CaveFace/image/(CheckPointOR)
-		; prin TerrainOL prin " - " print TerrainOR
 	
 		; Check stairs over the face 
 		if ((TerrainOL = GameData/StairsColor1) or (TerrainOL = GameData/StairsColor2)) and
@@ -315,7 +314,6 @@ MakeGame: does [
 		; Get terrain color
 		TerrainUL: GameData/CaveFace/image/(CheckPointUL)
 		TerrainUR: GameData/CaveFace/image/(CheckPointUR)	
-		; prin TerrainUL prin " - " print TerrainUR
 
 		; Check stairs under the face
 		if ((TerrainUL = GameData/StairsColor1) or (TerrainUL = GameData/StairsColor2)) and
