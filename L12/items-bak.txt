@@ -14,7 +14,7 @@
 #
 # To modify default GameData/word values:  & word value   (value can be tuple! logic! or integer!)
 & CeilingDist 25
-& TerrainColor 185.122.87.0
+& TerrainColor 90.45.91.0
 & StairsColor1 200.191.231
 & StairsColor2 63.72.204.0
 #
@@ -25,14 +25,14 @@ CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
 JOHN|john|doe|22x34|50x540|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
 ROSE|rose|doer|22x34|1540x540|0:0:0.06|0x0|0:0|0|1|rose-l1.png|rose-r1.png|rose-l2.png|rose-r2.png|rose-l3.png|rose-r3.png|rose-s1.png|rose-s2.png|rose-s3.png|rose-s4.png
 #
-GOLDBG|gold1|gld1|8x12|425x40|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold1|gld1|8x12|150x40|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold2|gld2|8x12|280x540|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold3|gld3|8x12|770x40|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold4|gld4|8x12|630x540|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold5|gld5|8x12|1120x40|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold6|gld6|8x12|975x540|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold7|gld7|8x12|1185x40|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold8|gld8|8x12|1330x540|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold3|gld3|8x12|640x360|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold4|gld4|8x12|505x300|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold5|gld5|8x12|895x300|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold6|gld6|8x12|1075x540|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold7|gld7|8x12|1310x175|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold8|gld8|8x12|1250x235|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|fgold9|gld9|8x12|1465x175|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold10|gld10|8x12|1510x235|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|fgold11|gld11|8x12|1425x370|0:0|0x0|0:0|0|1|gold2.png
@@ -44,16 +44,15 @@ TPICKAX|pickax1|pkx1|9x10|1510x540|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|800x540|0:0|0x0|0:0:10|0|1|pickax1.png
 #
 LIFT1|lifter1|lif1|35x10|72x462|0:0:0.0001|72x133,72x462|0:0|-1|0|lifter-1.png
-LIFT2|lifter2|lif2|35x10|306x133|0:0:0.0001|306x133,306x462|0:0|1|0|lifter-1.png
-LIFT3|lifter3|lif3|35x10|423x462|0:0:0.0001|423x133,423x462|0:0|-1|0|lifter-1.png
-LIFT4|lifter4|lif4|35x10|657x133|0:0:0.0001|657x133,657x462|0:0|1|0|lifter-1.png
-LIFT5|lifter5|lif5|35x10|775x462|0:0:0.0001|775x133,775x462|0:0|-1|0|lifter-1.png
-LIFT6|lifter6|lif6|35x10|1009x133|0:0:0.0001|1009x133,1009x462|0:0|1|0|lifter-1.png
-LIFT7|lifter7|lif7|35x10|1127x462|0:0:0.0001|1127x133,1127x462|0:0|-1|0|lifter-1.png
-LIFT8|lifter8|lif8|35x10|1372x133|0:0:0.0001|1372x133,1372x462|0:0|1|0|lifter-1.png
-LIFT9|lifter9|lif9|35x10|1457x396|0:0:0.0001|1457x396,1457x583|0:0|1|0|lifter-1.png
+LIFT2|lifter2|lif2|35x10|340x64|0:0:0.0001|340x64,340x133,340x462|0:0|1|0|lifter-1.png
+LIFT3|lifter3|lif3|35x10|459x462|0:0:0.0001|459x64,459x133,459x462|0:0|-1|0|lifter-1.png
+LIFT4|lifter4|lif4|35x10|728x133|0:0:0.0001|728x133,728x462|0:0|1|0|lifter-1.png
+LIFT5|lifter5|lif5|35x10|848x462|0:0:0.0001|848x64,848x133,848x462|0:0|-1|0|lifter-1.png
+LIFT6|lifter6|lif6|35x10|1117x133|0:0:0.0001|1117x133,1117x462|0:0|1|0|lifter-1.png
+LIFT7|lifter7|lif7|35x10|1372x462|0:0:0.0001|1372x64,1372x133,1372x462|0:0|-1|0|lifter-1.png
+LIFT8|lifter8|lif8|35x10|1457x396|0:0:0.0001|1457x396,1457x583|0:0|1|0|lifter-1.png
 #
-WBARROW|wbarrow1|wba1|26x17|55x25|0:0|0x0|0:0|0|1|barrow-r1.png
+WBARROW|wbarrow1|wba1|26x17|50x560|0:0|0x0|0:0|0|1|barrow-r1.png
 #
 AGENT1|agent1|age1|22x34|80x20|0:0:0.04|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
 AGENT2|fagent2|age2|22x34|1540x540|0:0:0.06|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
