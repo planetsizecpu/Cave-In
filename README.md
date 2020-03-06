@@ -1,5 +1,5 @@
 # Cave-In
-Cave-In: Bagman arcade game simulation
+Cave-In: Bagman arcade machine game sequel
 
 There was an arcade machine game from the early 80's where I spent a lot of coins, now I'm learning Red language I thought it was a good idea to try to imitate the game, just to learn while having fun, I never imagined it would be so easy to make games, I could hardly have done it with another language that was not human oriented.
 
