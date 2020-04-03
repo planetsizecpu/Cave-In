@@ -5,7 +5,7 @@ Red [
 ]
 
 ;--------------------------------------------------------------------------------------------------
-; Create game functions 
+; Create game functions after making objects
 ;--------------------------------------------------------------------------------------------------
 MakeGame: does [
 
@@ -21,7 +21,7 @@ MakeGame: does [
 		if GameData/PlayerFace/extra/dead [if GoDead GameData/PlayerFace [ Message "No more lives" Ret: true ]]
 		if GameData/PlayerFace/extra/getup [GoGetup GameData/PlayerFace]
 
-		; Apply gravity to faces
+		; Apply gravity to faces that can fall down
 		GoGravity
 		
 		; Check for screen roll
@@ -31,10 +31,10 @@ MakeGame: does [
 			cave/offset/x: 0 
 		]
 		
-		; Check for demo mode
+		; Check for demo mode autoplay
 		if GameData/DemoMode [PlayDemoMode]
 		
-		; Check for thief tools timing
+		; Check for thief tools use timing
 		if GameData/PlayerFace/extra/tool [
 			GameData/PlayerFace/extra/getobject/extra/usedtool: add GameData/PlayerFace/extra/getobject/extra/usedtool GameData/GameRate
 			if GameData/PlayerFace/extra/getobject/extra/usedtool > GameData/PlayerFace/extra/getobject/extra/timetool  [
@@ -52,7 +52,7 @@ MakeGame: does [
 			]
 		]
 		
-		; Check for level goals
+		; Check for level goals and progress
 		if GameData/Goldbags >= GameData/Stock [
 			print "***************************************************"
 			prin  "ENDING LEVEL " print GameData/Curlevel
@@ -102,11 +102,11 @@ MakeGame: does [
 			#" " [GoAction GameData/PlayerFace]
 			#"#" [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat! 
 			#"%" [AskLevel] ;Cheat!
-			#"@" [SetDemoMode]
+			#"@" [SetDemoMode] ;Cheat
 		]
 	]
 	
-	; Message to player
+	; Messages to player on low bar
 	Message: function [s [string!]][
 		info/text: copy s 
 	]
@@ -142,7 +142,7 @@ MakeGame: does [
 		]
 	]
 	
-	; Ask for new level
+	; Ask for new level cheat
 	AskLevel: has [][
 		info/rate: none
 		EraseLevel GameData/CaveFace 
@@ -163,7 +163,7 @@ MakeGame: does [
 		]
 	]
 	
-	; Erase level data
+	; Erase current level data
 	EraseLevel: function [f [object!]][
 		foreach x GameData/Items [unset (to-word x)]
 		GameData/Items: copy []
@@ -191,7 +191,7 @@ MakeGame: does [
 	; Miscellaneous checking functions
 	;-------------------------------------------------------------------------	
 	
-	; Check if some face overlaps other face in the cave
+	; Check if some face overlaps other face in the whole cave
 	CheckOverlaps: function [f [object!]][
 		Ret: none
 		foreach-face GameData/CaveFace [
@@ -341,7 +341,6 @@ MakeGame: does [
 		return Ret
 	]
 	
-	
 	; Look to left of face coordinates for stairs or lifter (function for further use)
 	LookForStairLT: function [face [object!]][
 		Ret: false
@@ -394,12 +393,11 @@ MakeGame: does [
 		return Ret
 	]
 
-
 	;-------------------------------------------------------------------------
 	; Movement & effects functions
 	;-------------------------------------------------------------------------	
 	
-	; Getup effects 
+	; Getup effects for people
 	GoGetup: function [f [object!]][
 		if f/extra/type = "A" [
 			either ((first f/extra/name) = #"f") [
@@ -419,7 +417,7 @@ MakeGame: does [
 		]
 	]
 
-	; Dead effects, return true if no more lives
+	; Dead effects for people, return true if player has no more lives
 	GoDead: function [f [object!]][
 		Ret: false
 		f/size: f/extra/size
@@ -502,7 +500,7 @@ MakeGame: does [
 		return Ret
 	]
 	
-	; Gravity, inertia, passage, & difficulty effects for objects affected by
+	; Gravity effect for objects affected by, also added effects of inertia, passage & difficulty 
 	GoGravity: function [][
 		foreach-face GameData/CaveFace [
 			
@@ -694,7 +692,7 @@ MakeGame: does [
 
 		y: f/offset/y
 		y: subtract y GameData/StepValue
-		if f/extra/type = "A" [y: subtract y GameData/StepValue] ;Agents need extra speed on stairs
+		if f/extra/type = "A" [y: subtract y GameData/StepValue] ;Agents need extra speed on stairs because of homing checks
 		f/offset/y: y
 
 		GoWalkStairs f
@@ -707,19 +705,19 @@ MakeGame: does [
 
 		y: f/offset/y
 		y: add y GameData/StepValue
-		if f/extra/type = "A" [y: add y GameData/StepValue] ;Agents need extra speed on stairs
+		if f/extra/type = "A" [y: add y GameData/StepValue] ;Agents need extra speed on stairs because of homing checks
 		f/offset/y: y
 
 		GoWalkStairs f 
 	]
 
-	; Some face walking on stairs
+	; Some face walking on stairs 
 	GoWalkStairs: function [f [object!]][
 		f/extra/blockedLT: false
 		f/extra/blockedRT: false
 		; Change image when moving
 		f/extra/walking: add f/extra/walking 1
-		if f/extra/walking > 4 [f/extra/walking: 1]
+		if f/extra/walking > 4 [f/extra/walking: 1] 
 		switch f/extra/walking [
 			1 [f/image: f/extra/images/7]
 			2 [f/image: f/extra/images/8]

@@ -21,7 +21,7 @@ system/view/auto-sync?:  yes
 	
 ; Game data & defaults object
 GameData: context [
-	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12"] 
+	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" "L13"] 
 	GameRate: 0:00:00.003 
 	CaveName: "cave"
 	CaveFace: object []
@@ -46,14 +46,14 @@ GameData: context [
 	SpiderDeadDelay: 0.01
 	AgentDeadDelay: 0.03
 	AgentRate: 0:00:00.05
-	AgentKnockPoints: 25  ; We don't want to promote guards killing behaviors
+	AgentKnockPoints: 25  ;We don't want to promote guards killing behaviors
 	KnockAltitude: 10	
 	FallingFaceAltitude: 15
 	GetupAltitude: 40
 	DeadAltitude: 60
 	KartStopDelay: 100
 	LifterStopDelay: 100
-	TerrainColor: 187.145.0.0
+	TerrainColor: 187.145.0.0   ;This color stop gravity effect
 	StairsColor1: 68.68.68.0
 	StairsColor2: 127.127.127.0
 	HandleColor: 195.195.195.0
@@ -118,7 +118,7 @@ view/options [size 800x600
 	  at 1x1 Splash: image 800x600 %DATA/cave-in.jpg 
 	  at 650x450 button 100x50 red brick center "P L A Y" on-click [unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]]
 
-; Level loading & play
+; Level loading & start game play
 GameData/Curlevel: first GameData/Levels
 LoadDfltImages
 LoadLevel GameData/Curlevel
