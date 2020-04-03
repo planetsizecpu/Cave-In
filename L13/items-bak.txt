@@ -1,0 +1,60 @@
+# Level 13 (In loving memory to people died by CovId-19) items configuration file
+#
+# The program will load all of them and put in locations.
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+# ItemTypes start with: (A)gent (B)and (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (P)assage (R)ose (S)pider (T)ools (W)barrow
+# Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
+# Location (Stop #)
+# Direction (1 Down/Right -1 Up/Left)
+# For (B)and first stop indicates axis displacement 1x0 -> Horizontal  Other value -> Vertical
+# (P)assages must be grouped pairs passage1 and passage2, passage3 and passage4 ... (use direction as grouping field)
+# For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
+#
+# To modify default GameData/word values:  & word value   (value can be tuple! logic! or integer!)
+& CeilingDist 25
+& TerrainColor 151.117.0.0
+& StairsColor1 127.127.127
+& StairsColor2 255.201.14
+& HandleColor 1.3.65
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
+#
+JOHN|john|doe|22x34|50x540|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
+ROSE|rose|doer|22x34|1540x540|0:0:0.06|0x0|0:0|0|1|rose-l1.png|rose-r1.png|rose-l2.png|rose-r2.png|rose-l3.png|rose-r3.png|rose-s1.png|rose-s2.png|rose-s3.png|rose-s4.png
+#
+GOLDBG|gold1|gld1|8x12|105x180|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold2|gld2|8x12|315x240|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|fgold3|gld3|8x12|400x375|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|gold4|gld4|8x12|505x115|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold5|gld5|8x12|660x500|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold6|gld6|8x12|875x115|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold7|gld7|8x12|875x430|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold8|gld8|8x12|1290x115|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|gold9|gld9|8x12|1135x175|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|gold10|gld10|8x12|1500x235|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|gold11|gld11|8x12|1340x300|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|gold12|gld12|8x12|1135x375|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|gold13|gld13|8x12|1500x430|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|gold14|gld14|8x12|1460x490|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|gold15|gld15|8x12|1460x490|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|gold16|gld16|8x12|1500x490|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|gold17|gld17|8x12|1500x490|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|hgold18|gld18|8x12|769x375|0:0|0x0|0:0|0|1|gold3.png
+#
+#TPICKAX|pickax1|pkx1|9x10|1510x540|0:0|0x0|0:0:10|0|1|pickax1.png
+#
+LIFT1|lifter1|lif1|35x10|1553x67|0:0:0.0001|1553x67,1553x584|0:0|1|0|lifter-1.png
+LIFT2|lifter2|lif2|35x10|1221x584|0:0:0.0001|1221x135,1221x199,1221x262,1221x325,1221x389,1221x454,1224x514,1221x584|0:0|-1|0|lifter-1.png
+LIFT3|lifter3|lif3|65x10|1369x584|0:0:0.0001|1369x514,1369x584|0:0|-1|0|lifter-2.png
+LIFT4|lifter4|lif4|35x10|570x584|0:0:0.0001|570x67,570x135,570x199,570x325,570x389,570x454,570x514,570x584|0:0|-1|0|lifter-1.png
+LIFT5|lifter5|lif5|35x10|29x67|0:0:0.0001|29x67,29x584|0:0|1|0|lifter-1.png
+LIFT6|lifter6|lif6|35x10|957x518|0:0:0.0001|957x135,957x199,957x262,957x325,957x389,957x454,957x514|0:0|-1|0|lifter-1.png
+#
+WBARROW|wbarrow1|wba1|26x17|270x560|0:0|0x0|0:0|0|1|barrow-r1.png
+#
+AGENT1|fagent1|age1|22x34|1500x20|0:0:0.06|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
+AGENT2|agent2|age2|22x34|500x95|0:0:0.06|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
