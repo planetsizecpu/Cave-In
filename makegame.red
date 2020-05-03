@@ -41,10 +41,15 @@ MakeGame: does [
 				prin "END OF USE TOOL "
 				print GameData/PlayerFace/extra/getobject/extra/name
 				Message "Tool timeout"
+				
 				; Set tool invisible
 				GameData/PlayerFace/extra/getobject/visible?: false
 				GameData/PlayerFace/extra/getobject/offset: -50x-50	
 				GameData/PlayerFace/extra/getobject/extra/gravity: false
+				
+				; Delete used tools from the face tree to shorten the process loop
+				alter GameData/CaveFace/pane (GameData/PlayerFace/extra/getobject)
+				
 				; Thief to leave tool
 				GameData/PlayerFace/extra/tool: false
 				GameData/PlayerFace/extra/getobject: copy []
@@ -79,9 +84,9 @@ MakeGame: does [
 				Message "Loading new level"
 				alert "Get ready for new level!"
 				LoadLevel first GameData/Levels
-				john/lives: add john/lives 1 ;One extra life for level ending
+				GameData/PlayerFace/extra/lives: add GameData/PlayerFace/extra/lives 1 ;One extra life for level ending
 				Glives/text: copy "LIVES:  " 
-				append Glives/text to-string john/lives
+				append Glives/text to-string GameData/PlayerFace/extra/lives
 				Message "You awarded one extra life"
 				GameData/Score: add GameData/Score 250
 				Gscore/text: copy "SCORE: "
@@ -115,15 +120,15 @@ MakeGame: does [
 	SetDemoMode: function [][
 		either GameData/DemoMode [
 			GameData/DemoMode: false 
-			john/lives: 3
+			GameData/PlayerFace/extra/lives: 3
 			Glives/text: copy "LIVES:  " 
-			append Glives/text to-string john/lives
+			append Glives/text to-string GameData/PlayerFace/extra/lives
 			message "DEMO MODE OFF"
 		][
 			GameData/DemoMode: true 
-			john/lives: 99 
+			GameData/PlayerFace/extra/lives: 99 
 			Glives/text: copy "LIVES:  " 
-			append Glives/text to-string john/lives
+			append Glives/text to-string GameData/PlayerFace/extra/lives
 			message "DEMO MODE ON"
 		]
 	]
@@ -574,6 +579,8 @@ MakeGame: does [
 							face/visible?: false
 							face/extra/gravity: false
 							face/offset: -25x-25
+							; Delete carryed bag from the face tree to shorten the process loop
+							alter GameData/CaveFace/pane (face)
 						]
 					]
 				]	
@@ -843,7 +850,11 @@ MakeGame: does [
 					f/extra/getobject/enabled?: false
 					f/extra/getobject/visible?: false
 					f/extra/getobject/extra/gravity: false
-					f/extra/getobject/extra/offset: -25x-25
+					f/extra/getobject/offset: -25x-25
+					; Delete carryed bag from the face tree to shorten the process loop
+					alter GameData/CaveFace/pane (f/extra/getobject)
+					
+					; Set defaults
 					f/extra/getobject: copy []
 					f/extra/gold: false
 					f/size: Thief-S4/size
@@ -1108,14 +1119,9 @@ MakeGame: does [
 		; Check for altitude and force horizontal center other face to avoid walls 
 		if not none? OtherFace [
 			if any [OtherFace/extra/type = "J" OtherFace/extra/type = "A" OtherFace/extra/type = "R"] [
-				; If have barrow, then can't take lifter
+			
+				; If have barrow, we are on kart, or we hang on handle, can't take lifter
 				if all [not OtherFace/extra/wbarrow not OtherFace/extra/onkart not OtherFace/extra/handle] [
-					if OtherFace/extra/handle [
-						OtherFace/extra/handle: false
-						OtherFace/extra/gravity: true
-						OtherFace/size: OtherFace/extra/size
-						OtherFace/image: OtherFace/extra/image
-					]
 					OtherFace/offset/x: f/offset/x + (f/size/x / 2) - 7
 					OtherFace/offset/y: f/offset/y - 30
 					if OtherFace/extra/altitude > GameData/DeadAltitude [GoDead OtherFace return 0]
@@ -1199,7 +1205,7 @@ MakeGame: does [
 				; Check if thief has tool or is on kart and kill agent, otherwise kill thief
 				either any [OtherFace/extra/tool OtherFace/extra/onkart] [
 					; Set get-up status on the agent to disturb it
-					print "JOHN HAS TOOL or IS ON KART, NO FEAR."					
+					print "PLAYER HAS TOOL or IS ON KART, NO FEAR."					
 					f/extra/dead: true
 					return 0
 				][
@@ -1307,7 +1313,7 @@ MakeGame: does [
 				; Check if thief has tool or is on kart and kill thief if not
 				either any [OtherFace/extra/tool OtherFace/extra/onkart] [
 					; Set get-up status on the spider to disturb it
-					print "JOHN HAS TOOL, NO FEAR."
+					print "PLAYER HAS TOOL, NO FEAR."
 					f/extra/dead: true
 					return 0
 				][
