@@ -7,7 +7,7 @@ I know it does not have the quality of the true arcade game, but the goal is not
 
 Official sound support is not available at this time, so no sound is provided for now.
 
-To run it just download/unpack the files & folders and click on cave.red file if you have the Red language toolchain in your path (yes it runs on interpreter), otherwise click on cave executable file (not tested on Mac).
+To run it just download/unpack the files & folders and click on cave.red file if you have the Red language toolchain in your path (yes it runs on interpreter, that's how powerful Red-lang is), otherwise click on cave executable file (not tested on Mac).
 
 Have fun!
 
