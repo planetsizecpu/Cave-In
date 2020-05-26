@@ -11,7 +11,6 @@ Red [Needs: 'View
 ; Credit to @greggirwin for help on L11 Sphinx teleporter door
 ; Thanks to @dander & others for moral support on early stages 
 ; Thanks to @TheRedTeam for making this fantastic human-oriented language 
-
 recycle/off
 system/view/auto-sync?:  yes
 
@@ -26,7 +25,7 @@ GameData: context [
 	CaveName: "cave"
 	CaveFace: make face! [type: 'base] ;Define a null 'base to avoid compiler error
 	CaveFaceHalfSizeX: 800 ;Half x cave size will be updated as we load the level cave image
-	CaveFaceRollOffsetX: 0 - CaveFaceHalfSizeX
+	CaveFaceRollOffsetX: (0 - CaveFaceHalfSizeX)
 	PlayerFace: object [image: []] ;Must be defined to avoid error when compile to release mode
 	Items: [] 
 	Curlevel: "" 

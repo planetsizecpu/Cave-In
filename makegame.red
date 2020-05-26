@@ -213,7 +213,7 @@ MakeGame: does [
 		FSize: face/size
 		FOffset: face/offset
 		CheckPointU: (((FOffset/y + 3) * GameData/CaveFace/size/x) + FOffset/x ) - 2
-		CheckPointC: (((FOffset/y + (FSize/y / 2)) * GameData/CaveFace/size/x) + FOffset/x ) - 5		
+		CheckPointC: (((FOffset/y + (to-integer (FSize/y / 2))) * GameData/CaveFace/size/x) + FOffset/x ) - 5		
 		CheckPointD: (((FOffset/y + (FSize/y - 3 )) * GameData/CaveFace/size/x) + FOffset/x ) - 2
 		TerrainU: GameData/CaveFace/image/(CheckPointU)
 		TerrainC: GameData/CaveFace/image/(CheckPointC)		
@@ -228,7 +228,7 @@ MakeGame: does [
 		FSize: face/size
 		FOffset: face/offset
 		CheckPointU: (((FOffset/y + 3) * GameData/CaveFace/size/x) + FOffset/x + Fsize/x ) + 2
-		CheckPointC: (((FOffset/y + (FSize/y / 2)) * GameData/CaveFace/size/x) + FOffset/x + Fsize/x ) + 5				
+		CheckPointC: (((FOffset/y + (to-integer (FSize/y / 2))) * GameData/CaveFace/size/x) + FOffset/x + Fsize/x ) + 5				
 		CheckPointD: (((FOffset/y + (FSize/y - 3 )) * GameData/CaveFace/size/x) + FOffset/x + Fsize/x ) + 2		
 		TerrainU: GameData/CaveFace/image/(CheckPointU)
 		TerrainC: GameData/CaveFace/image/(CheckPointC)		
@@ -336,7 +336,7 @@ MakeGame: does [
 		
 		; Compute points to check over the face using coordinates on cave image
 		while [c < 45] [
-			CheckPointY: (((FOffset/y - c) * GameData/CaveFace/size/x) + FOffset/x + (FSize/x / 2))
+			CheckPointY: (((FOffset/y - c) * GameData/CaveFace/size/x) + FOffset/x + (to-integer (FSize/x / 2)))
 			TerrainY: GameData/CaveFace/image/(CheckPointY)
 			if (TerrainY = GameData/HandleColor) [Ret: true]		
 			c: add c 1
@@ -1113,7 +1113,7 @@ MakeGame: does [
 		; Check if lifter is on stop delay
 		if f/extra/stopdelay > 0 [
 			f/extra/stopdelay: subtract f/extra/stopdelay 1 
-			return 0
+			exit
 		]
 
 		; Check for altitude and force horizontal center other face to avoid walls 
@@ -1122,7 +1122,7 @@ MakeGame: does [
 			
 				; If have barrow, we are on kart, or we hang on handle, can't take lifter
 				if all [not OtherFace/extra/wbarrow not OtherFace/extra/onkart not OtherFace/extra/handle] [
-					OtherFace/offset/x: f/offset/x + (f/size/x / 2) - 7
+					OtherFace/offset/x: f/offset/x + (to-integer (f/size/x / 2) - 10)
 					OtherFace/offset/y: f/offset/y - 30
 					if OtherFace/extra/altitude > GameData/DeadAltitude [GoDead OtherFace return 0]
 				]
@@ -1262,7 +1262,7 @@ MakeGame: does [
 			]
 		]
 
-		; Agent is at the same /y level, so we get best horizontal direction
+		; Agent is at the same Y level, so we get best horizontal direction
 		either GameData/PlayerFace/offset/x < f/offset/x [
 			either not CheckTerrainLT f [
 				either not GameData/PlayerFace/extra/tool [f/extra/direction: 9][f/extra/direction: 3]
@@ -1422,14 +1422,14 @@ MakeGame: does [
 			either f/extra/direction > 0 [ 
 				if (f/offset/x) >= 0 [f/offset/x: f/extra/offset/x]
 			][
-				if (absolute f/offset/x) > (f/image/size/x / 2) [f/offset/x: f/extra/offset/x]
+				if (absolute f/offset/x) > (to-integer (f/image/size/x / 2)) [f/offset/x: f/extra/offset/x]
 			]
 		][
 			f/offset/y: add f/offset/y f/extra/direction
 			either f/extra/direction > 0 [ 
 				if (f/offset/y) >= 0 [f/offset/y: f/extra/offset/y]
 			][
-				if (absolute f/offset/y) > (f/image/size/y / 2) [f/offset/y: f/extra/offset/y]
+				if (absolute f/offset/y) > (to-integer (f/image/size/y / 2)) [f/offset/y: f/extra/offset/y]
 			]
 		]
 	]	

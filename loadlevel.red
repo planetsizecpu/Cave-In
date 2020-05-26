@@ -136,7 +136,7 @@ LoadLevel: func [lv][
 									]
 					append GameScr/pane get (w)
 					GameData/CaveFace: get (w)
-					GameData/CaveFaceHalfSizeX: GameData/CaveFace/size/x / 2
+					GameData/CaveFaceHalfSizeX: to-integer (GameData/CaveFace/size/x / 2)
 					GameData/CaveFaceRollOffsetX: 0 - GameData/CaveFaceHalfSizeX
 				]
 			"D" [set (w) make face! [type: 'base size: ItemObj/size offset: ItemObj/offset image: copy ItemObj/image extra: ItemObj
