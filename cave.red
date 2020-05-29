@@ -15,7 +15,6 @@ recycle/off
 system/view/auto-sync?:  yes
 
 ; Load librarys
-t1: now/time/precise
 #include %loadlevel.red
 #include %makegame.red
 
@@ -68,11 +67,6 @@ GameData: context [
 	SpiderDead: [SpiderDead-X1 SpiderDead-X2 SpiderDead-X3 SpiderDead-X4] ;Spider dead sequence
 	DropDead: [DropDead-X1 DropDead-X2 DropDead-X3 DropDead-X4] ;Drop crash sequence 
 ]
-t2: now/time/precise
-t0: t2 - t1
-print t1
-print t2
-print t0
 
 ; Set game screen layout
 GameScr: layout [
