@@ -65,6 +65,8 @@ LoadLevel: func [lv][
 			facename: fn 
 			face: copy []
 			size: to-pair lin/4 
+			halfsizex: to-integer (size/x / 2)
+			halfsizey: to-integer (size/y / 2)
 			offset: to-pair lin/5  
 			rate: to-time lin/6 
 

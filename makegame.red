@@ -1116,13 +1116,14 @@ MakeGame: does [
 			exit
 		]
 
-		; Check for altitude and force horizontal center other face to avoid walls 
+		; Check for altitude and force horizontal center jumping face on lifter to avoid walls 
 		if not none? OtherFace [
 			if any [OtherFace/extra/type = "J" OtherFace/extra/type = "A" OtherFace/extra/type = "R"] [
 			
-				; If have barrow, we are on kart, or we hang on handle, can't take lifter
+				; If have barrow, we are on kart, or we hang on handle, can't take lifter other case yes
 				if all [not OtherFace/extra/wbarrow not OtherFace/extra/onkart not OtherFace/extra/handle] [
-					OtherFace/offset/x: f/offset/x + (to-integer (f/size/x / 2) - 10)
+					; OtherFace/offset/x: f/offset/x + (to-integer (f/size/x / 2) - 10) ; Centering jumping face this way is costly!
+					OtherFace/offset/x: f/offset/x + f/extra/halfsizex  - 10 ; Centering jumping face is costly!
 					OtherFace/offset/y: f/offset/y - 30
 					if OtherFace/extra/altitude > GameData/DeadAltitude [GoDead OtherFace return 0]
 				]
