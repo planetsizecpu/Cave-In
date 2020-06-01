@@ -1,7 +1,8 @@
 Red [Needs: 'View
 	Title:   "Cave-In"
 	Author:  "@planetsizecpu"
-	File:    "Cave.red"
+	File:    %Cave.red
+	Purpose: {Create game objects and start game}
 ] 
 
 ; Credit to @rebolek for help on "make face" syntax & browser behavior

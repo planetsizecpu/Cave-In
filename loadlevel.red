@@ -1,7 +1,8 @@
 Red [
 	Title:   "Cave-In"
 	Author:  "@planetsizecpu"
-	File:    "LoadLevel.red"
+	File:    %LoadLevel.red
+	Purpose: {Load game and level data and create objects}
 ]
 
 ;--------------------------------------------------------------------------------------------------

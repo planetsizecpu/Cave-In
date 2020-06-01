@@ -1,12 +1,10 @@
 Red [
 	Title:   "Cave-In"
 	Author:  "@planetsizecpu"
-	File:    "MakeGame.red"
+	File:    %MakeGame.red
+	Purpose: {Create game functions after making objects}
 ]
 
-;--------------------------------------------------------------------------------------------------
-; Create game functions after making objects
-;--------------------------------------------------------------------------------------------------
 MakeGame: does [
 
 	;-------------------------------------------------------------------------
@@ -1263,7 +1261,7 @@ MakeGame: does [
 			]
 		]
 
-		; Agent is at the same Y level, so we get best horizontal direction
+		; Agent is at the same vertical level, so we get best horizontal direction
 		either GameData/PlayerFace/offset/x < f/offset/x [
 			either not CheckTerrainLT f [
 				either not GameData/PlayerFace/extra/tool [f/extra/direction: 9][f/extra/direction: 3]
