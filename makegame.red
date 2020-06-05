@@ -647,9 +647,9 @@ MakeGame: does [
 	
 	; Some face going left
 	GoLeft: function [f [object!]][
-		if f/extra/handle [return 0]
+		if f/extra/handle [exit]
 		if f/extra/type = "J" [f/extra/direction: -1]
-		if CheckTerrainLT f [return 0]
+		if CheckTerrainLT f [exit]
 		if CheckSlopeLT f [f/offset/y: f/offset/y - 1]
 
 		x: f/offset/x
@@ -669,9 +669,9 @@ MakeGame: does [
 
 	; Some face going right
 	GoRight: function [f [object!]][
-		if f/extra/handle [return 0]
+		if f/extra/handle [exit]
 		if f/extra/type = "J" [f/extra/direction: 1]
-		if CheckTerrainRT f [return 0]
+		if CheckTerrainRT f [exit]
 		if CheckSlopeRT f [f/offset/y: f/offset/y - 1]
 
 		x: f/offset/x
@@ -691,9 +691,9 @@ MakeGame: does [
 
 	; Some face going up
 	GoUp: function [f [object!]][
-		if f/extra/handle [return 0]
-		if CheckCeiling f [return 0]	
-		if all [(not CheckStairsUP f) (not CheckStairsDN f)] [return 0]
+		if f/extra/handle [exit]
+		if CheckCeiling f [exit]	
+		if all [(not CheckStairsUP f) (not CheckStairsDN f)] [exit]
 
 		y: f/offset/y
 		y: subtract y GameData/StepValue
@@ -705,8 +705,8 @@ MakeGame: does [
 
 	; Some face going down
 	GoDown: function [f [object!]][
-		if f/extra/handle [return 0]			
-		if CheckFloor f [return 0]	
+		if f/extra/handle [exit]			
+		if CheckFloor f [exit]	
 
 		y: f/offset/y
 		y: add y GameData/StepValue
@@ -857,7 +857,7 @@ MakeGame: does [
 					f/extra/gold: false
 					f/size: Thief-S4/size
 					f/image: Thief-S4					
-					return 0
+					exit
 				][
 					; Leave gold on lifter
 					OtherFace: f/extra/getobject		
@@ -937,7 +937,7 @@ MakeGame: does [
 			if not none? OtherFace [
 				if OtherFace/extra/type = "K" [
 					KartJumpIn OtherFace f
-					return 0
+					exit
 				]
 			]
 		][
@@ -969,7 +969,7 @@ MakeGame: does [
 				if not none? OtherFace [
 					if OtherFace/extra/type = "K" [
 						KartJumpOut OtherFace f
-						return 0
+						exit
 					]
 				]
 			]
@@ -1029,7 +1029,7 @@ MakeGame: does [
 					OtherFace/extra/dead: true
 					print " AGENT DEAD BY KART"
 					Message "Agent dead by kart"
-					return 0
+					exit
 				]		
 			][
 				if OtherFace/extra/type = "J" [
@@ -1038,7 +1038,7 @@ MakeGame: does [
 						print " DEAD BY KART"
 						Message "You dead by kart"
 						GoDead OtherFace
-						return 0
+						exit
 					]
 				]
 			]
@@ -1047,7 +1047,7 @@ MakeGame: does [
 		; Check if kart is on stop delay
 		either f/extra/stopdelay > 0 [
 			f/extra/stopdelay: subtract f/extra/stopdelay 1
-			return 0
+			exit
 		][
 			; No on stop delay, overlapping (boy) face (hidden) must follow the kart when moving
 			if f/extra/loaded [
@@ -1148,7 +1148,7 @@ MakeGame: does [
 
 		; Check for this agent getup & dead
 		if f/extra/getup [GoGetup f]
-		if f/extra/dead [GoDead f return 0]
+		if f/extra/dead [GoDead f exit]
 
 		; Check for agent overlap  
 		OtherFace: CheckOverlaps f 
@@ -1195,7 +1195,7 @@ MakeGame: does [
 			if f/extra/type = "R" [
 				if OtherFace/extra/type = "J" [
 					f/image: GirlGetup-X3
-					return 0
+					exit
 				]
 			]
 			
@@ -1206,10 +1206,10 @@ MakeGame: does [
 					; Set get-up status on the agent to disturb it
 					print "PLAYER HAS TOOL or IS ON KART, NO FEAR."					
 					f/extra/dead: true
-					return 0
+					exit
 				][
 					OtherFace/extra/dead: true
-					return 0
+					exit
 				]
 			]
 		]
@@ -1236,7 +1236,7 @@ MakeGame: does [
 			]		
 			; If we find stairs or thief have pickax we must check for new direction
 			if any [CheckStairsUP f CheckStairsDN f GameData/PlayerFace/extra/tool] [f/extra/direction: -1]
-			return 0
+			exit
 		]
 				
 		; Get best vertical direction first, as it need stairs to move it takes precedence
@@ -1244,7 +1244,7 @@ MakeGame: does [
 			if any [CheckStairsUP f CheckStairsDN f] [
 				either not CheckCeiling f [
 					either not GameData/PlayerFace/extra/tool [f/extra/direction: 12][f/extra/direction: 6]
-					return 0 ; For prevalence of vertical directions
+					exit ; For prevalence of vertical directions
 				][
 					f/extra/direction: -1
 				]
@@ -1254,7 +1254,7 @@ MakeGame: does [
 			if any [CheckStairsUP f CheckStairsDN f] [
 				either not CheckFloor f [
 					either not GameData/PlayerFace/extra/tool [f/extra/direction: 6][f/extra/direction: 12]
-					return 0 ; For prevalence of vertical directions
+					exit ; For prevalence of vertical directions
 				][
 					f/extra/direction: -1				
 				]
@@ -1299,13 +1299,13 @@ MakeGame: does [
 			if OtherFace/extra/type = "A" [
 					OtherFace/extra/getup: true
 					f/extra/dead: true
-					return 0
+					exit
 			]
 			; Check if other face is girl to kill the spider 			
 			if OtherFace/extra/type = "R" [
 					print "THE GIRL HAS FLY SWATTER, NO FEAR."
 					f/extra/dead: true
-					return 0
+					exit
 			]
 			; Check if other face is thief
 			if OtherFace/extra/type = "J" [
@@ -1314,7 +1314,7 @@ MakeGame: does [
 					; Set get-up status on the spider to disturb it
 					print "PLAYER HAS TOOL, NO FEAR."
 					f/extra/dead: true
-					return 0
+					exit
 				][
 					either OtherFace/extra/wound [
 						OtherFace/extra/dead: true
@@ -1325,7 +1325,7 @@ MakeGame: does [
 						f/extra/dead: true
 						
 					]
-					return 0
+					exit
 				]
 			]
 		]
@@ -1367,7 +1367,7 @@ MakeGame: does [
 	DropMotion: function [f [object!]][		
 
 		; Check for this drop dead
-		if f/extra/dead [GoDead f return 0]
+		if f/extra/dead [GoDead f exit]
 
 		; Check for drop overlap  
 		OtherFace: CheckOverlaps f 
@@ -1376,7 +1376,7 @@ MakeGame: does [
 			if OtherFace/extra/type = "A" [
 					OtherFace/extra/getup: true
 					f/extra/dead: true
-					return 0
+					exit
 			]
 			
 			; Check if other face is thief
@@ -1389,7 +1389,7 @@ MakeGame: does [
 					OtherFace/extra/getup: true
 					f/extra/dead: true						
 				]
-				return 0
+				exit
 			]
 		]
 	]
@@ -1410,7 +1410,7 @@ MakeGame: does [
 						prin OtherFace/extra/name
 						print " DEAD BY BAND"
 						GoDead OtherFace
-						return 0
+						exit
 			]
 		]
 		
@@ -1440,10 +1440,10 @@ MakeGame: does [
 	
 		
 		; Do nothing if start passage is loaded 
-		if sp/extra/loaded [return 0]
+		if sp/extra/loaded [exit]
 		
 		; Do nothing if face is not allowed to travel
-		if all [f/extra/type <> "A" f/extra/type <> "J" f/extra/type <> "R"] [return 0]
+		if all [f/extra/type <> "A" f/extra/type <> "J" f/extra/type <> "R"] [exit]
 		
 		; Init destination passage
 		dp: copy []
@@ -1478,7 +1478,7 @@ MakeGame: does [
 		sp/rate: sp/extra/rate
 		dp/rate: dp/extra/rate
 		
-		return 0
+		exit
 	]
 
 	; Reset passage after timeout
