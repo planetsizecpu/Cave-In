@@ -1057,14 +1057,8 @@ MakeGame: does [
 		
 		; We use direction on kart to allow easy displacement
 		f/offset/x: add f/offset/x f/extra/direction
-		if f/offset/x <= fst/x [f/extra/direction:  2]
-		if f/offset/x >= lst/x [f/extra/direction: -2]
-
-		; Check for kart stops and set next delay
-		foreach stp f/extra/stops [if (stp/x = f/offset/x) or (stp/x = (f/offset/x - 1)) [
-				f/extra/stopdelay: GameData/KartStopDelay
-			]
-		]
+		if f/offset/x <= fst/x [f/extra/direction:  3 f/extra/stopdelay: GameData/KartStopDelay]
+		if f/offset/x >= lst/x [f/extra/direction: -3 f/extra/stopdelay: GameData/KartStopDelay]
 	]
 	
 	; Kart jump-in (from handle status)
@@ -1136,7 +1130,6 @@ MakeGame: does [
 		; Check for lifter stops and set next delay
 		foreach stp f/extra/stops [if stp/y = f/offset/y [
 				f/extra/stopdelay: GameData/LifterStopDelay 
-				if f/extra/timetool <> 0 [ f/extra/stopdelay: add f/extra/stopdelay to-integer f/extra/timetool]
 			]
 		]
 	]
