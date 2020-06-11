@@ -793,7 +793,6 @@ MakeGame: does [
 	; Thief interaction some object
 	GoAction: function [f [object!]][
 
-
 		; Check if it is overlap
 		OtherFace: CheckOverlaps f 
 	
