@@ -11,7 +11,7 @@ To run it just download/unpack the files & folders and click on cave.red file if
 
 Have fun!
 
-![Test Image 1](/Level.gif)
+![Test Image 1](/Level.jpg)
 
 **********************************************************************************************************
 INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
