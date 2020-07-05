@@ -3,7 +3,7 @@ Cave-In: Bagman arcade machine game sequel (still alpha)
 
 ![Test Image 0](/bagman.jpg)
 
-There was an arcade machine game from the early 80's where I spent a lot of coins, now I'm learning Red language I thought it was a good idea to design a game from the same story, just to learn while play, because I wanted for long time to play this game again (collect gold is always amazing) but wasn't available, so I had no choice but to do it myself. Red lang allowed me to create the game from scratch, I never imagined it would be so easy & fun to make games, I enjoyed a lot as it has been a long time since I did it this way, I could hardly have done it with another language that was not human oriented. 
+There was an arcade machine game from the early 80's where I spent a lot of coins, now I'm learning Red language I thought it was a good idea to design a game from the same idea, just to learn while play, because I wanted for long time to play this game again (collect gold is always amazing) but wasn't available, so I had no choice but to do it myself. Red lang allowed me to create the game from scratch, I never imagined it would be so easy & fun to make games, I enjoyed a lot as it has been a long time since I did it this way, I could hardly have done it with another language that was not human oriented. 
 
 ![Test Image 1](/cavein.jpg)
 
