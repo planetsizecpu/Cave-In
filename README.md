@@ -1,5 +1,5 @@
 # Cave-In
-Cave-In: Bagman arcade machine game sequel (still alpha)
+Cave-In: Arcade machine game sequel (still alpha)
 
 ![Test Image 0](/bagman.jpg)
 
