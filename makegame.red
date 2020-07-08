@@ -548,7 +548,19 @@ MakeGame: does [
 					if OtherFace/extra/type = "P" [
 						PassageMotion face OtherFace
 					]
-					
+					; Check for gold hit on band so we can't finish this level,					
+					if OtherFace/extra/type = "B" [			
+						if any [face/extra/type = "G" face/extra/type = "W"][
+							print "ITEM LOST ON LAVA, WE CAN'T FINISH THIS LEVEL SO RESTART"
+							alert "ITEM LOST ON LAVA (RESTART)"
+							OldLevel: GameData/Curlevel
+							info/rate: none
+							EraseLevel GameData/CaveFace 
+							GameData/Curlevel: OldLevel
+							LoadLevel GameData/Curlevel
+							info/rate: GameData/GameRate
+						]
+					]
 					; Check for gold hit on barrow so we carry
 					if OtherFace/extra/type = "W" [
 						if face/extra/type = "G" [
