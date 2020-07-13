@@ -2,7 +2,7 @@ Red [Needs: 'View
 	Title:   "Cave-In"
 	Author:  "@planetsizecpu"
 	File:    %Cave.red
-	Purpose: {Create game objects and start game}
+	Purpose: {This is a Bagman arcade game sequel}
 ] 
 
 ; Credit to @rebolek for help on "make face" syntax & browser behavior
@@ -33,12 +33,12 @@ GameData: context [
 	Stock: 0 
 	Goldbags: 0
 	Score: 0
-	Gravity: 3
+	Gravity: 3 ;Scenarios with slopes are not suitable for higher values, here the boy gets locked
 	Antigravity: 3
 	DropGravity: 3
 	Slide: false
 	StepValue: 2
-	Inertia: 0.5
+	Inertia: 0.5 ;This values seems to work well from slow cpu's to i5 faster machines
 	MaxInertia: 2.0
 	AddInertia: 0.02
 	CeilingDist: 18
@@ -53,7 +53,7 @@ GameData: context [
 	DeadAltitude: 60
 	KartStopDelay: 100
 	LifterStopDelay: 100
-	TerrainColor: 187.145.0.0   ;This color stop gravity effect
+	TerrainColor: 187.145.0.0   ;This color stop gravity effect, it can be updated by config file parameter
 	StairsColor1: 68.68.68.0
 	StairsColor2: 127.127.127.0
 	HandleColor: 195.195.195.0
