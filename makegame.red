@@ -344,25 +344,21 @@ MakeGame: does [
 		return Ret
 	]
 	
-	; Look to left of face coordinates for stairs or lifter (function for further use)
-	LookForStairLT: function [face [object!]][
+	; Look to left of face coordinates for lifter
+	LookForElevatorLT: function [face [object!]][
 		Ret: false
 		FSize: face/size
 		FOffset: face/offset
 
-		; Loop to left from face until external wall
-		CheckPointY: (FOffset/y + FSize/y) * GameData/CaveFace/size/x
+		; Loop to left from face
+		CheckPointY: FOffset/y * GameData/CaveFace/size/x ;We check at face eye level
 		CheckPointX: FOffset/x
-		while [CheckPointX > 14][
+		pxl: 0
+		repeat pxl 12 [
 			CheckPointX: subtract CheckPointX 1
 			CheckPoint: (CheckPointY + CheckPointX )
 			Terrain: GameData/CaveFace/image/(CheckPoint)
-			if Terrain = GameData/TerrainColor [
-				print "LEFT-LOOK FOUND TERRAIN"
-				break
-			] 
-			if  any [Terrain = GameData/StairsColor1 Terrain = GameData/StairsColor2 Terrain = GameData/LifterCable] [
-				print "LEFT-LOOK FOUND STAIR OR LIFTER"
+			if  Terrain = GameData/LifterCable [
 				Ret: true
 				break
 			]
@@ -370,25 +366,21 @@ MakeGame: does [
 		return Ret
 	]
 
-	; Look to right of face coordinates for stairs or lifter (function for further use)
-	LookForStairRT: function [face [object!]][
+	; Look to right of face coordinates for lifter
+	LookForElevatorRT: function [face [object!]][
 		Ret: false
 		FSize: face/size
 		FOffset: face/offset
-
-		; Loop to right from face until external wall
-		CheckPointY: (FOffset/y + FSize/y) * GameData/CaveFace/size/x
-		CheckPointX: FOffset/x
-		while [CheckPointX < (GameData/CaveFace/size/x - 14)][
+		
+		; Loop to right from face
+		CheckPointY: FOffset/y * GameData/CaveFace/size/x ;We check at face eye level
+		CheckPointX: FOffset/x + FSize/x
+		pxl: 0
+		repeat pxl 12 [
 			CheckPointX: add CheckPointX 1
 			CheckPoint: (CheckPointY + CheckPointX )
 			Terrain: GameData/CaveFace/image/(CheckPoint)
-			if Terrain = GameData/TerrainColor [
-				print "RIGHT-LOOK FOUND TERRAIN"
-				break
-			] 
-			if any [Terrain = GameData/StairsColor1 Terrain = GameData/StairsColor2 Terrain = GameData/LifterCable] [
-				print "RIGHT-LOOK FOUND STAIR OR LIFTER"
+			if  Terrain = GameData/LifterCable [
 				Ret: true
 				break
 			]
@@ -1220,7 +1212,7 @@ MakeGame: does [
 
 		; HOMING FUNCTION vary their behavior by the tool status! 
 		; Negative direction means compute new direction (clock wise)
-		; if there is a direction follow it while we can or find stairs
+		; if there is a direction follow it while we can or find stairs or elevator 
 		if f/extra/direction > 0 [
 			if f/extra/direction = 12 [
 				GoUp f 
@@ -1232,11 +1224,32 @@ MakeGame: does [
 			]		
 			if f/extra/direction = 9 [
 				if any [f/extra/blockedLT CheckTerrainLT f] [f/extra/direction: -1]
-				GoLeft f 
+				either LookForElevatorLT f [
+					either none? OtherFace [
+						f/extra/direction: -1 ;Don't wait for lifter if thief is on opposite direction
+					][ 
+						if OtherFace/extra/type = "L" [
+							GoLeft f
+						]					
+					]
+				][
+					GoLeft f
+				]
 			]
 			if f/extra/direction = 3 [
 				if any [f/extra/blockedRT CheckTerrainRT f] [f/extra/direction: -1]			
-				GoRight f
+				either LookForElevatorRT f [  
+					if none? OtherFace [  
+						f/extra/direction: -1 ;Don't wait for lifter if thief is on opposite direction					
+					][
+						if OtherFace/extra/type = "L" [
+							GoRight f 
+						] 
+					]
+				][
+					GoRight f
+				]
+
 			]		
 			; If we find stairs or thief have pickax we must check for new direction
 			if any [CheckStairsUP f CheckStairsDN f GameData/PlayerFace/extra/tool] [f/extra/direction: -1]
