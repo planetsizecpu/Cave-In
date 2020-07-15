@@ -1228,7 +1228,7 @@ MakeGame: does [
 					either none? OtherFace [
 						f/extra/direction: -1 ;Don't wait for lifter if thief is on opposite direction
 					][ 
-						if OtherFace/extra/type = "L" [
+						if all [OtherFace/extra/type = "L" not OtherFace/extra/loaded][
 							GoLeft f
 						]					
 					]
@@ -1242,7 +1242,7 @@ MakeGame: does [
 					if none? OtherFace [  
 						f/extra/direction: -1 ;Don't wait for lifter if thief is on opposite direction					
 					][
-						if OtherFace/extra/type = "L" [
+						if all [OtherFace/extra/type = "L" not OtherFace/extra/loaded][
 							GoRight f 
 						] 
 					]
