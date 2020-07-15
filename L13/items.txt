@@ -18,6 +18,7 @@
 & StairsColor1 127.127.127
 & StairsColor2 255.201.14
 & HandleColor 1.3.65
+& LifterCable 128.64.64.0
 #
 # ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
 #
