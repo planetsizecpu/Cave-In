@@ -5,7 +5,7 @@ Cave-In: Bagman arcade machine game sequel (still alpha)
 
 There was an arcade machine game from the early 80's where I spent a lot of coins. As I'm learning Red language, I thought it would be a good training to design a similar game, just to learn while play. Red lang allowed me to create the game from scratch, I never imagined it would be so easy & fun to make games, I enjoyed a lot as it has been a long time since I did it this way. As it was a lot of work to do for only a person, by design everything and put it all to run together was a challenge, I could hardly have done it with another language that was not human oriented.
 
-![Test Image 1](/scenes/bgm-l1600.jpg)
+![Test Image 1](/scenes/bgm-l1600.png)
 
 I know it does not have the quality of the true arcade game, but the goal is not to market it, but to learn, to play and share the code to others, so they can also enjoy and learn in his way. In addition there are some known functional concerns on behavior, such guards to stop & wait for elevator on same floor (now they jump), and for sure will discover many more, so the development continues. 
 
