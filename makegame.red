@@ -523,6 +523,7 @@ MakeGame: does [
 						if any [face/extra/type = "G" face/extra/type = "T" face/extra/type = "W" face/extra/type = "D"] [
 							if face/extra/altitude > GameData/KnockAltitude [
 								OtherFace/extra/dead: true
+								message "Thake this!!!"
 							]
 						]
 					]
@@ -944,7 +945,7 @@ MakeGame: does [
 				]
 			]
 		][
-			; Check if face is under handle and got them
+			; Check if face is under handle and grab them
 			if (CheckHandle f) [ 
 				if not f/extra/wbarrow [
 					f/visible?: true
@@ -964,8 +965,8 @@ MakeGame: does [
 						f/size: ThiefHandle/size
 						f/image: ThiefHandle
 					]
-					print "GOT HANDLE"	
-					Message "Got handle"
+					print "GRAB HANDLE"	
+					Message "Ill grab this ceiling beam..."
 				]
 				
 				; Check if we left the kart
@@ -993,7 +994,7 @@ MakeGame: does [
 						OtherFace/extra/gravity: false
 					]					
 					"T"	[prin "GOT TOOL " print OtherFace/extra/name
-						Message "Got tool"
+						Message "Ah-ha! a pickax!!"
 						f/extra/tool: true
 						f/extra/getobject: OtherFace
 						f/image: ThiefTool
@@ -1002,7 +1003,7 @@ MakeGame: does [
 						OtherFace/extra/gravity: false
 					]
 					"W"	[prin "GOT WHEELBARROW " print OtherFace/extra/name
-						Message "Got wheelbarrow"
+						Message "This is my kind of work!!!"
 						f/extra/wbarrow: true
 						f/extra/getobject: OtherFace
 						f/size: ThiefWba/size
@@ -1079,6 +1080,7 @@ MakeGame: does [
 		f/extra/altitude: 0 			 ;Don't use altitude on kart
 		either f/extra/direction > 0 [f/image: Kart-TR1][f/image: Kart-TL1]	;Set loaded kart image
 		print "ON KART"
+		message "... And into the wagon"
 	]
 	
 	; Kart jump-out (to handle status on GoAction function)
@@ -1092,6 +1094,7 @@ MakeGame: does [
 		OtherFace/extra/onkart: false	;Signal jumping face as not loaded on kart
 		OtherFace/offset/y: subtract OtherFace/offset/y 16 ;Vertical adjust as we leave the kart
 		print "LEAVE KART"
+		message "Hoppla..."
 	]
 
 	;-------------------------------------------------------------------------
@@ -1228,9 +1231,11 @@ MakeGame: does [
 					either none? OtherFace [
 						f/extra/direction: -1 ;Don't wait for lifter if thief is on opposite direction
 					][ 
-						if all [OtherFace/extra/type = "L" not OtherFace/extra/loaded][
+						either all [OtherFace/extra/type = "L" not OtherFace/extra/loaded][
 							GoLeft f
-						]					
+						][
+							f/extra/direction: -1 ;Don't wait for lifter if thief is on opposite direction
+						]
 					]
 				][
 					GoLeft f
@@ -1244,7 +1249,9 @@ MakeGame: does [
 					][
 						if all [OtherFace/extra/type = "L" not OtherFace/extra/loaded][
 							GoRight f 
-						] 
+						][
+							f/extra/direction: -1 ;Don't wait for lifter if thief is on opposite direction					
+						]
 					]
 				][
 					GoRight f
