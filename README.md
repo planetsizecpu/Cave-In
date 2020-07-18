@@ -7,7 +7,7 @@ There was an arcade machine game from the early 80's where I spent a lot of coin
 
 ![Test Image 1](/scenes/bgm-l1600.png)
 
-I know it does not have the quality of the true arcade game, but the goal is not to market it, but to learn, to play and share the code to others, so they can also enjoy and learn in his way. In addition there are some known functional concerns on behavior, such guards to stop & wait for elevator on same floor (now they jump), and for sure will discover many more, so the development continues. 
+I know it does not have the quality of the true arcade game, but the goal is not to market it, but to learn, to play and share the code to others, so they can also enjoy and learn in his way. In addition there are some known functional concerns on behavior, and for sure will discover more, so the development continues. 
 
 Official sound support is not available at this time, so no sound is provided by now.
 
