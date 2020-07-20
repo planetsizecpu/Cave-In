@@ -24,9 +24,9 @@ MakeGame: does [
 		
 		; Check for screen roll
 		either GameData/PlayerFace/offset/x > GameData/CaveFaceHalfSizeX [
-			cave/offset/x: GameData/CaveFaceRollOffsetX
+			GameData/CaveFace/offset/x: GameData/CaveFaceRollOffsetX
 		][
-			cave/offset/x: 0 
+			GameData/CaveFace/offset/x: 0 
 		]
 		
 		; Check for demo mode autoplay
