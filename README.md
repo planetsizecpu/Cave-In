@@ -1,5 +1,5 @@
 # Cave-In
-Cave-In: Bagman arcade machine game sequel (still alpha)
+Cave-In: Arcade machine game sequel (still alpha)
 
 ![Test Image 0](/scenes/bagman.jpg)
 
@@ -23,5 +23,4 @@ INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
 
 Red language is an open source project made by Full Stack Technologies @ www.red-lang.org
 
-Bagman Machine (C) by Stern-Seeburg & Valadon Automation
  
