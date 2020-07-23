@@ -1,0 +1,42 @@
+# Level 14 items configuration file
+#
+# The program will load all of them and put in locations.
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+# ItemTypes start with: (A)gent (B)and (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (P)assage (S)pider (T)ools (W)barrow
+# Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
+# Location (Stop #)
+# Direction (1 Down/Right -1 Up/Left)
+# For (B)and first stop indicates axis displacement 1x0 -> Horizontal  Other value -> Vertical
+# (P)assages must be grouped pairs passage1 and passage2, passage3 and passage4 ... (use direction as grouping field)
+# For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
+#
+# To modify default GameData/word values:  & word value   (value can be tuple! logic! or integer!)
+& CeilingDist 20
+& TerrainColor 89.89.89.0
+& StairsColor1 200.191.231
+& StairsColor2 63.72.204.0
+& DropGravity 1
+& LifterCable 128.64.64.0
+& HandleColor 163.73.164.0
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
+AGENT1|fagent1|age1|22x34|600x15|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
+AGENT2|agent2|age2|22x34|1530x15|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
+#
+GOLDBG|gold1|gld1|8x12|75x50|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold2|gld2|8x12|75x240|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold3|gld3|8x12|75x320|0:0|0x0|0:0|0|1|gold1.png
+#
+TPICKAX|pickax1|pkx1|9x10|350x320|0:0|0x0|0:0:10|0|1|pickax1.png
+#
+LIFT1|lifter1|lif1|35x10|167x144|0:0:0.0001|167x144,167x202,167x266,167x330,167x394,167x458,167x522,167x585|0:0|1|0|lifter-1.png
+LIFT2|lifter2|lif2|35x10|1253x67|0:0:0.0001|1253x67,1253x135,1253x199,1253x262,1253x325,1253x389,1253x454,1253x514,1253x584|0:0|1|0|lifter-1.png
+#
+KART1|kart1|krt1|35x19|75x569|0:0:0.00001|75x569,1530x569|0:0|3|0|kart1.png
+#
+WBARROW|wbarrow1|wba1|26x17|155x550|0:0|0x0|0:0|0|1|barrow-r1.png
+JOHN|john|doe|22x34|150x80|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
