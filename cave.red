@@ -2,7 +2,7 @@ Red [Needs: 'View
 	Title:   "Cave-In"
 	Author:  "@planetsizecpu"
 	File:    %Cave.red
-	Purpose: {This is a Bagman arcade game sequel}
+	Purpose: {This is a arcade game sequel}
 ] 
 
 ; Credit to @rebolek for help on "make face" syntax & browser behavior
@@ -21,7 +21,7 @@ system/view/auto-sync?:  yes
 
 ; Game data & defaults object
 GameData: context [
-	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" "L13"] 
+	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" "L13" "L14"] 
 	GameRate: 0:00:00.003 
 	CaveName: "cave"
 	CaveFace: make face! [type: 'base] ;Define a null 'base to avoid compiler error
@@ -94,6 +94,8 @@ GameScr: layout [
 	at 290x685  Gddiff: radio yellow blue "Difficult" on-change [CheckDifficulty]
 	at 430x685  Gdexpe: radio yellow blue "Expert" on-change [CheckDifficulty]
 ]
+
+SelevelScr: layout [title "Level" slv: text-list 50x300 data GameData/Levels]
 
 ; Open browser to red-lang HQ
 OpenBrowser: function [face event][

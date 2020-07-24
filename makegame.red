@@ -199,7 +199,7 @@ MakeGame: does [
 		Ret: none
 		foreach-face GameData/CaveFace [
 			if face <> f [
-				if overlap? face f [Ret: face] ;Break would help here
+				if overlap? face f [Ret: face exit]
 			]
 		]
 		return Ret
