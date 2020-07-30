@@ -1,5 +1,5 @@
 # Cave-In
-Cave-In: Arcade machine game sequel (still alpha)
+Cave-In: Arcade machine game sequel (still alpha as Red lang itself)
 
 ![Test Image 0](/scenes/bagman.jpg)
 
@@ -7,7 +7,7 @@ There was an arcade machine game from the early 80's where I spent a lot of coin
 
 I know it does not have the quality of the true arcade game, but the goal is not to market it, but to learn, to play and share the code to others, so they can also enjoy and learn in his way. In addition there are some known functional concerns on behavior, and for sure will discover more, so the development continues. 
 
-Official sound support is not available at this time, so no sound is provided by now as Red language still alpha.
+Official sound support is not available at this time, so no sound is provided by now, but I remember the sound effects & melody (ice cream truck song melody)
 
 To run it just download/unpack the files & folders and click on cave.red file if you have the Red language toolchain in your path (yes it runs on interpreter, that's how powerful Red-lang is), otherwise click on cave executable file (not tested on Mac).
 
