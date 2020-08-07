@@ -11,7 +11,7 @@ Official sound support is not available at this time, so no sound is provided by
 
 To run it just download/unpack the files & folders and click on cave.red file if you have the Red language toolchain in your path (yes it runs on interpreter, that's how powerful Red-lang is), otherwise click on cave executable file (not tested on Mac).
 
-Have fun! 😍
+Have fun! 😉
 
 ![Test Image 2](/scenes/Level.gif)
 
