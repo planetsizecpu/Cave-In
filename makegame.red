@@ -35,7 +35,7 @@ MakeGame: does [
 		; Check for thief tools use timing
 		if GameData/PlayerFace/extra/tool [
 			GameData/PlayerFace/extra/getobject/extra/usedtool: add GameData/PlayerFace/extra/getobject/extra/usedtool GameData/GameRate
-			; Wow! we are going across three objects here, I would call it transobjecting at wikipedia
+			; Wow! we are going across three objects here, I would call it transobjecting
 			if GameData/PlayerFace/extra/getobject/extra/usedtool > GameData/PlayerFace/extra/getobject/extra/timetool  [
 				prin "END OF USE TOOL "
 				print GameData/PlayerFace/extra/getobject/extra/name
