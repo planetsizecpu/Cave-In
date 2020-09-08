@@ -309,8 +309,8 @@ LoadDfltImages: func [][
 	GirlGetup-X2: load to-file (Ldata/rose-x2.png)		
 	GirlGetup-X3: load to-file (Ldata/rose-x3.png)
 	
-	Kart-TL1: load to-file (Ldata/Kart-tl1.png)
-	Kart-TR1: load to-file (Ldata/Kart-tr1.png)
+	Kart-TL1: load to-file (Ldata/kart-tl1.png)
+	Kart-TR1: load to-file (Ldata/kart-tr1.png)
 	
 	Wbarrow-RG1: load to-file (Ldata/barrow-rg1.png)
 	Wbarrow-LG1: load to-file (Ldata/barrow-lg1.png)
