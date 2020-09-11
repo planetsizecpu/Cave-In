@@ -205,6 +205,19 @@ MakeGame: does [
 		]
 		return Ret
 	]
+	
+	; Check if some loaded kart face overlaps gold/pickax face, we call here only when action key pressed while on kart
+	; so f argument should be a loaded kart face only to work properly, this is due to the fact that previous func
+	; not work while on kart as it detects the thief overlap on the same kart it goes
+	CheckKartOverlaps: function [f [object!]][
+		Ret: none
+		foreach-face GameData/CaveFace [
+			if any [face/extra/type = "G" face/extra/type = "T"] [
+				if overlap? face f [Ret: face]
+			]
+		]
+		return Ret
+	]
 
 	; Check if it is terrain at left from some face
 	CheckTerrainLT: function [face [object!]][
@@ -983,6 +996,7 @@ MakeGame: does [
 		; Check overlap on other face and get it if main face don't have anything in hands
 		if (not none? OtherFace) [
 			if all [(not f/extra/handle) (not f/extra/tool) (not f/extra/gold) (not f/extra/wbarrow)] [
+				;prin "*** OVERLAP OTHERFACE: " print OtherFace/extra/name
 				switch OtherFace/extra/type [
 					none	[]
 					"G"	[prin "GOT GOLD " print OtherFace/extra/name
@@ -1013,6 +1027,16 @@ MakeGame: does [
 						OtherFace/offset: -75x-75
 						OtherFace/extra/gravity: false
 					]				
+					"K" [KartOverlap: CheckKartOverlaps OtherFace  ;The thief is on kart, check if overlaps gold/pickax
+						if not none? KartOverlap [
+							Message "Load stuff on kart "
+							either KartOverlap/extra/type = "T" [f/extra/tool: true][f/extra/gold: true]
+							f/extra/getobject: KartOverlap  
+							KartOverlap/visible?: false
+							KartOverlap/offset: -75x-75
+							KartOverlap/extra/gravity: false
+						]
+					]
 				]
 			]
 		]
