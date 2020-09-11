@@ -877,7 +877,7 @@ MakeGame: does [
 					f/image: Thief-S4					
 					exit
 				][
-					; Leave gold on lifter
+					; Leave gold on lifter o kart
 					OtherFace: f/extra/getobject		
 					; We use direction to leave gold 
 					either f/extra/direction < 0 [
@@ -892,8 +892,8 @@ MakeGame: does [
 					f/extra/gold: false
 					f/extra/getobject: copy []
 					f/image: Thief-S4
-					prin "LEAVE GOLD ON LIFTER " print OtherFace/extra/name
-					Message "Leave gold"
+					prin "LEAVE GOLD IN MOTION " print OtherFace/extra/name
+					Message "Leave gold in motion"
 					OtherFace: none
 				]
 			]
