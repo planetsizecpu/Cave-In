@@ -815,6 +815,8 @@ MakeGame: does [
 		; Check if it is overlap on this face
 		OtherFace: CheckOverlaps f 
 	
+		; BEFORE TAKING SOMETHING WE MUST LEAVE WHAT WE HAVE ON HANDS
+		
 		; Check if we leave gold
 		if all [f/extra/gold (not CheckStairsDN f) (not CheckTerrainLT f) (not CheckTerrainRT f) (not CheckHandle f) (not f/extra/handle)] [
 			either (none? OtherFace) [
@@ -861,8 +863,8 @@ MakeGame: does [
 					GameData/Score: add GameData/Score f/extra/getobject/extra/value
 					Gscore/text: copy "SCORE: "
 					append Gscore/text to-string GameData/Score
-
-				
+					
+					; Set gold away
 					f/extra/getobject/enabled?: false
 					f/extra/getobject/visible?: false
 					f/extra/getobject/extra/gravity: false
@@ -938,7 +940,6 @@ MakeGame: does [
 			OtherFace: none
 		]					
 		
-		
 		; Check if face has handle, and left them
 		either f/extra/handle [
 			f/extra/handle: false
@@ -992,13 +993,14 @@ MakeGame: does [
 				]
 			]
 		]
+		; NOW WE HAVE NOTHING IN HANDS SO WE CAN TAKE SOMETING
 		
-		; Check overlap on other face and get it if main face don't have anything in hands
+		; Check overlap on other face and get it if we can
 		if (not none? OtherFace) [
 			if all [(not f/extra/handle) (not f/extra/tool) (not f/extra/gold) (not f/extra/wbarrow)] [
 				;prin "*** OVERLAP OTHERFACE: " print OtherFace/extra/name
 				switch OtherFace/extra/type [
-					none	[]
+					none [] ; We set this for security
 					"G"	[prin "GOT GOLD " print OtherFace/extra/name
 						Message "Got gold"
 						f/extra/gold: true
@@ -1017,15 +1019,18 @@ MakeGame: does [
 						OtherFace/offset: -50x-50
 						OtherFace/extra/gravity: false
 					]
-					"W"	[prin "GOT WHEELBARROW " print OtherFace/extra/name
-						Message "This is my kind of work!!!"
-						f/extra/wbarrow: true
-						f/extra/getobject: OtherFace
-						f/size: ThiefWba/size
-						either OtherFace/extra/goldbags > 0 [f/image: ThiefWGba][f/image: ThiefWba]
-						OtherFace/visible?: false
-						OtherFace/offset: -75x-75
-						OtherFace/extra/gravity: false
+					"W"	[if not f/extra/onkart [
+							; It is malfunction if we get the barrow on kart, so it is forbidden
+							prin "GOT WHEELBARROW " print OtherFace/extra/name
+							Message "This is my kind of work!!!"
+							f/extra/wbarrow: true
+							f/extra/getobject: OtherFace
+							f/size: ThiefWba/size
+							either OtherFace/extra/goldbags > 0 [f/image: ThiefWGba][f/image: ThiefWba]
+							OtherFace/visible?: false
+							OtherFace/offset: -75x-75
+							OtherFace/extra/gravity: false
+						]
 					]				
 					"K" [KartOverlap: CheckKartOverlaps OtherFace  ;The thief is on kart, check if overlaps gold/pickax
 						if not none? KartOverlap [
