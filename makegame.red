@@ -208,7 +208,7 @@ MakeGame: does [
 	
 	; Check if some loaded kart face overlaps gold/pickax face, we call here only when action key pressed while on kart
 	; so f argument should be a loaded kart face only to work properly, this is due to the fact that previous func
-	; not work while on kart as it detects the thief overlap on the same kart it goes
+	; not work while on kart as it detects the thief overlap on the same kart it goes before detecting other objects
 	CheckKartOverlaps: function [f [object!]][
 		Ret: none
 		foreach-face GameData/CaveFace [
@@ -993,7 +993,8 @@ MakeGame: does [
 				]
 			]
 		]
-		; NOW WE HAVE NOTHING IN HANDS SO WE CAN TAKE SOMETING
+		
+		; NOW WE DON'T HAVE ANYTHING IN HANDS SO WE CAN TAKE SOMETING
 		
 		; Check overlap on other face and get it if we can
 		if (not none? OtherFace) [
@@ -1032,14 +1033,16 @@ MakeGame: does [
 							OtherFace/extra/gravity: false
 						]
 					]				
-					"K" [KartOverlap: CheckKartOverlaps OtherFace  ;The thief is on kart, check if overlaps gold/pickax
-						if not none? KartOverlap [
-							Message "Load stuff on kart "
-							either KartOverlap/extra/type = "T" [f/extra/tool: true][f/extra/gold: true]
-							f/extra/getobject: KartOverlap  
-							KartOverlap/visible?: false
-							KartOverlap/offset: -75x-75
-							KartOverlap/extra/gravity: false
+					"K" [if f/extra/onkart [	;The thief is on kart, check if overlaps gold/pickax
+							KartOverlap: CheckKartOverlaps OtherFace
+							if not none? KartOverlap [
+								Message "Load stuff on kart "
+								either KartOverlap/extra/type = "T" [f/extra/tool: true][f/extra/gold: true]
+								f/extra/getobject: KartOverlap  
+								KartOverlap/visible?: false
+								KartOverlap/offset: -75x-75
+								KartOverlap/extra/gravity: false
+							]
 						]
 					]
 				]
