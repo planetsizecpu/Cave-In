@@ -64,7 +64,7 @@ For (A)gents first ObjectName & image files letter must be "f" if agent is femal
 For (G)old bags first ObjectName letter can be "f" for fat (bag green neck) or "h" for heavy (24kt red) gold
 To modify default GameData/word values: & word value (value can be tuple! logic! or integer!)
 
-Each comment line starts with "#", it is important not to set white lines in the whole file (as I did here for clariry) or the
+Each comment line starts with "#", it is important not to set white lines in the whole file (as I did here for clarity) or the
 game hangs.
 
 EXAMPLE:
