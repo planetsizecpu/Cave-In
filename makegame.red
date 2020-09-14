@@ -994,7 +994,7 @@ MakeGame: does [
 			]
 		]
 		
-		; NOW WE DON'T HAVE ANYTHING IN HANDS SO WE CAN TAKE SOMETING
+		; NOW IF WE DON'T HAVE ANYTHING IN HANDS SO WE CAN TAKE SOMETING
 		
 		; Check overlap on other face and get it if we can
 		if (not none? OtherFace) [
