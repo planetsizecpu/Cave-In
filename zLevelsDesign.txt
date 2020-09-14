@@ -35,9 +35,9 @@ remains having that name for the cave file.
 
 The kart handles must be placed near the x point where the kart stops, the vertical distance must be at no more than 45 pixels
 from the boy y coordinate when it is located under the handle, as the handle routine will look up when action key is pressed to 
-find the & HandleColor value, so we have some flexibility. Note that if the kart floor is too thin, as it is on L14 by design, 
-the terrain checking routines will return false, thus the boy could release gold bags and load the barrow if present  while on 
-kart, this is a non inteded trick I discovered by testing :-)
+find the & HandleColor value, so we have some flexibility. Note that if the kart floor is too thin, as in L14 by design, the
+wall checking routines will return false, thus the boy could release gold bags and load the barrow if present while on kart, this
+is a non inteded trick I discovered by testing :-)
 
 You must draw the kart cable and stop terminator marks, the lifters holes and cables (if any) to match theyr stop points related
 at the configuration file, and use the & LifterCable value as color for them. There is an unused function that looks for this color
