@@ -22,6 +22,7 @@ INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
 ![Test Image 3](/scenes/Levelb.gif)
 
 Red language is an open source project made by Full Stack Technologies @ www.red-lang.org 
+
 Machine images property of Stern Seeburg ® 
 
 ![Test Image 4](/scenes/bgm-l1600.png)
