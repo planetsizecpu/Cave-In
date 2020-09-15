@@ -11,7 +11,7 @@ Official sound support is not available at this time, so no sound is provided by
 
 To run the game you need the Red toolchain in your path, just download/unpack the files & folders and click on cave.red file (yes it runs on interpreter, that's how powerful Red-lang is), otherwise click on cave executable file (not tested on Mac).
 
-Have fun! 😉
+Have fun! 😉 
 
 ![Test Image 2](/scenes/Level.gif)
 
@@ -21,6 +21,6 @@ INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
 
 ![Test Image 3](/scenes/Levelb.gif)
 
-Red language is an open source project made by Full Stack Technologies @ www.red-lang.org
+Red language is an open source project made by Full Stack Technologies @ www.red-lang.org 
 
  
