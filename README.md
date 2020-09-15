@@ -9,7 +9,7 @@ I know it does not have the quality of the true arcade game, but the goal is not
 
 Official sound support is not available at this time, so no sound is provided by now, but I remember the sound effects & melody (ice cream truck song melody), some day music would be available and we could enjoy much more.
 
-To run the game you need the [Red](https://www.red-lang.org/p/download.html) toolchain in your path, just download/unpack the files & folders and click on cave.red file (yes it runs on interpreter, that's how powerful Red-lang is), otherwise click on cave executable file (not tested on Mac).
+To run the game you need the [Red](https://www.red-lang.org/p/download.html) toolchain in your path, just download/unpack the files & folders and click on cave.red file (yes it runs on interpreter, that's how powerful Red-lang is), otherwise click on cave executable file (not tested on Mac). Find us at the Red [forums](https://gitter.im/red/red/gui-branch)
 
 Have fun! 😉 
 
