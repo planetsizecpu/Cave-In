@@ -16,6 +16,7 @@ recycle/off
 system/view/auto-sync?:  yes
 
 ; Load librarys
+#include %bogo.red
 #include %loadlevel.red
 #include %makegame.red
 
@@ -23,6 +24,7 @@ system/view/auto-sync?:  yes
 GameData: context [
 	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" "L13" "L14"] 
 	GameRate: 0:00:00.003 
+	CpuBogo: bogo
 	CaveName: "cave"
 	CaveFace: make face! [type: 'base] ;Define a null 'base to avoid compiler error
 	CaveFaceHalfSizeX: 800 ;Half x cave size will be updated as we load the level cave image
