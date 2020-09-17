@@ -994,14 +994,16 @@ MakeGame: does [
 			]
 		]
 		
-		; NOW IF WE DON'T HAVE ANYTHING IN HANDS SO WE CAN TAKE SOMETING
+		; NOW IF WE DON'T HAVE ANYTHING IN HANDS WE CAN TAKE SOMETING
 		
 		; Check overlap on other face and get it if we can
 		if (not none? OtherFace) [
 			if all [(not f/extra/handle) (not f/extra/tool) (not f/extra/gold) (not f/extra/wbarrow)] [
 				;prin "*** OVERLAP OTHERFACE: " print OtherFace/extra/name
 				switch OtherFace/extra/type [
-					none [] ; We set this for security
+					none [
+						; We set this for security
+					] 
 					"G"	[prin "GOT GOLD " print OtherFace/extra/name
 						Message "Got gold"
 						f/extra/gold: true

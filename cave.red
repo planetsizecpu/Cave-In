@@ -54,7 +54,7 @@ GameData: context [
 	GetupAltitude: 40
 	DeadAltitude: 60
 	KartStopDelay: 100
-	LifterStopDelay: 100
+	LifterStopDelay: 100	;Standard value for older i5 and less performance machines
 	TerrainColor: 187.145.0.0   ;This color stop gravity effect, it can be updated by config file parameter
 	StairsColor1: 68.68.68.0
 	StairsColor2: 127.127.127.0
@@ -120,7 +120,16 @@ CheckDifficulty: function [][
 ; View splash screen
 view/options [size 800x600 	
 	  at 1x1 Splash: image 800x600 %DATA/cave-in.jpg 
-	  at 650x450 button 100x50 white red center "P L A Y" on-click [unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]]
+	  at 50x460 bg: text 150x30 black white
+	  at 650x450 button 100x50 white red center "P L A Y" on-click [bg/text: to-string GameData/CpuBogo wait 3 unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]]
+
+; Check CPU speed on faster machines to trim waiting time for karts & elevators
+if GameData/CpuBogo < 0.12 [GameData/LifterStopDelay: 200 GameData/KartStopDelay: 200]
+if Gamedata/CpuBogo < 0.10 [GameData/LifterStopDelay: 300 GameData/KartStopDelay: 300]
+if GameData/CpuBogo < 0.08 [GameData/LifterStopDelay: 400 GameData/KartStopDelay: 400]
+if GameData/CpuBogo < 0.06 [GameData/LifterStopDelay: 500 GameData/KartStopDelay: 500]
+if GameData/CpuBogo < 0.04 [GameData/LifterStopDelay: 600 GameData/KartStopDelay: 600]
+if GameData/CpuBogo < 0.02 [GameData/LifterStopDelay: 700 GameData/KartStopDelay: 700]
 
 ; Level loading & start game play
 GameData/Curlevel: first GameData/Levels

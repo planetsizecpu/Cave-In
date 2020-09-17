@@ -70,7 +70,6 @@ LoadLevel: func [lv][
 			halfsizey: to-integer (size/y / 2)
 			offset: to-pair lin/5  
 			rate: to-time lin/6 
-
 			stops: copy []
 			foreach p (split lin/7 ",") [append stops to-pair p]
 			stopdelay: 0
@@ -82,9 +81,9 @@ LoadLevel: func [lv][
 			goldbags: 0
 			lives: 0
 			value: 0 if [ItemType = "G"][Value: 100 ; Nominal value
-										 if (first name) = #"f" [Value: 200] ; Fat-goldbags
-										 if (first name) = #"h" [Value: 300] ; Heavy-goldbags
-										]
+							if (first name) = #"f" [Value: 200] ; Fat-goldbags
+							if (first name) = #"h" [Value: 300] ; Heavy-goldbags
+						]
 			gravity: false if lin/10 = "1" [gravity: true]
 			timetool: to-time lin/8
 			usedtool: 0:0:0.0
@@ -120,6 +119,18 @@ LoadLevel: func [lv][
 		; Read item object
 		ItemObj: get to-word x
 		w: to-word ItemObj/facename
+		
+		; Check CPU speed on faster machines to trim rate for karts & elevators
+		inc: to-time 0:0:0.0003
+		if any [ItemObj/type = "L" ItemObj/type = "K"] [
+			if GameData/CpuBogo < 0.12 [ItemObj/rate: add ItemObj/rate inc]
+			if Gamedata/CpuBogo < 0.10 [ItemObj/rate: add ItemObj/rate inc]
+			if GameData/CpuBogo < 0.08 [ItemObj/rate: add ItemObj/rate inc]
+			if GameData/CpuBogo < 0.06 [ItemObj/rate: add ItemObj/rate inc]
+			if GameData/CpuBogo < 0.04 [ItemObj/rate: add ItemObj/rate inc]
+			if GameData/CpuBogo < 0.02 [ItemObj/rate: add ItemObj/rate inc]
+		]
+		unset 'inc
 		
 		; Make new face for item object depending on its type and attach to cave panel
 		switch/default ItemObj/type [
