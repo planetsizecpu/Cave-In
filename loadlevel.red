@@ -120,15 +120,17 @@ LoadLevel: func [lv][
 		ItemObj: get to-word x
 		w: to-word ItemObj/facename
 		
-		; Check CPU speed on faster machines to trim rate for karts & elevators
+		; Check CPU index on faster machines to trim rate for karts & elevators
 		inc: to-time 0:0:0.0003
 		if any [ItemObj/type = "L" ItemObj/type = "K"] [
-			if GameData/CpuBogo < 0.12 [ItemObj/rate: add ItemObj/rate inc]
-			if Gamedata/CpuBogo < 0.10 [ItemObj/rate: add ItemObj/rate inc]
-			if GameData/CpuBogo < 0.08 [ItemObj/rate: add ItemObj/rate inc]
-			if GameData/CpuBogo < 0.06 [ItemObj/rate: add ItemObj/rate inc]
-			if GameData/CpuBogo < 0.04 [ItemObj/rate: add ItemObj/rate inc]
-			if GameData/CpuBogo < 0.02 [ItemObj/rate: add ItemObj/rate inc]
+			if CpuData/CpuIdx > 0 [ItemObj/rate: add ItemObj/rate inc]
+			if CpuData/CpuIdx > 1 [ItemObj/rate: add ItemObj/rate inc]
+			if CpuData/CpuIdx > 2 [ItemObj/rate: add ItemObj/rate inc]
+			if CpuData/CpuIdx > 3 [ItemObj/rate: add ItemObj/rate inc]
+			if CpuData/CpuIdx > 4 [ItemObj/rate: add ItemObj/rate inc]
+			if CpuData/CpuIdx > 5 [ItemObj/rate: add ItemObj/rate inc]
+			if CpuData/CpuIdx > 6 [ItemObj/rate: add ItemObj/rate inc]
+			if CpuData/CpuIdx > 7 [ItemObj/rate: add ItemObj/rate inc]
 		]
 		unset 'inc
 		

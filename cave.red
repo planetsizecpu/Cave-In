@@ -24,7 +24,6 @@ system/view/auto-sync?:  yes
 GameData: context [
 	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" "L13" "L14"] 
 	GameRate: 0:00:00.003 
-	CpuBogo: bogo
 	CaveName: "cave"
 	CaveFace: make face! [type: 'base] ;Define a null 'base to avoid compiler error
 	CaveFaceHalfSizeX: 800 ;Half x cave size will be updated as we load the level cave image
@@ -69,6 +68,31 @@ GameData: context [
 	FAgentDead: [FAgentDead-X1 FAgentDead-X2 FAgentDead-X3 FAgentDead-X4] ;Female agent dead sequence
 	SpiderDead: [SpiderDead-X1 SpiderDead-X2 SpiderDead-X3 SpiderDead-X4] ;Spider dead sequence
 	DropDead: [DropDead-X1 DropDead-X2 DropDead-X3 DropDead-X4] ;Drop crash sequence 
+]
+
+; Local CPU performance index depending on system state
+CpuData: context [
+	CpuBogo: bogo
+	CpuIdx: 0 ;Std value CPUs older than mid-range i5 to match the game settings
+	either system/state/interpreted? [
+		; On my test for mid-range core i5 ~0.14
+		if CpuBogo < 0.120 [CpuIdx: 1]
+		if CpuBogo < 0.100 [CpuIdx: 2]
+		if CpuBogo < 0.080 [CpuIdx: 3]
+		if CpuBogo < 0.060 [CpuIdx: 4]
+		if CpuBogo < 0.040 [CpuIdx: 5]
+		if CpuBogo < 0.020 [CpuIdx: 6]
+		if CpuBogo < 0.009 [CpuIdx: 7]
+	][
+		; On my test for mid-range core i5 ~0.06
+		if CpuBogo < 0.060 [CpuIdx: 1]
+		if CpuBogo < 0.050 [CpuIdx: 2]
+		if CpuBogo < 0.040 [CpuIdx: 3]
+		if CpuBogo < 0.030 [CpuIdx: 4]
+		if CpuBogo < 0.020 [CpuIdx: 5]
+		if CpuBogo < 0.010 [CpuIdx: 6]
+		if CpuBogo < 0.004 [CpuIdx: 7]
+	]
 ]
 
 ; Set game screen layout
@@ -121,15 +145,17 @@ CheckDifficulty: function [][
 view/options [size 800x600 	
 	  at 1x1 Splash: image 800x600 %DATA/cave-in.jpg 
 	  at 50x460 bg: text 150x30 black white
-	  at 650x450 button 100x50 white red center "P L A Y" on-click [bg/text: to-string GameData/CpuBogo wait 3 unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]]
+	  at 650x450 button 100x50 white red center "P L A Y" on-click [bg/text: to-string CpuData/CpuBogo wait 3 unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]]
 
-; Check CPU speed on faster machines to trim waiting time for karts & elevators
-if GameData/CpuBogo < 0.12 [GameData/LifterStopDelay: 200 GameData/KartStopDelay: 200]
-if Gamedata/CpuBogo < 0.10 [GameData/LifterStopDelay: 300 GameData/KartStopDelay: 300]
-if GameData/CpuBogo < 0.08 [GameData/LifterStopDelay: 400 GameData/KartStopDelay: 400]
-if GameData/CpuBogo < 0.06 [GameData/LifterStopDelay: 500 GameData/KartStopDelay: 500]
-if GameData/CpuBogo < 0.04 [GameData/LifterStopDelay: 600 GameData/KartStopDelay: 600]
-if GameData/CpuBogo < 0.02 [GameData/LifterStopDelay: 700 GameData/KartStopDelay: 700]
+; Check CPU index on faster machines to trim waiting time for karts & elevators
+if CpuData/CpuIdx > 0 [GameData/LifterStopDelay: 200 GameData/KartStopDelay: 200]
+if CpuData/CpuIdx > 1 [GameData/LifterStopDelay: 300 GameData/KartStopDelay: 300]
+if CpuData/CpuIdx > 2 [GameData/LifterStopDelay: 400 GameData/KartStopDelay: 400]
+if CpuData/CpuIdx > 3 [GameData/LifterStopDelay: 500 GameData/KartStopDelay: 500]
+if CpuData/CpuIdx > 4 [GameData/LifterStopDelay: 600 GameData/KartStopDelay: 600]
+if CpuData/CpuIdx > 5 [GameData/LifterStopDelay: 700 GameData/KartStopDelay: 700]
+if CpuData/CpuIdx > 6 [GameData/LifterStopDelay: 800 GameData/KartStopDelay: 800]
+if CpuData/CpuIdx > 7 [GameData/LifterStopDelay: 900 GameData/KartStopDelay: 900]
 
 ; Level loading & start game play
 GameData/Curlevel: first GameData/Levels
