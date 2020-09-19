@@ -10,8 +10,11 @@ bogo: function[][
 	value: 0.0
 	retvalue: float!
 	
-	; The lesser retvalue means more CPU performance, measured values are:     
-	; 0.13-0.14 on i5 4550/3.0Ghz
+	; The lesser retvalue means more CPU performance, measured values are:
+	; Interpreted  Compiled   CPU
+	;    0.22        0.08     Intel corei3 M380/2.5Ghz w10
+	;    0.13                 Intel corei5 4550/3.0Ghz w10
+	;    0.11                 AMD   Ryzen3 2200/3.5Ghz w10
 	
 	; Timing for additions
 	at1: now/time/precise repeat current iterations [value: add current 2] at2: now/time/precise at3: at2 - at1
