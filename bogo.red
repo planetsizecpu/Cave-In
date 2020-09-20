@@ -16,7 +16,7 @@ bogo: function[][
 	;    0.22        0.08     Intel core i3 M380   2.5              w10
 	;    0.13                 Intel core i5 4550   3.0              w10
 	;    0.11                 AMD   Ryzen3  2200   3.5              w10
-	;    
+	;    0.11        0.04     Intel Core i7 8550U  1.8              w10
 	
 	; Timing for additions
 	at1: now/time/precise repeat current iterations [value: add current 2] at2: now/time/precise at3: at2 - at1
