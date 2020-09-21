@@ -14,8 +14,8 @@ bogo: function[][
 	; Interpreted  Compiled   CPU                  Ghz              OS
 	;    0.47        0.15     Intel J2900          2.4              w10
 	;    0.22        0.08     Intel core i3 M380   2.5              w10
-	;    0.13                 Intel core i5 4550   3.0              w10
-	;    0.11                 AMD   Ryzen3  2200   3.5              w10
+	;    0.13        0.05     Intel core i5 4550   3.0              w10
+	;    0.11        0.04     AMD   Ryzen3  2200G  3.5              w10
 	;    0.11        0.04     Intel Core i7 8550U  1.8              w10
 	
 	; Timing for additions
