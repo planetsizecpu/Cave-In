@@ -75,7 +75,6 @@ CpuData: context [
 	CpuBogo: bogo
 	CpuIdx: 0 ;Std value CPUs older than mid-range i5 to match the game settings
 	either system/state/interpreted? [
-		; On my test for mid-range core i5 ~0.14
 		if CpuBogo < 0.120 [CpuIdx: 1]
 		if CpuBogo < 0.100 [CpuIdx: 2]
 		if CpuBogo < 0.080 [CpuIdx: 3]
@@ -84,7 +83,6 @@ CpuData: context [
 		if CpuBogo < 0.020 [CpuIdx: 6]
 		if CpuBogo < 0.009 [CpuIdx: 7]
 	][
-		; On my test for mid-range core i5 ~0.06
 		if CpuBogo < 0.060 [CpuIdx: 1]
 		if CpuBogo < 0.050 [CpuIdx: 2]
 		if CpuBogo < 0.040 [CpuIdx: 3]
@@ -145,17 +143,17 @@ CheckDifficulty: function [][
 view/options [size 800x600 	
 	  at 1x1 Splash: image 800x600 %DATA/cave-in.jpg 
 	  at 50x460 bg: text 150x30 black white
-	  at 650x450 button 100x50 white red center "P L A Y" on-click [bg/text: to-string CpuData/CpuBogo wait 3 unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]]
+	  at 650x450 button 100x50 white red center "P L A Y" on-click [bg/text: to-string CpuData/CpuIdx wait 2 unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]]
 
 ; Check CPU index on faster machines to trim waiting time for karts & elevators
 if CpuData/CpuIdx > 0 [GameData/LifterStopDelay: 200 GameData/KartStopDelay: 200]
-if CpuData/CpuIdx > 1 [GameData/LifterStopDelay: 300 GameData/KartStopDelay: 300]
-if CpuData/CpuIdx > 2 [GameData/LifterStopDelay: 400 GameData/KartStopDelay: 400]
-if CpuData/CpuIdx > 3 [GameData/LifterStopDelay: 500 GameData/KartStopDelay: 500]
-if CpuData/CpuIdx > 4 [GameData/LifterStopDelay: 600 GameData/KartStopDelay: 600]
-if CpuData/CpuIdx > 5 [GameData/LifterStopDelay: 700 GameData/KartStopDelay: 700]
-if CpuData/CpuIdx > 6 [GameData/LifterStopDelay: 800 GameData/KartStopDelay: 800]
-if CpuData/CpuIdx > 7 [GameData/LifterStopDelay: 900 GameData/KartStopDelay: 900]
+if CpuData/CpuIdx > 1 [GameData/LifterStopDelay: 220 GameData/KartStopDelay: 220]
+if CpuData/CpuIdx > 2 [GameData/LifterStopDelay: 240 GameData/KartStopDelay: 240]
+if CpuData/CpuIdx > 3 [GameData/LifterStopDelay: 260 GameData/KartStopDelay: 260]
+if CpuData/CpuIdx > 4 [GameData/LifterStopDelay: 280 GameData/KartStopDelay: 280]
+if CpuData/CpuIdx > 5 [GameData/LifterStopDelay: 300 GameData/KartStopDelay: 300]
+if CpuData/CpuIdx > 6 [GameData/LifterStopDelay: 320 GameData/KartStopDelay: 320]
+if CpuData/CpuIdx > 7 [GameData/LifterStopDelay: 340 GameData/KartStopDelay: 340]
 
 ; Level loading & start game play
 GameData/Curlevel: first GameData/Levels
