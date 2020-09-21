@@ -1,7 +1,7 @@
 Red [Title:   "Bogo"
 	Author:  "@planetsizecpu"
 	File:    %bogo.red
-	Purpose: {Get CPU performance time for the most basic 100k calculations}
+	Purpose: {Get CPU performance time for the most basic 100k calculations as a reference point}
 ] 
 
 bogo: function[][
