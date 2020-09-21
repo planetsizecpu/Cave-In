@@ -1,7 +1,15 @@
 Red [Title:   "Bogo"
 	Author:  "@planetsizecpu"
 	File:    %bogo.red
-	Purpose: {Get CPU performance time for the most basic 100k calculations as a reference point}
+	Purpose: {Get CPU performance time for the most basic 100k calculations as a reference point
+		; The lesser retvalue means more CPU performance, measured values are:
+		; Interpreted  Compiled   CPU                  Ghz              OS
+		;    0.47        0.15     Intel J2900          2.4              w10
+		;    0.22        0.08     Intel core i3 M380   2.5              w10
+		;    0.13        0.05     Intel core i5 4550   3.0              w10
+		;    0.11        0.04     AMD   Ryzen3  2200G  3.5              w10
+		;    0.11        0.04     Intel Core i7 8550U  1.8              w10
+	}
 ] 
 
 bogo: function[][
@@ -9,15 +17,7 @@ bogo: function[][
 	current: 0
 	value: 0.0
 	retvalue: float!
-	
-	; The lesser retvalue means more CPU performance, measured values are:
-	; Interpreted  Compiled   CPU                  Ghz              OS
-	;    0.47        0.15     Intel J2900          2.4              w10
-	;    0.22        0.08     Intel core i3 M380   2.5              w10
-	;    0.13        0.05     Intel core i5 4550   3.0              w10
-	;    0.11        0.04     AMD   Ryzen3  2200G  3.5              w10
-	;    0.11        0.04     Intel Core i7 8550U  1.8              w10
-	
+
 	; Timing for additions
 	at1: now/time/precise repeat current iterations [value: add current 2] at2: now/time/precise at3: at2 - at1
 	value: 0 current: 0
