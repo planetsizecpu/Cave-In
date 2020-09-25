@@ -73,7 +73,7 @@ GameData: context [
 ; Local CPU performance index depending on system state
 CpuData: context [
 	CpuBogo: bogo
-	CpuIdx: 0 ;Std value CPUs older than mid-range i5 to match the game settings
+	CpuIdx: 0 ;Qualifyer index 0 for older/cheaper CPUs match well working settings on my computer, greater index to slow down the game on fast CPUs
 	either system/state/interpreted? [
 		if CpuBogo < 0.120 [CpuIdx: 1]
 		if CpuBogo < 0.100 [CpuIdx: 2]
