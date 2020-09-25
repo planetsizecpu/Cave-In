@@ -70,7 +70,7 @@ GameData: context [
 	DropDead: [DropDead-X1 DropDead-X2 DropDead-X3 DropDead-X4] ;Drop crash sequence 
 ]
 
-; Local CPU performance index depending on system state
+; Set local CPU performance qualifyer index depending on system state interpreted or compiled, fine grained control must be tested on fast CPUs
 CpuData: context [
 	CpuBogo: bogo
 	CpuIdx: 0 ;Qualifyer index 0 for older/cheaper CPUs match well working settings on my computer, greater index to slow down the game on fast CPUs
