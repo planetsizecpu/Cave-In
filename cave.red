@@ -73,7 +73,7 @@ GameData: context [
 ; Set local CPU performance qualifyer index depending on system state interpreted or compiled, fine grained control must be tested on fast CPUs
 CpuData: context [
 	CpuBogo: bogo
-	CpuIdx: 0 ;Qualifyer index 0 for older/cheaper CPUs match well working settings on my computer, greater index to slow down the game on fast CPUs
+	CpuIdx: 0 ;Qualifyer index 0 for older/cheaper CPUs match well working settings on my computer, greater indexes to slow down the game if needed
 	either system/state/interpreted? [
 		if CpuBogo < 0.120 [CpuIdx: 1]
 		if CpuBogo < 0.100 [CpuIdx: 2]
