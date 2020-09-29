@@ -23,7 +23,7 @@ system/view/auto-sync?:  yes
 ; Game data & defaults object
 GameData: context [
 	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" "L13" "L14"] 
-	GameRate: 0:00:00.003 
+	GameRate: 0:00:00.003 ;We must arrange that value as w10 does not support 3ms timers so it goes slow than GTK
 	CaveName: "cave"
 	CaveFace: make face! [type: 'base] ;Define a null 'base to avoid compiler error
 	CaveFaceHalfSizeX: 800 ;Half x cave size will be updated as we load the level cave image
