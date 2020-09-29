@@ -23,7 +23,12 @@ system/view/auto-sync?:  yes
 ; Game data & defaults object
 GameData: context [
 	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" "L13" "L14"] 
-	GameRate: 0:00:00.003 ;We must arrange that value as w10 does not support 3ms timers so it goes slow than GTK
+	GameRate: 0:00:00.003
+	either system/platform = 'Windows [
+		GameRate: 0:00:00.006 ;Win cant handle 3ms rate so it goes ast fast as possible
+	][
+		GameRate: 0:00:00.065 ;For other OSs as GTK we must test this value as thei handle right
+	]
 	CaveName: "cave"
 	CaveFace: make face! [type: 'base] ;Define a null 'base to avoid compiler error
 	CaveFaceHalfSizeX: 800 ;Half x cave size will be updated as we load the level cave image
@@ -70,10 +75,10 @@ GameData: context [
 	DropDead: [DropDead-X1 DropDead-X2 DropDead-X3 DropDead-X4] ;Drop crash sequence 
 ]
 
-; Set local CPU performance qualifyer index depending on system state interpreted or compiled, fine grained control must be tested on fast CPUs
+; Local CPU performance index depending on system state
 CpuData: context [
 	CpuBogo: bogo
-	CpuIdx: 0 ;Qualifyer index 0 for older/cheaper CPUs match well working settings on my computer, greater indexes to slow down the game if needed
+	CpuIdx: 0 ;Std value CPUs older than mid-range i5 to match the game settings
 	either system/state/interpreted? [
 		if CpuBogo < 0.120 [CpuIdx: 1]
 		if CpuBogo < 0.100 [CpuIdx: 2]
