@@ -6,11 +6,10 @@
 #
 ## ItemTypes start with: (A)gent (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (S)pider (T)ools (W)barrow
 # Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
-# Location (Stop #)
 # Direction (1 Down/Right -1 Up/Left)
 # For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
 #
-# To modify default GameData/word values:  & word value   (value can be tuple! or logic!)
+# To modify default GameData/word values:  & word value   (value can be integer! tuple! or logic!)
 #
 & CeilingDist 18
 & TerrainColor 187.145.0.0
