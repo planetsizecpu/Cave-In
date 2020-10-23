@@ -1,0 +1,60 @@
+# Level 15 items configuration file, a tribute to "The Tall Man", Mr. Angus Scrimm (Lord Of Dead)
+#
+# The program will load all of them and put in locations.
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+# ItemTypes start with: (A)gent (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (S)pider (T)ools (W)barrow
+# Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
+# Location (Stop #)
+# Direction (1 Down/Right -1 Up/Left)
+# For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
+#
+# To modify default GameData/word values:  & word value   (value can be tuple! or logic!)
+#
+& CeilingDist 18
+& LifterStopDelay 200
+& TerrainColor 187.145.0.0
+& StairsColor1 68.68.68.0
+& StairsColor2 127.127.127.0
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
+AGENT1|agent1|age1|22x34|1310x31|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
+AGENT2|fagent2|age2|22x34|670x200|0:0:0.06|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
+GOLDBG|fgold0|gld0|8x12|125x560|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|hgold1|gld1|8x15|350x530|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold2|gld2|8x15|440x530|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold3|gld3|8x15|760x530|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold4|gld4|8x15|820x530|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|fgold5|gld5|8x15|890x530|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|hgold6|gld6|8x15|1005x530|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold7|gld7|8x15|1115x530|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|gold8|gld8|8x15|125x250|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold9|gld9|8x15|230x250|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold10|gld10|8x15|120x130|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold11|gld11|8x15|120x320|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold12|gld12|8x15|615x130|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold13|gld13|8x15|930x35|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold14|gld14|8x15|1450x35|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold15|gld15|8x15|1235x215|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold16|gld16|8x15|1445x524|0:0|0x0|0:0|0|1|gold1.png
+TPICKAX|pickax1|pkx1|9x10|250x310|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax2|pkx2|9x10|1345x524|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax3|pkx3|9x10|68x524|0:0|0x0|0:0:10|0|1|pickax1.png
+WBARROW|wbarrow1|wba1|26x17|1475x35|0:0|0x0|0:0|0|1|barrow-r1.png
+KART1|kart1|krt1|35x19|1141x49|0:0:0.0001|197x49,1141x49|0:0|-2|0|kart1.png
+LIFT1|lifter1|lif1|35x10|19x572|0:0:0.0001|19x63,19x167,19x343,19x445,19x572|0:0|-1|0|lifter-1.png
+LIFT2|lifter2|lif2|120x15|887x250|0:0:0.0001|887x245,887x345,887x445|0:3|1|0|lifter-3.png
+SPIDER1|spider1|spi1|9x7|620x140|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
+SPIDER2|spider2|spi2|9x7|1575x25|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
+PASSAGE1|passage1|pas1|40x30|154x535|0:0:4|0x0|0:0|1|0|passage-G.png
+PASSAGE2|passage2|pas2|40x30|255x535|0:0:4|0x0|0:0|1|0|passage-G.png
+PASSAGE3|passage3|pas3|40x30|508x535|0:0:4|0x0|0:0|2|0|passage-G.png
+PASSAGE4|passage4|pas4|40x30|606x535|0:0:4|0x0|0:0|2|0|passage-G.png
+PASSAGE5|passage5|pas5|40x30|1172x535|0:0:4|0x0|0:0|3|0|passage-G.png
+PASSAGE6|passage6|pas6|40x30|1271x535|0:0:4|0x0|0:0|3|0|passage-G.png
+PASSAGE7|passage7|pas7|40x30|77x240|0:0:4|0x0|0:0|4|0|passage-G.png
+PASSAGE8|passage8|pas8|40x30|535x130|0:0:4|0x0|0:0|4|0|passage-G.png
+PASSAGE09|passage09|pas09|40x30|930x300|0:0:4|0x0|0:0|5|0|passage-G.png
+PASSAGE10|passage10|pas10|40x30|1405x31|0:0:4|0x0|0:0|5|0|passage-G.png
+JOHN|john|doe|22x34|100x28|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
