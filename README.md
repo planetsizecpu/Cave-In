@@ -7,7 +7,7 @@ There was an arcade machine game from the early 80's where I spent a lot of coin
 
 I know it does not have the quality of the true arcade game, but the goal is not to market it, but to learn, to play and share the code to others, so they can also enjoy and learn in his way. In addition there are some known functional concerns on behavior, and for sure will discover more, so the development continues. 
 
-Official sound support is not available at this time, so no sound is provided by now, but I remember the sound effects & melody [Turkey in the Straw](https://www.youtube.com/watch?v=wlddjE2KS3k) (ice cream truck song melody), some day music&sound would be available in Red and we could enjoy much more.
+Official sound support is not available at this time, so no sound is provided by now, but I remember the sound effects & melody [Turkey in the Straw](https://www.youtube.com/watch?v=wlddjE2KS3k) (ice cream truck song melody), some day music & sound will be available in Red and we could enjoy much more.
 
 To run the game you need the [Red](https://www.red-lang.org/p/download.html) toolchain in your path, just download/unpack the files & folders and click on cave.red file (yes it runs on interpreter, that's how powerful Red-lang is), otherwise click on cave executable file (not tested on Mac). Meet us at the Red [forums](https://gitter.im/red/red/gui-branch)
 
