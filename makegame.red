@@ -1368,8 +1368,8 @@ MakeGame: does [
 			]
 			; Check if other face is thief
 			if OtherFace/extra/type = "J" [
-				; Check if thief has tool or is on kart and kill thief if not
-				either any [OtherFace/extra/tool OtherFace/extra/onkart] [
+				; Check if thief has tool or barrow or is on kart and kill thief if not
+				either any [OtherFace/extra/tool /OtherFace/extra/wbarrow OtherFace/extra/onkart] [
 					; Set get-up status on the spider to disturb it
 					print "PLAYER HAS TOOL, NO FEAR."
 					f/extra/dead: true
