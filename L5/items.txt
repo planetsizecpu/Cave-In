@@ -25,13 +25,13 @@ GOLDBG|gold2|gld2|8x12|100x280|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold3|gld3|8x12|230x190|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold4|gld4|8x12|230x280|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold5|gld5|8x12|360x60|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold6|gld6|8x12|450x235|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold6|gld6|8x12|470x235|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold7|gld7|8x12|670x135|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold8|gld8|8x12|670x235|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold9|gld9|8x12|915x135|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold10|gld10|8x12|915x235|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold11|gld11|8x12|1240x60|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold12|gld12|8x12|1135x235|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold12|gld12|8x12|1115x235|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold13|gld13|8x12|1365x190|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold14|gld14|8x12|1365x280|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold15|gld15|8x12|1485x190|0:0|0x0|0:0|0|1|gold1.png
@@ -45,6 +45,8 @@ SPIDER1|spider1|spi1|9x7|135x30|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png
 SPIDER2|spider2|spi2|9x7|1460x30|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
 TPICKAX|pickax1|pkx1|9x10|250x560|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|1100x560|0:0|0x0|0:0:10|0|1|pickax1.png
-WBARROW|wbarrow1|wba1|26x17|435x35|0:0|0x0|0:0|0|1|barrow-r1.png
+PASSAGE1|passage1|pas1|40x30|650x367|0:0:4|0x0|0:0|1|0|passage-G.png
+PASSAGE2|passage2|pas2|40x30|910x367|0:0:4|0x0|0:0|1|0|passage-G.png
+WBARROW|wbarrow1|wba1|26x17|960x370|0:0|0x0|0:0|0|1|barrow-r1.png
 ROSE|rose|doer|22x34|500x28|0:0:0.06|0x0|0:0|0|1|rose-l1.png|rose-r1.png|rose-l2.png|rose-r2.png|rose-l3.png|rose-r3.png|rose-s1.png|rose-s2.png|rose-s3.png|rose-s4.png
 JOHN|john|doe|22x34|700x540|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
