@@ -22,7 +22,7 @@ system/view/auto-sync?:  yes
 
 ; Game data & defaults object
 GameData: context [
-	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" "L13" "L14" "L15" "L16"] 
+	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" "L13" "L14" "L15" "L16" "L17"] 
 	GameRate: 0:00:00.003
 	either system/platform = 'Windows [
 		GameRate: 0:00:00.006 ;Win cant handle 3ms rate so it goes ast fast as possible
@@ -146,9 +146,9 @@ CheckDifficulty: function [][
 
 ; View splash screen
 view/options [size 800x600 	
-	  at 1x1 Splash: image 800x600 %DATA/cave-in.jpg 
-	  at 50x460 bg: text 150x30 black white
-	  at 650x450 button 100x50 white red center "P L A Y" on-click [bg/text: to-string CpuData/CpuIdx wait 2 unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]]
+	at 1x1 Splash: image 800x600 %DATA/cave-in.jpg 
+	at 50x460 bg: text 150x30 black white
+	at 650x450 button 100x50 white red center "P L A Y" on-click [bg/text: to-string CpuData/CpuIdx wait 2 unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]]
 
 ; Check CPU index on faster machines to trim waiting time for karts & elevators
 if CpuData/CpuIdx > 0 [GameData/LifterStopDelay: 200 GameData/KartStopDelay: 200]
