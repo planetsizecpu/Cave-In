@@ -925,7 +925,7 @@ MakeGame: does [
 		]
 		
 		; Check if we leave barrow
-		if all [f/extra/wbarrow (none? OtherFace)] [
+		if all [f/extra/wbarrow (not CheckHandle f) (none? OtherFace)] [
 			OtherFace: f/extra/getobject
 			OtherFace/offset/x: f/offset/x + 5
 			OtherFace/offset/y: f/offset/y + (f/size/y - OtherFace/size/y) 
