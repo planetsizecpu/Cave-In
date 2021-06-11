@@ -154,6 +154,13 @@ LoadLevel: func [lv][
 					GameData/CaveFace: get (w)
 					GameData/CaveFaceHalfSizeX: to-integer (GameData/CaveFace/size/x / 2)
 					GameData/CaveFaceRollOffsetX: 0 - GameData/CaveFaceHalfSizeX
+					either GameData/CaveFace/size/y > 600 [
+						GameData/CaveFaceHalfSizeY: to-integer (GameData/CaveFace/size/y / 2)
+						GameData/CaveFaceRollOffsetY: 0 - GameData/CaveFaceHalfSizeY
+					][
+						GameData/CaveFaceHalfSizeY: to-integer (GameData/CaveFace/size/y)
+						GameData/CaveFaceRollOffsetY: 0
+					]
 				]
 			"D" [set (w) make face! [type: 'base size: ItemObj/size offset: ItemObj/offset image: copy ItemObj/image extra: ItemObj
 									 rate: ItemObj/rate actors: context [on-time: func [f e][DropMotion f]]

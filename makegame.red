@@ -28,6 +28,11 @@ MakeGame: does [
 		][
 			GameData/CaveFace/offset/x: 0 
 		]
+		either GameData/PlayerFace/offset/y > GameData/CaveFaceHalfSizeY [
+			GameData/CaveFace/offset/y: GameData/CaveFaceRollOffsetY
+		][
+			GameData/CaveFace/offset/y: 0 
+		]
 		
 		; Check for demo mode autoplay
 		if GameData/DemoMode [PlayDemoMode]

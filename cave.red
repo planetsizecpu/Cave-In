@@ -33,6 +33,8 @@ GameData: context [
 	CaveFace: make face! [type: 'base] ;Define a null 'base to avoid compiler error
 	CaveFaceHalfSizeX: 800 ;Half x cave size will be updated as we load the level cave image
 	CaveFaceRollOffsetX: (0 - CaveFaceHalfSizeX)
+	CaveFaceHalfSizeY: 600 ;Half y cave size will be updated as we load the level cave image
+	CaveFaceRollOffsetY: (0 - CaveFaceHalfSizeY)
 	PlayerFace: object [image: []] ;Must be defined to avoid error when compile to release mode
 	Items: [] 
 	Curlevel: "" 
@@ -101,7 +103,8 @@ CpuData: context [
 ; Set game screen layout
 GameScr: layout [
 	title "Cave-In"
-	size 800x750
+	; size 800x750
+	size 800x600
 	origin 0x0
 	space 0x0
 	
@@ -112,16 +115,18 @@ GameScr: layout [
 		if CheckStatus [alert "END OF GAME" quit] 
 		info/rate: GameData/GameRate
 	]
+]
+GameControl: layout [
 	below
-	at 10x655  Glevel: text 110x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
-	at 150x655 Glives: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
-	at 290x655 Gstock: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
-	at 430x655 Ggbags: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]										
-	at 570x655 Gscore: text 215x21 yellow blue font [name: "Arial" size: 14 style: 'bold]											
-	at 10x685  Gdeasy: radio yellow blue "Easy"   on-change [CheckDifficulty]
-	at 150x685  Gdnorm: radio yellow blue "Normal" on-change [CheckDifficulty]
-	at 290x685  Gddiff: radio yellow blue "Difficult" on-change [CheckDifficulty]
-	at 430x685  Gdexpe: radio yellow blue "Expert" on-change [CheckDifficulty]
+	at 10x5  Glevel: text 110x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
+	at 150x5 Glives: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
+	at 290x5 Gstock: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
+	at 430x5 Ggbags: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]										
+	at 570x5 Gscore: text 215x21 yellow blue font [name: "Arial" size: 14 style: 'bold]											
+	at 10x35  Gdeasy: radio yellow blue "Easy"   on-change [CheckDifficulty]
+	at 150x35  Gdnorm: radio yellow blue "Normal" on-change [CheckDifficulty]
+	at 290x35  Gddiff: radio yellow blue "Difficult" on-change [CheckDifficulty]
+	at 430x35  Gdexpe: radio yellow blue "Expert" on-change [CheckDifficulty]
 ]
 
 SelevelScr: layout [title "Level" slv: text-list 50x300 data GameData/Levels]
@@ -165,4 +170,5 @@ GameData/Curlevel: first GameData/Levels
 LoadDfltImages
 LoadLevel GameData/Curlevel
 MakeGame
+view/no-wait GameControl
 view/options GameScr [actors: context [on-key: func [face event][CheckKeyboard face event/key]]]
