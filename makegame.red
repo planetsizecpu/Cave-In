@@ -63,7 +63,6 @@ MakeGame: does [
 		
 		; Check for level goals and progress
 		if GameData/Goldbags >= GameData/Stock [
-			GameControl/offset/y: GameScr/offset/y - 95
 			print "***************************************************"
 			prin  "ENDING LEVEL " print GameData/Curlevel
 			print "***************************************************"
@@ -117,6 +116,7 @@ MakeGame: does [
 	
 	; Messages to player on low bar
 	Message: function [s [string!]][
+		GameControl/offset/y: GameScr/offset/y - 95
 		info/text: copy s 
 	]
 	
