@@ -63,6 +63,7 @@ MakeGame: does [
 		
 		; Check for level goals and progress
 		if GameData/Goldbags >= GameData/Stock [
+			GameControl/offset/y: GameScr/offset/y - 95
 			print "***************************************************"
 			prin  "ENDING LEVEL " print GameData/Curlevel
 			print "***************************************************"
@@ -97,7 +98,6 @@ MakeGame: does [
 				append Gscore/text to-string GameData/Score							
 			]
 		]
-		
 		Return Ret
 	]
 	
