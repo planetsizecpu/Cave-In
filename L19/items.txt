@@ -1,4 +1,4 @@
-# Level 19 items configuration file
+# Level 19 "Grand Slam" items configuration file
 #
 # The program will load all of them and put in locations.
 #
@@ -27,13 +27,29 @@ GOLDBG|gold1|gld1|8x12|600x30|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold2|gld2|8x12|190x100|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|fgold3|gld3|8x15|900x130|0:0|0x0|0:0|0|1|gold2.png
 GOLDBG|hgold4|gld4|8x15|1130x130|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|gold5|gld5|8x12|70x375|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold6|gld6|8x12|345x550|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold7|gld7|8x12|30x725|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|fgold8|gld8|8x12|770x445|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|fgold9|gld9|8x12|825x445|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|hgold10|gld10|8x12|790x1080|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|gold11|gld11|8x12|745x730|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold12|gld12|8x12|950x550|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold13|gld12|8x13|920x985|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold14|gld14|8x12|1520x990|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold15|gld15|8x12|1235x930|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold16|gld16|8x12|1020x400|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold17|gld17|8x12|1500x740|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold18|gld18|8x12|1290x215|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold19|gld19|8x12|1290x40|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|hgold20|gld20|8x12|1475x40|0:0|0x0|0:0|0|1|gold3.png
 TPICKAX|pickax1|pkx1|9x10|583x315|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|1130x205|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax3|pkx3|9x10|1350x460|0:0|0x0|0:0:10|0|1|pickax1.png
 WBARROW|wbarrow1|wba1|26x17|150x46|0:0|0x0|0:0|0|0|barrow-r1.png
 KART1|kart1|krt1|35x19|82x557|0:0:0.0001|82x557,1462x557|0:0|1|0|kart1.png
 KART2|kart2|krt2|35x19|82x1156|0:0:0.0001|82x1156,1462x1156|0:0|1|0|kart1.png
-LIFT1|lifter1|lif1|35x10|376x58|0:0:0.0001|376x58,376x200,376x373,376x467,376x657,376x745,376x922,376x1011,376x1102|0:0|1|0|lifter-1.png
+LIFT1|lifter1|lif1|35x10|376x58|0:0:0.0001|376x58,376x200,376x373,376x467,376x657,376x745,376x835,376x922,376x1011,376x1102|0:0|1|0|lifter-1.png
 LIFT2|lifter2|lif2|35x10|821x58|0:0:0.0001|821x58,821x240|0:0|1|0|lifter-1.png
 LIFT3|lifter3|lif3|35x10|1186x58|0:0:0.0001|1186x58,1186x236,1186x324,1186x416,1186x480,1186x657,1186x745,1186x922,1186x951,1186x1102|0:0|1|0|lifter-1.png
 LIFT4|lifter4|lif4|90x15|1345x58|0:0:0.0001|1345x58,1345x326|0:0|1|0|lifter-3.png
