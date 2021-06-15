@@ -52,7 +52,7 @@ GOLDBG|gold26|gld26|8x12|1100x1080|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold27|gld27|8x12|1480x170|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold28|gld28|8x12|1275x400|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|fgold29|gld29|8x12|1050x310|0:0|0x0|0:0|0|1|gold2.png
-GOLDBG|hgold30|gld30|8x12|625x725|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold30|gld30|8x12|715x635|0:0|0x0|0:0|0|1|gold3.png
 TPICKAX|pickax1|pkx1|9x10|583x315|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|1130x205|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax3|pkx3|9x10|1350x460|0:0|0x0|0:0:10|0|1|pickax1.png
