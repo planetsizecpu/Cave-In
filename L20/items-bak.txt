@@ -1,0 +1,63 @@
+# Level 20 "Secret Base Complex" items configuration file
+#
+# The program will load all of them and put in locations.
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+# ItemTypes start with: (A)gent (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (S)pider (T)ools (W)barrow
+# Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
+# Location (Stop #)
+# Direction (1 Down/Right -1 Up/Left)
+# For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
+#
+# To modify default GameData/word values:  & word value   (value can be tuple! or logic!)
+#
+& CeilingDist 18
+& TerrainColor 58.58.58.0
+& StairsColor1 255.201.14.0
+& StairsColor2 255.153.85.0
+& HandleColor 237.28.36.0
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+CAVERN|cavern1|cave|1599x1200|0x0|0:0|0x0|0:0|0|0|cavern.png
+AGENT1|agent1|age1|22x34|115x250|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
+AGENT2|fagent2|age2|22x34|580x1060|0:0:0.05|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
+AGENT3|agent3|age3|22x34|1130x1135|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
+AGENT4|fagent4|age4|22x34|1370x30|0:0:0.05|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
+#
+GOLDBG|gold1|gld1|8x12|360x195|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold2|gld2|8x12|740x195|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold3|gld3|8x12|535x280|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold4|gld4|8x12|885x280|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold5|gld5|8x12|535x355|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold6|gld6|8x12|890x350|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold9|gld9|8x12|535x200|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold10|gld10|8x12|300x1150|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold11|gld11|8x12|885x200|0:0|0x0|0:0|0|1|gold1.png
+#
+GOLDBG|fgold12|gld12|8x13|1025x200|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|fgold16|gld16|8x15|1150x850|0:0|0x0|0:0|0|1|gold-.png
+GOLDBG|fgold17|gld17|8x15|1160x765|0:0|0x0|0:0|0|1|gold-.png
+GOLDBG|fgold18|gld18|8x15|1170x960|0:0|0x0|0:0|0|1|gold-.png
+#
+GOLDBG|hgold19|gld19|8x12|1375x765|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold20|gld20|8x12|1375x430|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold21|gld21|8x12|1510x430|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold22|gld22|8x12|1455x125|0:0|0x0|0:0|0|1|gold3.png
+#
+TPICKAX|pickax1|pkx1|9x10|450x670|0:0|0x0|0:0:10|0|1|pickax1.png
+WBARROW|wbarrow1|wba1|26x17|1450x280|0:0|0x0|0:0|0|1|barrow-r1.png
+#
+PASSAGE1|passage1|pas1|35x40|80x965|0:0:4|0x0|0:0|1|0|passage-G.png
+PASSAGE2|passage2|pas2|35x40|785x25|0:0:4|0x0|0:0|1|0|passage-G.png
+PASSAGE3|passage3|pas3|35x40|675x965|0:0:4|0x0|0:0|2|0|passage-G.png
+PASSAGE4|passage4|pas4|35x40|1020x740|0:0:4|0x0|0:0|2|0|passage-G.png
+#
+KART1|kart1|krt1|35x19|80x1160|0:0:0.0001|80x1160,1480x1160|0:0|1|0|kart1.png
+#
+LIFT2|lifter2|lif2|45x10|937x224|0:0:0.0001|937x224,937x302,937x381,937x537,937x693,937x878|0:0|1|0|lifter-1.png
+LIFT3|lifter3|lif3|45x10|1077x1101|0:0:0.0001|1077x224,1077x302,1077x381,1077x537,1077x693,1077x790,1077x878,1077x1101|0:0|-1|0|lifter-1.png
+LIFT4|lifter4|lif4|45x15|1203x537|0:0:0.0001|1203x224,1203x381,1203x537,1203x790,1203x878,1203x983,1203x1101|0:0|-1|0|lifter-2.png
+LIFT5|lifter5|lif5|45x15|1253x790|0:0:0.0001|1253x224,1253x381,1253x537,1253x790,1253x878,1253x983,1253x1101|0:0|-1|0|lifter-2.png
+LIFT6|lifter6|lif6|45x15|1303x983|0:0:0.0001|1303x224,1303x381,1303x537,1303x790,1303x878,1303x983,1303x1101|0:0|1|0|lifter-2.png
+#
+JOHN|john|doe|22x34|250x28|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
