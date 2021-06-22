@@ -1,4 +1,4 @@
-# Level 20 "Secret Base Complex" items configuration file
+# Level 20 "Secret Station" items configuration file
 #
 # The program will load all of them and put in locations.
 #
@@ -25,14 +25,14 @@ AGENT2|fagent2|age2|22x34|580x1060|0:0:0.05|0x0|0:0|0|1|fagent-l1.png|fagent-r1.
 AGENT3|agent3|age3|22x34|1440x335|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
 AGENT4|fagent4|age4|22x34|1370x30|0:0:0.05|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
 #
-GOLDBG|gold1|gld1|8x12|360x195|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold1|gld1|8x12|95x430|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold2|gld2|8x12|740x195|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold3|gld3|8x12|535x280|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold3|gld3|8x12|560x360|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold4|gld4|8x12|885x280|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold5|gld5|8x12|535x355|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold5|gld5|8x12|750x515|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold6|gld6|8x12|890x350|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold9|gld9|8x12|535x200|0:0|0x0|0:0|0|1|gold1.png
-GOLDBG|gold10|gld10|8x12|300x1150|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold9|gld9|8x12|280x200|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold10|gld10|8x12|430x850|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold11|gld11|8x12|885x200|0:0|0x0|0:0|0|1|gold1.png
 #
 GOLDBG|fgold12|gld12|8x13|1025x200|0:0|0x0|0:0|0|1|gold+.png
@@ -41,8 +41,8 @@ GOLDBG|fgold17|gld17|8x15|1160x765|0:0|0x0|0:0|0|1|gold-.png
 GOLDBG|fgold18|gld18|8x15|1170x960|0:0|0x0|0:0|0|1|gold-.png
 #
 GOLDBG|hgold19|gld19|8x12|1375x765|0:0|0x0|0:0|0|1|gold3.png
-GOLDBG|hgold20|gld20|8x12|1375x430|0:0|0x0|0:0|0|1|gold3.png
-GOLDBG|hgold21|gld21|8x12|1510x430|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold20|gld20|8x12|1360x510|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold21|gld21|8x12|1525x430|0:0|0x0|0:0|0|1|gold3.png
 GOLDBG|hgold22|gld22|8x12|1455x125|0:0|0x0|0:0|0|1|gold3.png
 #
 TPICKAX|pickax1|pkx1|9x10|450x670|0:0|0x0|0:0:10|0|1|pickax1.png
@@ -57,7 +57,7 @@ KART1|kart1|krt1|35x19|80x1160|0:0:0.0001|80x1160,1480x1160|0:0|1|0|kart1.png
 #
 LIFT2|lifter2|lif2|35x10|942x224|0:0:0.0001|937x224,937x302,937x381,937x537,937x693,937x878|0:0|1|0|lifter-1.png
 LIFT3|lifter3|lif3|35x10|1082x1101|0:0:0.0001|1077x224,1077x302,1077x381,1077x537,1077x693,1077x790,1077x878,1077x1101|0:0|-1|0|lifter-1.png
-LIFT4|lifter4|lif4|45x15|1203x537|0:0:0.0001|1203x224,1203x381,1203x537,1203x790,1203x878,1203x983,1203x1101|0:0|-1|0|lifter-2.png
+LIFT4|lifter4|lif4|45x15|1203x381|0:0:0.0001|1203x224,1203x381,1203x537,1203x790,1203x878,1203x983,1203x1101|0:0|1|0|lifter-2.png
 LIFT5|lifter5|lif5|45x15|1253x790|0:0:0.0001|1253x224,1253x381,1253x537,1253x790,1253x878,1253x983,1253x1101|0:0|-1|0|lifter-2.png
 LIFT6|lifter6|lif6|45x15|1303x983|0:0:0.0001|1303x224,1303x381,1303x537,1303x790,1303x878,1303x983,1303x1101|0:0|1|0|lifter-2.png
 #
