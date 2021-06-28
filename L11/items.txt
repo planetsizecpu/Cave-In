@@ -56,9 +56,9 @@ TPICKAX|pickax4|pkx4|9x10|1200x495|0:0|0x0|0:0:10|0|1|pickax1.png
 PASSAGE1|passage1|pas1|35x40|322x280|0:0:4|0x0|0:0|1|0|passage-G.png
 PASSAGE2|passage2|pas2|35x40|1200x360|0:0:4|0x0|0:0|1|0|passage-G.png
 #
-KART1|kart1|krt1|35x19|1440x133|0:0:0.00001|124x133,1440x133|0:0|-2|0|kart1.png
-KART2|kart2|krt2|35x19|123x291|0:0:0.00001|123x291,1440x291|0:0|2|0|kart1.png
-KART3|kart3|krt3|35x19|1440x447|0:0:0.00001|195x447,1440x447|0:0|-2|0|kart1.png
+KART1|kart1|krt1|35x19|1440x133|0:0:0.0067|124x133,1440x133|0:0|-2|0|kart1.png
+KART2|kart2|krt2|35x19|123x291|0:0:0.0067|123x291,1440x291|0:0|2|0|kart1.png
+KART3|kart3|krt3|35x19|1440x447|0:0:0.0067|195x447,1440x447|0:0|-2|0|kart1.png
 #
 WBARROW|wbarrow1|wba1|26x17|55x25|0:0|0x0|0:0|0|1|barrow-r1.png
 #
