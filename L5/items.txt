@@ -36,11 +36,11 @@ GOLDBG|gold13|gld13|8x12|1365x190|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold14|gld14|8x12|1365x280|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold15|gld15|8x12|1485x190|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold16|gld16|8x12|1485x280|0:0|0x0|0:0|0|1|gold1.png
-LIFT1|lifter1|lif1|35x10|534x60|0:0:0.0001|534x60,534x340|0:0|1|0|lifter-1.png
-LIFT2|lifter2|lif2|35x10|783x340|0:0:0.0001|783x70,783x160,783x250,783x340|0:0|-1|0|lifter-1.png
-LIFT3|lifter3|lif3|35x10|1029x60|0:0:0.0001|1029x60,1029x340|0:0|1|0|lifter-1.png
-DROP1|drop1|drp1|7x9|407x418|0:0:1.0|0x0|0:0|0|1|drop1.png
-DROP2|drop2|drp2|7x9|1192x418|0:0:1.0|0x0|0:0|0|1|drop1.png
+LIFT1|lifter1|lif1|35x10|534x60|0:0:0.0067|534x60,534x340|0:0|1|0|lifter-1.png
+LIFT2|lifter2|lif2|35x10|783x340|0:0:0.0067|783x70,783x160,783x250,783x340|0:0|-1|0|lifter-1.png
+LIFT3|lifter3|lif3|35x10|1029x60|0:0:0.0067|1029x60,1029x340|0:0|1|0|lifter-1.png
+DROP1|drop1|drp1|7x9|407x418|0:0:1.5|0x0|0:0|0|1|drop1.png
+DROP2|drop2|drp2|7x9|1192x418|0:0:1.5|0x0|0:0|0|1|drop1.png
 SPIDER1|spider1|spi1|9x7|135x30|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
 SPIDER2|spider2|spi2|9x7|1460x30|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
 TPICKAX|pickax1|pkx1|9x10|250x560|0:0|0x0|0:0:10|0|1|pickax1.png
