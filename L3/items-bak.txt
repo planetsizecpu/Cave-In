@@ -43,10 +43,10 @@ TPICKAX|pickax3|pkx3|9x10|1290x500|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax4|pkx4|9x10|1535x45|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax5|pkx5|9x10|675x560|0:0|0x0|0:0:10|0|1|pickax1.png
 WBARROW|wbarrow1|wba1|26x17|120x35|0:0|0x0|0:0|0|1|barrow-r1.png
-KART1|kart1|krt1|35x19|1425x49|0:0:0.0001|197x49,1425x49|0:0|-2|0|kart1.png
-LIFT1|lifter1|lif1|35x10|19x572|0:0:0.0001|19x63,19x325,19x572|0:0|-1|0|lifter-1.png
-LIFT2|lifter2|lif2|35x10|362x215|0:0:0.0001|362x220,362x325,362x572|0:0|1|0|lifter-1.png
-LIFT3|lifter3|lif3|35x10|835x154|0:0:0.0001|835x154,835x572|0:0|1|0|lifter-1.png
+KART1|kart1|krt1|35x19|1425x49|0:0:0.0067|197x49,1425x49|0:0|-2|0|kart1.png
+LIFT1|lifter1|lif1|35x10|19x572|0:0:0.0067|19x63,19x325,19x572|0:0|-1|0|lifter-1.png
+LIFT2|lifter2|lif2|35x10|362x215|0:0:0.0067|362x220,362x325,362x572|0:0|1|0|lifter-1.png
+LIFT3|lifter3|lif3|35x10|835x154|0:0:0.0067|835x154,835x572|0:0|1|0|lifter-1.png
 SPIDER1|spider1|spi1|9x7|620x140|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
 SPIDER2|spider2|spi2|9x7|1325x115|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
 JOHN|john|doe|22x34|100x28|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
