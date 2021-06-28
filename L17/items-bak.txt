@@ -47,8 +47,8 @@ GOLDBG|gold21|gld21|8x12|1550x150|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold22|gld22|8x12|1180x560|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold23|gld23|8x12|1355x560|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold24|gld24|8x12|1545x530|0:0|0x0|0:0|0|1|gold1.png
-TPICKAX|pickax1|pkx1|9x10|690x560|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax1|pkx1|9x10|150x560|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|910x560|0:0|0x0|0:0:10|0|1|pickax1.png
-LIFT1|lifter1|lif1|35x10|782x583|0:0:0.0001|782x67,782x268,782x454,782x520,782x583|0:0|-1|0|lifter-1.png
+LIFT1|lifter1|lif1|35x10|782x583|0:0:0.0067|782x67,782x268,782x454,782x520,782x583|0:0|-1|0|lifter-1.png
 WBARROW|wbarrow1|wba1|26x17|160x15|0:0|0x0|0:0|0|1|barrow-r1.png
 JOHN|john|doe|22x34|60x15|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
