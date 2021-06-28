@@ -1,4 +1,4 @@
-# Level 15 items configuration file, a tribute to "The Tall Man", Mr. Angus Scrimm (Lord Of Dead)
+# Level 15 items configuration file 
 #
 # The program will load all of them and put in locations.
 #
@@ -17,6 +17,7 @@
 & TerrainColor 187.145.0.0
 & StairsColor1 68.68.68.0
 & StairsColor2 127.127.127.0
+& HandleColor 195.195.195.0
 # ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
 CAVERN|cavern1|cave|1599x600|0x0|0:0|0x0|0:0|0|0|cavern.png
 AGENT1|agent1|age1|22x34|1310x31|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
@@ -42,9 +43,9 @@ TPICKAX|pickax1|pkx1|9x10|250x310|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|1345x524|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax3|pkx3|9x10|68x524|0:0|0x0|0:0:10|0|1|pickax1.png
 WBARROW|wbarrow1|wba1|26x17|1475x35|0:0|0x0|0:0|0|1|barrow-r1.png
-KART1|kart1|krt1|35x19|1141x49|0:0:0.0001|197x49,1141x49|0:0|-2|0|kart1.png
-LIFT1|lifter1|lif1|35x10|19x572|0:0:0.0001|19x63,19x167,19x343,19x445,19x572|0:0|-1|0|lifter-1.png
-LIFT2|lifter2|lif2|120x15|887x250|0:0:0.0001|887x245,887x345,887x445|0:3|1|0|lifter-3.png
+KART1|kart1|krt1|35x19|1141x49|0:0:0.0067|197x49,1141x49|0:0|-2|0|kart1.png
+LIFT1|lifter1|lif1|35x10|19x572|0:0:0.0067|19x63,19x167,19x343,19x445,19x572|0:0|-1|0|lifter-1.png
+LIFT2|lifter2|lif2|120x15|887x250|0:0:0.0067|887x245,887x345,887x445|0:3|1|0|lifter-3.png
 SPIDER1|spider1|spi1|9x7|620x140|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
 SPIDER2|spider2|spi2|9x7|1575x25|0:0:0.15|0x0|0:0|0|1|spider-l1.png|spider-r1.png|spider-l2.png|spider-r2.png|spider-l3.png|spider-r3.png
 PASSAGE1|passage1|pas1|40x30|154x535|0:0:4|0x0|0:0|1|0|passage-G.png
