@@ -22,7 +22,7 @@ system/view/auto-sync?:  yes
 
 ; Game data & defaults object
 GameData: context [
-	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" "L13" "L14" "L15" "L16" "L17" "L18" "L19" "L20"] 
+	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" "L13" "L14" "L15" "L16" "L17" "L18" "L19" "L20" "L21"] 
 	GameRate: 0:00:00.003
 	either system/platform = 'Windows [
 		GameRate: 0:00:00.006 ;Win cant handle 3ms rate so it goes as fast as possible
@@ -73,6 +73,8 @@ GameData: context [
 	AgentDead: [AgentDead-X1 AgentDead-X2 AgentDead-X3 AgentDead-X4] ;Agent dead sequence
 	FAgentGetup: [FAgentGetup-X1 FAgentGetup-X2] ;Female agent getup sequence
 	FAgentDead: [FAgentDead-X1 FAgentDead-X2 FAgentDead-X3 FAgentDead-X4] ;Female agent dead sequence
+	PAgentGetup: [PAgentGetup-X1 PAgentGetup-X2] ;Phantasm agent getup sequence
+	PAgentDead: [PAgentDead-X1 PAgentDead-X2 PAgentDead-X3 PAgentDead-X4] ;Phantasm agent dead sequence
 	SpiderDead: [SpiderDead-X1 SpiderDead-X2 SpiderDead-X3 SpiderDead-X4] ;Spider dead sequence
 	DropDead: [DropDead-X1 DropDead-X2 DropDead-X3 DropDead-X4] ;Drop crash sequence 
 ]

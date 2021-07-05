@@ -414,12 +414,17 @@ MakeGame: does [
 	; Getup effects for people
 	GoGetup: function [f [object!]][
 		if f/extra/type = "A" [
-			either ((first f/extra/name) = #"f") [
-				foreach img GameData/FAgentGetup [f/image: get img]			
-				f/image: FAgentGetup-X2		
-			][
+			(first f/extra/name) = #"a" [
 				foreach img GameData/AgentGetup [f/image: get img]
 				f/image: AgentGetup-X2		
+			]
+			if (first f/extra/name) = #"f" [
+					foreach img GameData/FAgentGetup [f/image: get img]			
+					f/image: FAgentGetup-X2		
+			]
+			if (first f/extra/name) = #"p" [
+					foreach img GameData/PAgentGetup [f/image: get img]			
+					f/image: PAgentGetup-X2					
 			]
 			f/extra/getup: false
 			f/extra/altitude: 0  ;Agents are strong, not to die on falls
@@ -445,11 +450,15 @@ MakeGame: does [
 			append Gscore/text to-string GameData/Score				
 			Message "An agent is dead"
 			either f/extra/lives > 0 [f/extra/lives: subtract f/extra/lives 1][f/rate: none return true]
-			;Show female/male agents dead image cycle
-			either ((first f/extra/name) = #"f") [
-				foreach img GameData/FAgentDead [f/image: get img wait GameData/AgentDeadDelay]		
-			][
+			;Show female/male/phantasm agents dead image cycle
+			if (first f/extra/name) = #"a" [
 				foreach img GameData/AgentDead [f/image: get img wait GameData/AgentDeadDelay]		
+			]
+			if (first f/extra/name) = #"f" [
+				foreach img GameData/FAgentDead [f/image: get img wait GameData/AgentDeadDelay]		
+			]
+			if (first f/extra/name) = #"p" [
+				foreach img GameData/PAgentDead [f/image: get img wait GameData/AgentDeadDelay]		
 			]
 		]
 
@@ -619,13 +628,17 @@ MakeGame: does [
 					face/extra/blockedLT: false
 					face/extra/blockedRT: false
 					
-					; Check for gravity effects
+					; Check for gravity effects on falling objects
 					if face/extra/type = "A" [
 						if face/extra/altitude > GameData/FallingFaceAltitude [
-							either (first face/extra/name) = #"f" [
-								face/image: FAgent-S4
-							][						
+							if (first face/extra/name) = #"a" [
 								face/image: Agent-S4
+							]
+							if (first face/extra/name) = #"f" [
+								face/image: FAgent-S4
+							]
+							if (first face/extra/name) = #"p" [						
+								face/image: PAgent-S4
 							]
 						]
 						if face/extra/altitude > GameData/GetupAltitude [face/extra/getup: true] ; Agents can not die by fall or game is not playable

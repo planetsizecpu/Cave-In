@@ -320,6 +320,18 @@ LoadDfltImages: func [][
 	FAgentDead-X3: load to-file (Ldata/fagentd-x3.png)
 	FAgentDead-X4: load to-file (Ldata/fagentd-x4.png)
 	
+	PAgent-S1: load to-file (Ldata/phant-s1.png)
+	PAgent-S2: load to-file (Ldata/phant-s2.png)
+	PAgent-S3: load to-file (Ldata/phant-s3.png)
+	PAgent-S4: load to-file (Ldata/phant-s4.png)		
+
+	PAgentGetup-X1: load to-file (Ldata/phants-x1.png)
+	PAgentGetup-X2: load to-file (Ldata/phants-x2.png)
+	PAgentDead-X1: load to-file (Ldata/phantd-x1.png)
+	PAgentDead-X2: load to-file (Ldata/phantd-x2.png)
+	PAgentDead-X3: load to-file (Ldata/phantd-x3.png)
+	PAgentDead-X4: load to-file (Ldata/phantd-x4.png)
+	
 	Girl-S1: load to-file (Ldata/rose-s1.png)
 	Girl-S2: load to-file (Ldata/rose-s2.png)
 	Girl-S3: load to-file (Ldata/rose-s3.png)
