@@ -1,0 +1,52 @@
+# Level 21 "The Tallman" (in memory of actor Angus Scrimm) items configuration file, 
+#
+# The program will load all of them and put in locations.
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+# ItemTypes start with: (A)gent (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (S)pider (T)ools (W)barrow
+# Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
+# Location (Stop #)
+# Direction (1 Down/Right -1 Up/Left)
+# For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
+#
+# To modify default GameData/word values:  & word value   (value can be tuple! or logic!)
+#
+& CeilingDist 30
+& TerrainColor 94.57.38.0
+& StairsColor1 200.191.231.0
+& StairsColor2 223.173.0.0
+& HandleColor 237.28.36.0
+& LifterCable 136.0.21.0
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+CAVERN|cavern1|cave|1599x1200|0x0|0:0|0x0|0:0|0|0|cavern.png
+AGENT1|pagent1|age1|22x34|1520x10|0:0:0.05|0x0|0:0|0|1|phant-l1.png|phant-r1.png|phant-l2.png|phant-r2.png|phant-l3.png|phant-r3.png|phant-s1.png|phant-s2.png|phant-s3.png|phant-s4.png
+AGENT2|pagent2|age2|22x34|1520x890|0:0:0.05|0x0|0:0|0|1|phant-l1.png|phant-r1.png|phant-l2.png|phant-r2.png|phant-l3.png|phant-r3.png|phant-s1.png|phant-s2.png|phant-s3.png|phant-s4.png
+AGENT3|pagent3|age3|22x34|30x1130|0:0:0.05|0x0|0:0|0|1|phant-l1.png|phant-r1.png|phant-l2.png|phant-r2.png|phant-l3.png|phant-r3.png|phant-s1.png|phant-s2.png|phant-s3.png|phant-s4.png
+AGENT4|pagent4|age4|22x34|30x520|0:0:0.05|0x0|0:0|0|1|phant-l1.png|phant-r1.png|phant-l2.png|phant-r2.png|phant-l3.png|phant-r3.png|phant-s1.png|phant-s2.png|phant-s3.png|phant-s4.png
+#
+GOLDBG|gold1|gld1|12x24|30x280|0:0|0x0|0:0|0|1|gold!.png
+GOLDBG|gold2|gld2|12x24|535x175|0:0|0x0|0:0|0|1|gold!.png
+GOLDBG|gold3|gld3|12x24|1540x280|0:0|0x0|0:0|0|1|gold!.png
+GOLDBG|gold4|gld4|12x24|1020x175|0:0|0x0|0:0|0|1|gold!.png
+GOLDBG|gold5|gld5|12x24|535x520|0:0|0x0|0:0|0|1|gold!.png
+GOLDBG|gold6|gld6|12x24|1020x520|0:0|0x0|0:0|0|1|gold!.png
+GOLDBG|gold7|gld7|12x24|30x1130|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold8|gld8|12x24|1275x760|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold9|gld9|12x24|30x910|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|fgold10|gld10|12x24|1540x910|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|fgold11|gld11|12x24|1540x1130|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|fgold12|gld12|12x24|355x770|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|hgold13|gld13|12x24|450x1130|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold14|gld14|12x24|470x1130|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold15|gld15|12x24|490x1130|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|gold16|gld16|12x24|300x1130|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|gold17|gld17|12x24|370x1130|0:0|0x0|0:0|0|1|gold-.png
+#
+TPICKAX|pickax1|pkx1|9x10|450x670|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax2|pkx2|9x10|1315x915|0:0|0x0|0:0:10|0|1|pickax1.png
+WBARROW|wbarrow1|wba1|26x17|450x10|0:0|0x0|0:0|0|1|barrow-r1.png
+#
+LIFT1|lifter1|lif1|35x10|779x680|0:0:0.0067|779x118,779x216,779x316,779x418,779x558,779x680|0:0|-1|0|lifter-1.png
+#
+JOHN|john|doe|22x34|50x10|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
