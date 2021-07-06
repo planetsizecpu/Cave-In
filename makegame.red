@@ -1599,8 +1599,8 @@ MakeGame: does [
 		
 		; We use direction on sphere to allow easy displacement
 		f/offset/x: add f/offset/x f/extra/direction
-		if f/offset/x <= fst/x [f/extra/direction:  3 f/extra/stopdelay: GameData/KartStopDelay]
-		if f/offset/x >= lst/x [f/extra/direction: -3 f/extra/stopdelay: GameData/KartStopDelay]
+		if f/offset/x <= fst/x [f/extra/direction:  3 f/extra/stopdelay: 20]
+		if f/offset/x >= lst/x [f/extra/direction: -3 f/extra/stopdelay: 20]
 	
 		; We use random value to allow vertical sneak of spheres
 		either f/extra/altitude < 60 [
