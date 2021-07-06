@@ -1563,5 +1563,57 @@ MakeGame: does [
 		f/extra/loaded: false
 		f/image: Passage-G
 	]
+	;-------------------------------------------------------------------------
+	; Battle Spheres motion & effects functions 
+	;-------------------------------------------------------------------------
+	XPhereMotion: function [f [object!]][
+		/local fst: first f/extra/stops
+		/local lst: last  f/extra/stops
+		/local stp: 0
+		OtherFace: CheckOverlaps f			
+		
+		; Check for run over some face 
+		if not none? OtherFace [
+			either f/extra/loaded [
+				if OtherFace/extra/type = "A" [
+					OtherFace/extra/dead: true
+					print " AGENT DEAD BY BATTLE SPHERE"
+					Message "Agent dead by battle sphere"
+					exit
+				]		
+			][
+				if OtherFace/extra/type = "J" [
+					if not OtherFace/extra/handle [
+						prin OtherFace/extra/name
+						print " DEAD BY SPHERE"
+						Message "You dead by sphere"
+						GoDead OtherFace
+						exit
+					]
+				]
+			]
+		]
+		
+		; Check if sphere is on stop delay
+		if f/extra/stopdelay > 0 [f/extra/stopdelay: subtract f/extra/stopdelay 1 exit]
+		
+		; We use direction on sphere to allow easy displacement
+		f/offset/x: add f/offset/x f/extra/direction
+		if f/offset/x <= fst/x [f/extra/direction:  3 f/extra/stopdelay: GameData/KartStopDelay]
+		if f/offset/x >= lst/x [f/extra/direction: -3 f/extra/stopdelay: GameData/KartStopDelay]
+	
+		; We use random value to allow vertical sneak of spheres
+		either f/extra/altitude < 60 [
+			f/extra/altitude: add f/extra/altitude 1
+		][
+			f/extra/altitude: 0
+			either f/extra/walking < 3 [f/extra/walking: add f/extra/walking 1][f/extra/walking: 0]
+			f/offset/y: (fst/y - 15) + random 30
+			if f/extra/walking = 0 [f/image: f/extra/images/1]
+			if f/extra/walking = 1 [f/image: f/extra/images/2]
+			if f/extra/walking = 2 [f/image: f/extra/images/3]
+			if f/extra/walking = 3 [f/image: f/extra/images/4]
+		]
+	]
 		
 ]

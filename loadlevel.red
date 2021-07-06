@@ -210,6 +210,11 @@ LoadLevel: func [lv][
 			"W" [set (w) make face! [type: 'base size: ItemObj/size offset: ItemObj/offset image: copy ItemObj/image extra: ItemObj]
 					append cave/pane (get w)
 				]				
+			"X" [set (w) make face! [type: 'base size: ItemObj/size offset: ItemObj/offset image: copy ItemObj/image extra: ItemObj
+						             rate: ItemObj/rate actors: context [on-time: func [f e][XphereMotion f]]
+									]
+					append cave/pane (get w)
+				]
 		] [prin "UNKNOWN OBJECT ON CONFIG FILE " print x alert "UNKNOWN OBJECT ON CONFIG FILE" quit]
 		
 		; Set object's face, now object/face points to face and face/extra points to object, to easy data I/O 
