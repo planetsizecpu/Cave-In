@@ -4,7 +4,7 @@
 #
 # ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
 #
-# ItemTypes start with: (A)gent (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (S)pider (T)ools (W)barrow
+# ItemTypes start with: (A)gent (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (S)pider (T)ools (W)barrow (X)BattleSphere
 # Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
 # Location (Stop #)
 # Direction (1 Down/Right -1 Up/Left)
@@ -47,6 +47,7 @@ TPICKAX|pickax1|pkx1|9x10|450x670|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|1315x915|0:0|0x0|0:0:10|0|1|pickax1.png
 WBARROW|wbarrow1|wba1|26x17|450x10|0:0|0x0|0:0|0|1|barrow-r1.png
 #
+XSPHERE|sphere1|sph1|10x10|70x495|0:0:0.0067|70x495,1515x495|0:0|1|0|sphere1.png|sphere2.png|sphere3.png|sphere4.png
 LIFT1|lifter1|lif1|35x10|779x680|0:0:0.0067|779x118,779x216,779x316,779x418,779x558,779x680|0:0|-1|0|lifter-1.png
 #
 JOHN|john|doe|22x34|50x10|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
