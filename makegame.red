@@ -645,8 +645,8 @@ MakeGame: does [
 					]
 					if face/extra/type = "J" [
 						if face/extra/altitude > GameData/FallingFaceAltitude [if not face/extra/wbarrow [face/image: Thief-S4]]
-						if face/extra/altitude > GameData/GetupAltitude [face/extra/getup: true]
-						if face/extra/altitude > GameData/DeadAltitude [face/extra/dead: true]
+						if face/extra/altitude > GameData/GetupAltitude and (not face/extra/wbarrow) [face/extra/getup: true]
+						if face/extra/altitude > GameData/DeadAltitude [face/extra/wbarrow: false face/extra/dead: true]
 					]					
 					if face/extra/type = "R" [
 							if face/extra/altitude > GameData/FallingFaceAltitude [if not face/extra/wbarrow [face/image: Girl-S4]]
