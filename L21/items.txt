@@ -1,4 +1,4 @@
-# Level 21 "The Tallman" (in memory of actor Angus Scrimm) items configuration file, 
+# Level 21 "Morningside cemetary" items configuration file, 
 #
 # The program will load all of them and put in locations.
 #
