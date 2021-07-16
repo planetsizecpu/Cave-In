@@ -22,7 +22,8 @@ system/view/auto-sync?:  yes
 
 ; Game data & defaults object
 GameData: context [
-	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" "L13" "L14" "L15" "L16" "L17" "L18" "L19" "L20" "L21"] 
+	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" 
+			 "L13" "L14" "L15" "L16" "L17" "L18" "L19" "L20" "L21" "L22"] 
 	GameRate: 0:00:00.003
 	either system/platform = 'Windows [
 		GameRate: 0:00:00.006 ;Win cant handle 3ms rate so it goes as fast as possible
