@@ -74,8 +74,10 @@ GameData: context [
 	AgentDead: [AgentDead-X1 AgentDead-X2 AgentDead-X3 AgentDead-X4] ;Agent dead sequence
 	FAgentGetup: [FAgentGetup-X1 FAgentGetup-X2] ;Female agent getup sequence
 	FAgentDead: [FAgentDead-X1 FAgentDead-X2 FAgentDead-X3 FAgentDead-X4] ;Female agent dead sequence
-	PAgentGetup: [PAgentGetup-X1 PAgentGetup-X2] ;Phantasm agent getup sequence
-	PAgentDead: [PAgentDead-X1 PAgentDead-X2 PAgentDead-X3 PAgentDead-X4] ;Phantasm agent dead sequence
+	PAgentGetup: [PAgentGetup-X1 PAgentGetup-X2] ;PhaGoblins agent getup sequence
+	PAgentDead: [PAgentDead-X1 PAgentDead-X2 PAgentDead-X3 PAgentDead-X4] ;PhaGoblins agent dead sequence
+	YAgentGetup: [YAgentGetup-X1 YAgentGetup-X2] ;Phantasm agent getup sequence
+	YAgentDead: [YAgentDead-X1 YAgentDead-X2 YAgentDead-X3 YAgentDead-X4] ;Phantasm agent dead sequence
 	SpiderDead: [SpiderDead-X1 SpiderDead-X2 SpiderDead-X3 SpiderDead-X4] ;Spider dead sequence
 	DropDead: [DropDead-X1 DropDead-X2 DropDead-X3 DropDead-X4] ;Drop crash sequence 
 ]

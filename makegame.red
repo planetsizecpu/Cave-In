@@ -426,6 +426,10 @@ MakeGame: does [
 					foreach img GameData/PAgentGetup [f/image: get img]			
 					f/image: PAgentGetup-X2					
 			]
+			if (first f/extra/name) = #"y" [
+					foreach img GameData/YAgentGetup [f/image: get img]			
+					f/image: YAgentGetup-X2					
+			]
 			f/extra/getup: false
 			f/extra/altitude: 0  ;Agents are strong, not to die on falls
 		]
@@ -460,6 +464,9 @@ MakeGame: does [
 			if (first f/extra/name) = #"p" [
 				foreach img GameData/PAgentDead [f/image: get img wait GameData/AgentDeadDelay]		
 			]
+			if (first f/extra/name) = #"y" [
+				foreach img GameData/YAgentDead [f/image: get img wait GameData/AgentDeadDelay]		
+			]			
 		]
 
 		; Check the lives of thief to stop game
@@ -640,6 +647,10 @@ MakeGame: does [
 							if (first face/extra/name) = #"p" [						
 								face/image: PAgent-S4
 							]
+							if (first face/extra/name) = #"y" [						
+								face/image: YAgent-S4
+							]
+
 						]
 						if face/extra/altitude > GameData/GetupAltitude [face/extra/getup: true] ; Agents can not die by fall or game is not playable
 					]
