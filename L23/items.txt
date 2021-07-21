@@ -45,6 +45,8 @@ GOLDBG|hgold14|gld14|8x12|1075x850|0:0|0x0|0:0|0|1|gold!.png
 GOLDBG|hgold15|gld15|8x12|1260x850|0:0|0x0|0:0|0|1|gold!.png
 GOLDBG|hgold16|gld16|8x12|1265x1000|0:0|0x0|0:0|0|1|gold+.png
 #
+PASSAGE1|passage1|pas1|35x40|1161x200|0:0:4|0x0|0:0|1|0|passage-G.png
+PASSAGE2|passage2|pas2|35x40|1159x930|0:0:4|0x0|0:0|1|0|passage-G.png
 TPICKAX|pickax1|pkx1|9x10|580x130|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|1170x1090|0:0|0x0|0:0:10|0|1|pickax1.png
 WBARROW|wbarrow1|wba1|26x17|1380x130|0:0|0x0|0:0|0|1|barrow-r1.png
