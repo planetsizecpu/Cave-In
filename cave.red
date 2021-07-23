@@ -23,7 +23,7 @@ system/view/auto-sync?:  yes
 ; Game data & defaults object
 GameData: context [
 	Levels: ["L1" "L2" "L3" "L4" "L5" "L6" "L7" "L8" "L9" "L10" "L11" "L12" 
-			 "L13" "L14" "L15" "L16" "L17" "L18" "L19" "L20" "L21" "L22"] 
+			 "L13" "L14" "L15" "L16" "L17" "L18" "L19" "L20" "L21" "L22" "L23"] 
 	GameRate: 0:00:00.003
 	either system/platform = 'Windows [
 		GameRate: 0:00:00.006 ;Win cant handle 3ms rate so it goes as fast as possible
@@ -136,8 +136,6 @@ GameControl: layout [
 	at 430x35  Gdexpe: radio yellow blue "Expert" on-change [CheckDifficulty]
 ]
 
-SelevelScr: layout [title "Level" slv: text-list 50x300 data GameData/Levels]
-
 ; Open browser to red-lang HQ
 OpenBrowser: function [face event][
 	if event/type = 'up [
@@ -160,7 +158,8 @@ CheckDifficulty: function [][
 view/options [size 800x600 	
 	at 1x1 Splash: image 800x600 %DATA/cave-in.jpg 
 	at 374x267 bg: text 10x15 black white
-	at 650x450 button 100x50 white red center "P L A Y" on-click [bg/text: to-string CpuData/CpuIdx wait 2 unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]]
+	at 650x450 button 100x50 white red center "P L A Y" on-click [bg/text: to-string CpuData/CpuIdx wait 2 unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]
+]
 
 ; Check CPU index on faster machines to trim waiting time for karts & elevators
 if CpuData/CpuIdx > 0 [GameData/LifterStopDelay: 200 GameData/KartStopDelay: 200]
@@ -173,7 +172,11 @@ if CpuData/CpuIdx > 6 [GameData/LifterStopDelay: 320 GameData/KartStopDelay: 320
 if CpuData/CpuIdx > 7 [GameData/LifterStopDelay: 340 GameData/KartStopDelay: 340]
 
 ; Level loading & start game play
-GameData/Curlevel: first GameData/Levels
+either exists? %curlevel.txt [
+	GameData/Curlevel: read %curlevel.txt
+][
+	GameData/Curlevel: first GameData/Levels
+]
 LoadDfltImages
 LoadLevel GameData/Curlevel
 MakeGame

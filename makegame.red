@@ -71,6 +71,7 @@ MakeGame: does [
 			alert "Congratulations you ended this level!"
 			GameData/Levels: next find GameData/Levels GameData/Curlevel
 			GameData/Curlevel: first GameData/Levels
+			write %curlevel.txt GameData/Curlevel
 			GameData/Stock: 0
 			GameData/Goldbags: 0
 			
