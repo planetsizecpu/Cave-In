@@ -70,6 +70,8 @@ GameData: context [
 	DemoMode: false
 	ThiefGetup: [ThiefGetup-X1 ThiefGetup-X2] ;Thief getup sequence
 	ThiefDead: [ThiefDead-X1 ThiefDead-X2 ThiefDead-X3 ThiefDead-X4] ;Thief dead sequence
+	ThiefVanish: [ThiefVanish-X1 ThiefVanish-X2 ThiefVanish-X3 ThiefVanish-X4] ;Thief vanish sequence
+	ThiefUnVanish: [ThiefVanish-X4 ThiefVanish-X3 ThiefVanish-X2 ThiefVanish-X1] ;Thief unvanish sequence
 	AgentGetup: [AgentGetup-X1 AgentGetup-X2] ;Agent getup sequence
 	AgentDead: [AgentDead-X1 AgentDead-X2 AgentDead-X3 AgentDead-X4] ;Agent dead sequence
 	FAgentGetup: [FAgentGetup-X1 FAgentGetup-X2] ;Female agent getup sequence

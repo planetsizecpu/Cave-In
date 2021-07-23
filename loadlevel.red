@@ -94,6 +94,7 @@ LoadLevel: func [lv][
 			tool: false
 			gold: false
 			handle: false
+			passage: false
 			dead: false
 			loaded: false
 			wound: false
@@ -300,6 +301,11 @@ LoadDfltImages: func [][
 	ThiefHandle: load to-file (Ldata/thiefh1.png)
 	ThiefHandleb: load to-file (Ldata/thiefh1-b.png)
 	ThiefHandlet: load to-file (Ldata/thiefh1-t.png)	
+
+	ThiefVanish-X1: load to-file (Ldata/thiefvanish-x1.png)
+	ThiefVanish-X2: load to-file (Ldata/thiefvanish-x2.png)
+	ThiefVanish-X3: load to-file (Ldata/thiefvanish-x3.png)
+	ThiefVanish-X4: load to-file (Ldata/thiefvanish-x4.png)
 	
 	Agent-S1: load to-file (Ldata/agent-s1.png)
 	Agent-S2: load to-file (Ldata/agent-s2.png)

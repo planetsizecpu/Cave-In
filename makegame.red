@@ -97,6 +97,7 @@ MakeGame: does [
 				append Gscore/text to-string GameData/Score							
 			]
 		]
+				
 		Return Ret
 	]
 	
@@ -111,7 +112,7 @@ MakeGame: does [
 			#"#" [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat! 
 			#"%" [AskLevel] ;Cheat!
 			#"@" [SetDemoMode] ;Cheat
-		]
+		]	
 	]
 	
 	; Messages to player on low bar
@@ -532,6 +533,16 @@ MakeGame: does [
 	
 	; Gravity effect for objects affected by, also added effects of inertia, passage & difficulty 
 	GoGravity: function [][
+		; Check if we come from passage travel to do effects
+		if GameData/PlayerFace/extra/passage [
+			GameData/PlayerFace/extra/passage: false
+			;GameData/PlayerFace/size: ThiefVanish-X1/size    got compiler error
+			foreach img GameData/ThiefUnVanish [GameData/PlayerFace/image: get img wait GameData/ThiefDeadDelay]
+			;GameData/PlayerFace/size: GameData/PlayerFace/extra/size   got compiler error
+			GameData/PlayerFace/offset/x: GameData/PlayerFace/offset/x + 5
+			GameData/PlayerFace/offset/y: GameData/PlayerFace/offset/y - 5
+			GameData/PlayerFace/image: Thief-S4
+		]
 		foreach-face GameData/CaveFace [
 			
 			; If object has gravity apply them when no floor no stairs and no lifter under the face
@@ -1526,7 +1537,6 @@ MakeGame: does [
 	;-------------------------------------------------------------------------
 	PassageMotion: function [f [object!] sp [object!]][
 	
-		
 		; Do nothing if start passage is loaded 
 		if sp/extra/loaded [exit]
 		
@@ -1542,7 +1552,7 @@ MakeGame: does [
 				; Pair grouping is on direction field
 				if face/extra/direction = sp/extra/direction [
 					face/rate: none
-					if face <> sp [dp: face]
+					if face <> sp [dp: face] ;Get destination passage 
 				]
 			]
 		]
@@ -1559,13 +1569,25 @@ MakeGame: does [
 		prin " SO WE TRAVEL TO "
 		print dp/extra/name
 		
-		; Travel the face
+		; Thief vanish transition effects idea thx to @greggirwin
+		if f/extra/type = "J" [
+			f/offset: sp/offset
+			f/offset/x: f/offset/x - 5
+			f/offset/y: f/offset/y - 25
+			f/size: ThiefVanish-X1/size
+			foreach img GameData/ThiefVanish [f/image: get img wait GameData/ThiefDeadDelay]
+			f/extra/passage: true
+			f/size: f/extra/size
+			;f/image: Thief-S4
+		]
+		
+		; Travel the passing face
 		f/offset: dp/offset
 		
 		; Start passage pair timers
 		sp/rate: sp/extra/rate
 		dp/rate: dp/extra/rate
-		
+
 		exit
 	]
 
