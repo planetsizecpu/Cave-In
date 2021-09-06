@@ -1574,14 +1574,15 @@ MakeGame: does [
 		
 		; Thief vanish transition effects idea thx to @greggirwin
 		if f/extra/type = "J" [
+			OldSize: f/size
 			f/offset: sp/offset
 			f/offset/x: f/offset/x - 5
 			f/offset/y: f/offset/y - 25
 			f/size: ThiefVanish-X1/size
 			foreach img GameData/ThiefVanish [f/image: get img wait GameData/ThiefDeadDelay]
 			f/extra/passage: true
-			f/size: f/extra/size
-			;f/image: Thief-S4
+			f/size: OldSize
+			OldSize: 0x0
 		]
 		
 		; Travel the passing face
