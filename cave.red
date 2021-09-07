@@ -40,7 +40,7 @@ GameData: context [
 	Items: [] 
 	Curlevel: "" 
 	Stock: 0 
-	Goldbags: 0
+	Goldbags: 0 ;On wheelbarrow loaded goldbags
 	Score: 0
 	Gravity: 3 ;Scenarios with slopes are not suitable for higher values, here the boy gets locked
 	Antigravity: 3
