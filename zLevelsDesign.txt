@@ -60,9 +60,10 @@ Location (Stop #)
 Direction (Positive value Down/Right or negative value Up/Left)
 For (B)and first stop indicates axis displacement 1x0 -> Horizontal displacement, Other value -> Vertical displacement
 (P)assages must be grouped pairs of passage1 and passage2, then passage3 and passage4 ... (we use direction field for pairing)
-For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3", "p" phantom "pagent" or
- "y" for The TallMan "yagent"
-For (G)old bags first ObjectName letter can be "f" for fat (bag green neck) or "h" for heavy (24kt red) gold
+For (A)gents first ObjectName letter must be "f" if agent is female so as "fagent3", "p" phantom "pagent" or
+"y" for The TallMan "yagent", image files must be defined accordingly to the character using the provided images.
+For (G)old bags first ObjectName letter imply their value, can be any, but "f" for fat (bag green neck) or "h" for heavy (24kt red)
+but the image files can be any of the provided objects, that is: gold1 gold2 gold3 gold+ gold- gold! see imagefiles at DATA folder.
 To modify default GameData/word values: & word value (value can be tuple! logic! or integer!)
 
 Each comment line starts with "#", it is important not to set white lines in the whole file (as I did here for clarity) or the
