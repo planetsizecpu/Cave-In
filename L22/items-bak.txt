@@ -57,6 +57,8 @@ TPICKAX|pickax1|pkx1|9x10|250x450|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|1350x100|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax3|pkx3|9x10|450x670|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax4|pkx4|9x10|1315x915|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax5|pkx5|9x10|715x1000|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax6|pkx6|9x10|875x1000|0:0|0x0|0:0:10|0|1|pickax1.png
 WBARROW|wbarrow1|wba1|26x17|350x50|0:0|0x0|0:0|0|1|barrow-r1.png
 WBARROW|wbarrow2|wba2|26x17|450x50|0:0|0x0|0:0|0|1|barrow-l1.png
 #
