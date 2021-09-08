@@ -13,6 +13,8 @@ To run the game you need the [Red](https://www.red-lang.org/p/download.html) too
 
 Meet us at the Red [forums](https://gitter.im/red/red/gui-branch) and have fun! 😉 
 
+Red language is an open source project made by Full Stack Technologies @ www.red-lang.org 
+
 **********************************************************************************************************
 INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
 **********************************************************************************************************
@@ -29,7 +31,3 @@ INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
 
 
 ![Test Image 5](/scenes/LevelE.gif)
-
-
-Red language is an open source project made by Full Stack Technologies @ www.red-lang.org 
-
