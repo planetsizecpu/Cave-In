@@ -13,13 +13,23 @@ To run the game you need the [Red](https://www.red-lang.org/p/download.html) too
 
 Have fun! 😉 
 
-![Test Image 2](/scenes/Level.gif)
-
 **********************************************************************************************************
 INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
 **********************************************************************************************************
+![Test Image 1](/scenes/LevelA.gif)
 
-![Test Image 3](/scenes/Levelb.gif)
+
+![Test Image 2](/scenes/LevelB.gif)
+
+
+![Test Image 3](/scenes/LevelC.gif)
+
+
+![Test Image 4](/scenes/LevelD.gif)
+
+
+![Test Image 5](/scenes/LevelE.gif)
+
 
 Red language is an open source project made by Full Stack Technologies @ www.red-lang.org 
 
