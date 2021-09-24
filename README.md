@@ -7,7 +7,7 @@ There was an arcade machine game from the early 80's where I spent a lot of coin
 
 I know it does not have the quality of the true arcade game, but the goal is not to market it, but to learn, to play and share the code to others, so they can also enjoy and learn in his way. In addition there are some known functional concerns on behavior, as for example elevators & kart excessive speed on Linux, and for sure will discover more, so the development continues slowly but surely.
 
-Official sound support is not available at this time, (you're already aware that Red is alpha stage by now) so no sound is provided by now. I remember the sound effects & melody [Turkey in the Straw](https://www.youtube.com/watch?v=Vr8QnkTwT_w) (ice cream truck song melody), some day music & sound will be available in Red and we could enjoy much more.
+Official sound support is not available at this time, (you're already aware that [Red](https://www.red-lang.org/p/download.html) is alpha stage) so no sound is provided by now. I remember the sound effects & melody [Turkey in the Straw](https://www.youtube.com/watch?v=Vr8QnkTwT_w) (ice cream truck song melody), some day music & sound will be available in Red and we could enjoy much more.
 
 To run the game you need the [Red](https://www.red-lang.org/p/download.html) toolchain in your path, just download/unpack the files & folders and click on cave.red file. **Yes it runs on interpreter, that's how powerful Red-lang is**, otherwise you can compile your exe with `red -r -t [target OS] cave.red` or if you trust me, click on cave executable file (not tested on Mac & Linux). Whatever your OS is, you need to have the source/executable file in the main game folder to run the game.
 
