@@ -11,7 +11,7 @@ Official sound support is not available at this time, (you're already aware that
 
 To run the game you need the [Red](https://www.red-lang.org/p/download.html) toolchain in your path, just download/unpack the files & folders and click on cave.red file. **Yes it runs on interpreter, that's how powerful Red-lang is**, otherwise you can compile your exe with `red -r -t [target OS] cave.red` or if you trust me, click on cave executable file (not tested on Mac & Linux). Whatever your OS is, you need to have the source/executable file in the main game folder to run the game.
 
-Meet us at the [Red forums](https://gitter.im/red/red) and ask whatever you want to ask, here is the Red team ready for answer, have fun! 😉 
+Meet us at the [Red forums](https://gitter.im/red/red) and ask whatever you want to ask, here is the dev team ready for answer, have fun! 😉 
 
 Red language is an open source project made by Full Stack Technologies @ www.red-lang.org 
 
