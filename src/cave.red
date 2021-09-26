@@ -2,7 +2,7 @@ Red [Needs: 'View
 	Title:   "Cave-In"
 	Author:  "@planetsizecpu"
 	File:    %Cave.red
-	Purpose: {This is a arcade game sequel}
+	Purpose: {This is a Bagman (R) arcade game sequel}
 ] 
 
 ; Credit to @rebolek for help on "make face" syntax & browser behavior
