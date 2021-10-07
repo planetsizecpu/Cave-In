@@ -112,8 +112,8 @@ MakeGame: does [
 			up [GoUp GameData/PlayerFace]
 			down [GoDown GameData/PlayerFace]
 			#" " [GoAction GameData/PlayerFace]
-			#"#" [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat! 
-			#"%" [AskLevel] ;Cheat!
+			#"#" [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat
+			#"%" [AskLevel] ;Cheat
 			#"@" [SetDemoMode] ;Cheat
 		]	
 	]
@@ -632,7 +632,14 @@ MakeGame: does [
 							face/extra/gravity: false
 							face/offset: -25x-25
 							; Delete carryed bag from the face tree to shorten the process loop
-							alter GameData/CaveFace/pane (face)
+							;alter GameData/CaveFace/pane (face)
+							either alter GameData/CaveFace/pane (face) [
+								prin "ADDED OBJECT: " 
+								print face/extra/facename
+								][
+								prin "DELETED OBJECT: " 
+								print face/extra/facename
+							]						
 						]
 					]
 				]	
@@ -913,7 +920,15 @@ MakeGame: does [
 					f/extra/getobject/extra/gravity: false
 					f/extra/getobject/offset: -25x-25
 					; Delete carryed bag from the face tree to shorten the process loop
-					alter GameData/CaveFace/pane (f/extra/getobject)
+					;alter GameData/CaveFace/pane (f/extra/getobject
+					either alter GameData/CaveFace/pane (f/extra/getobject) [
+						prin "ADDED OBJECT: " 
+						print f/extra/getobject/extra/facename
+						][
+						prin "DELETED OBJECT: " 
+						print f/extra/getobject/extra/facename
+						
+					]
 					
 					; Set defaults
 					f/extra/getobject: copy []
