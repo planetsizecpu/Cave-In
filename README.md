@@ -9,7 +9,7 @@ I know this game does not have the quality of the true arcade game, but the goal
 
 Official sound support is not available at this time, (you're already aware that Red is alpha stage) so no sound is provided by now. I remember the sound effects & melody [Turkey in the Straw](https://www.youtube.com/watch?v=Vr8QnkTwT_w) (ice cream truck song melody), some day music & sound will be available in Red and we could enjoy much more.
 
-REQUIREMENTS: NONE, just click on the executable file for your OS.
+REQUIREMENTS: NONE on Windows & MacOs, just click on the executable file. For Linux GTK Must be installed and running.
 
 To run the game on interpreter, you need the [Red](https://www.red-lang.org/p/download.html) toolchain in your path, just download/unpack the files & folders and click on cave.red file. **Yes it runs on interpreter, that's only part of the magic on Red-lang**, otherwise you can compile your exe with `red -r -t [target OS] cave.red`.
 
