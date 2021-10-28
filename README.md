@@ -13,7 +13,7 @@ REQUIREMENTS: NONE on Windows & MacOs, just click on the executable file. For Li
 
 To run the game on interpreter, you need the [Red](https://www.red-lang.org/p/download.html) toolchain in your path, just download/unpack the files & folders and click on cave.red file. **Yes it runs on interpreter, that's only part of the magic on Red-lang**, otherwise you can cross-compile your exe with `red -r -t [target OS] cave.red`.
 
-Whatever your OS is, you need to have the source/executable file in the main game folder to run the game.
+Whatever your OS is, you need to have the executable/(source) file(s) in the main game folder to run the game.
 
 Meet us at the [Red forums](https://gitter.im/red/red) and ask whatever you want to ask, here is the Red dev team ready for answer, and of course me too. Have fun! 😉 
 
