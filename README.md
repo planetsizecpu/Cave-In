@@ -11,7 +11,7 @@ Official sound support is not available at this time, (you're already aware that
 
 REQUIREMENTS: NONE on Windows & MacOs, just click on the executable file. For Linux GTK Must be installed and running.
 
-To run the game on interpreter, you need the [Red](https://www.red-lang.org/p/download.html) toolchain in your path, just download/unpack the files & folders and click on cave.red file. **Yes it runs on interpreter, that's only part of the magic on Red-lang**, otherwise you can compile your exe with `red -r -t [target OS] cave.red`.
+To run the game on interpreter, you need the [Red](https://www.red-lang.org/p/download.html) toolchain in your path, just download/unpack the files & folders and click on cave.red file. **Yes it runs on interpreter, that's only part of the magic on Red-lang**, otherwise you can cross-compile your exe with `red -r -t [target OS] cave.red`.
 
 Whatever your OS is, you need to have the source/executable file in the main game folder to run the game.
 
