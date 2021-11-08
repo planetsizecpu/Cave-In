@@ -11,7 +11,7 @@ Red [
 LoadLevel: func [lv][
 
 	; Level selection & loading
-	Ldata: to-file "DATA"
+	Ldata: to-file "data"
 	Level: to-file lv
 	GameData/Curlevel: to-string lv
 	LastPassage: copy " "
