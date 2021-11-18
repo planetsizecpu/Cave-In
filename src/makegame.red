@@ -477,8 +477,7 @@ MakeGame: does [
 		if f/extra/type = "J" [
 			Message "You dead"
 			either f/extra/lives > 0 [f/extra/lives: subtract f/extra/lives 1][return true]
-			;If thief is dead on air wait for hit the ground
-			while [(not CheckFloor f) and (not CheckOverlaps f)] [GoGravity wait 0.01]
+			;Play dead sequence
 			foreach img GameData/ThiefDead [f/image: get img wait GameData/ThiefDeadDelay]		
 		]		
 		
@@ -498,8 +497,8 @@ MakeGame: does [
 		; If it is some object on hands leave them at place and make it visible
 		if any [f/extra/gold f/extra/tool f/extra/wbarrow] [
 			f/extra/getobject/offset: f/offset
-			f/extra/getobject/extra/gravity: true
 			f/extra/getobject/visible?: true
+			f/extra/getobject/extra/gravity: true
 		]
 		
 		; Set defaults for face
@@ -524,8 +523,9 @@ MakeGame: does [
 			prin f/extra/name print " HAS NO MORE LIVES"
 			Ret: true
 		]
-		; Set face at his starting point
+		; Set face at his starting point & size
 		f/offset: f/extra/offset
+		f/size: f/extra/size
 		f/image: f/extra/image
 		
 		Glives/text: copy "LIVES:  " 
@@ -678,7 +678,7 @@ MakeGame: does [
 					if face/extra/type = "J" [
 						if face/extra/altitude > GameData/FallingFaceAltitude [if not face/extra/wbarrow [face/image: Thief-S4]]
 						if face/extra/altitude > GameData/GetupAltitude and (not face/extra/wbarrow) [face/extra/getup: true]
-						if face/extra/altitude > GameData/DeadAltitude [face/extra/wbarrow: false face/extra/dead: true]
+						if face/extra/altitude > GameData/DeadAltitude [face/extra/altitude: 0 GoDead face]
 					]					
 					if face/extra/type = "R" [
 							if face/extra/altitude > GameData/FallingFaceAltitude [if not face/extra/wbarrow [face/image: Girl-S4]]
