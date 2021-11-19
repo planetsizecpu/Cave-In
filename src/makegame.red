@@ -59,7 +59,6 @@ MakeGame: does [
 				GameData/PlayerFace/extra/getobject: copy []
 				either GameData/PlayerFace/extra/handle [
 					GameData/PlayerFace/image: ThiefHandle
-					GameData/PlayerFace/image/size: ThiefHandle/size
 				][
 					GameData/PlayerFace/image: GameData/PlayerFace/extra/image
 				]
