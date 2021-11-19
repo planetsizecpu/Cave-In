@@ -57,7 +57,12 @@ MakeGame: does [
 				; Thief to leave tool
 				GameData/PlayerFace/extra/tool: false
 				GameData/PlayerFace/extra/getobject: copy []
-				GameData/PlayerFace/image: GameData/PlayerFace/extra/image
+				either GameData/PlayerFace/extra/handle [
+					GameData/PlayerFace/image: ThiefHandle
+					GameData/PlayerFace/image/size: ThiefHandle/size
+				][
+					GameData/PlayerFace/image: GameData/PlayerFace/extra/image
+				]
 			]
 		]
 		
@@ -539,9 +544,7 @@ MakeGame: does [
 		; Check if we come from passage travel to do effects
 		if GameData/PlayerFace/extra/passage [
 			GameData/PlayerFace/extra/passage: false
-			;GameData/PlayerFace/size: ThiefVanish-X1/size    got compiler error
 			foreach img GameData/ThiefUnVanish [GameData/PlayerFace/image: get img wait GameData/ThiefDeadDelay]
-			;GameData/PlayerFace/size: GameData/PlayerFace/extra/size   got compiler error
 			GameData/PlayerFace/offset/x: GameData/PlayerFace/offset/x + 5
 			GameData/PlayerFace/offset/y: GameData/PlayerFace/offset/y - 5
 			GameData/PlayerFace/image: Thief-S4
@@ -1014,6 +1017,7 @@ MakeGame: does [
 			if not none? OtherFace [
 				if OtherFace/extra/type = "K" [
 					KartJumpIn OtherFace f
+					f/visible: false
 					exit
 				]
 			]
@@ -1046,6 +1050,7 @@ MakeGame: does [
 				if not none? OtherFace [
 					if OtherFace/extra/type = "K" [
 						KartJumpOut OtherFace f
+						f/visible: true
 						exit
 					]
 				]
