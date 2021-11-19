@@ -1,5 +1,5 @@
 # Cave-In
-Cave-In: [Bagman®](https://www.youtube.com/watch?v=HcVstQnHhSA) Arcade machine game sequel: **still alpha as [Red](https://www.red-lang.org/p/download.html) lang itself**
+Cave-In: [Bagman®](https://www.youtube.com/watch?v=HcVstQnHhSA) Arcade game sequel: **still alpha as [Red](https://www.red-lang.org/p/download.html) lang itself**
 
 ![Test Image 0](/scenes/bagman.jpg)
 
