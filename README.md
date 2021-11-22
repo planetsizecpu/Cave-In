@@ -29,13 +29,3 @@ INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
 ![Test Image 1](/scenes/LevelA.gif)
 
 
-![Test Image 2](/scenes/LevelB.gif)
-
-
-![Test Image 3](/scenes/LevelC.gif)
-
-
-![Test Image 4](/scenes/LevelD.gif)
-
-
-![Test Image 5](/scenes/LevelE.gif)
