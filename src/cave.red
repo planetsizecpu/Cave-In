@@ -5,6 +5,7 @@ Red [Needs: 'View
 	Purpose: {This is a arcade game sequel}
 ] 
 
+; Credit to @gltewalt for help on data folder rename
 ; Credit to @rebolek for help on "make face" syntax & browser behavior
 ; Credit to @toomasv for "play" music dialect porting (not implemented yet) & browser behavior
 ; Credit to @gltewald for help on png files transparency
