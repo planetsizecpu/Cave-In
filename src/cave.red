@@ -1,7 +1,7 @@
 Red [Needs: 'View
 	Title:   "Cave-In"
-	Author:  "@planetsizecpu"
-	File:    %Cave.red
+	Author:  "@planetsizecpu" 
+		File:    %Cave.red
 	Purpose: {This is a arcade game sequel}
 ] 
 
@@ -124,6 +124,7 @@ GameScr: layout [
 		info/rate: GameData/GameRate
 	]
 ]
+
 GameControl: layout [
 	below
 	at 10x5  Glevel: text 110x21 yellow blue font [name: "Arial" size: 14 style: 'bold]

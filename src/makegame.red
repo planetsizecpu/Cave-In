@@ -1023,7 +1023,7 @@ MakeGame: does [
 		][
 			; Check if face is under handle and grab them
 			if (CheckHandle f) [ 
-				if not f/extra/wbarrow [
+				if all [not f/extra/wbarrow not f/extra/onkart] [
 					f/visible?: true
 					f/extra/gravity: false
 					f/extra/handle: true
@@ -1049,6 +1049,19 @@ MakeGame: does [
 				if not none? OtherFace [
 					if OtherFace/extra/type = "K" [
 						KartJumpOut OtherFace f
+						if f/extra/gold [
+							f/size: ThiefHandleb/size
+							f/image: ThiefHandleb
+						]
+						if f/extra/tool [
+							f/size: ThiefHandlet/size
+							f/image: ThiefHandlet
+						]
+						if (not f/extra/gold) and (not f/extra/tool) [
+							f/size: ThiefHandle/size
+							f/image: ThiefHandle
+						]						
+						f/offset/y: OtherFace/offset/y - 21
 						f/visible: true
 						exit
 					]

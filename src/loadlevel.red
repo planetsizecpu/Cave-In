@@ -100,6 +100,7 @@ LoadLevel: func [lv][
 			wound: false
 			blockedLT: false
 			blockedRT: false
+			getobject: [] 
 			image: copy []
 			images: copy []			
 			either ItemType = "C" [
@@ -108,8 +109,6 @@ LoadLevel: func [lv][
 				image: load (Ldata/(lin/11))
 				foreach p lin [if c > 10 [append images load (Ldata/(p))] c: add c 1]
 			]
-			face: object! []
-			getobject: [] 
 		]
 	]
 	unset 'c
