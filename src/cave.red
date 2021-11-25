@@ -156,7 +156,7 @@ CheckDifficulty: function [][
 
 ; View splash screen
 view/options [size 800x600 	
-	at 1x1 Splash: image 800x600 %DATA/cave-in.jpg 
+	at 1x1 Splash: image 800x600 %data/cave-in.jpg 
 	at 374x267 bg: text 10x15 black white
 	at 650x450 button 100x50 white red center "P L A Y" on-click [bg/text: to-string CpuData/CpuIdx wait 2 unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]
 ]

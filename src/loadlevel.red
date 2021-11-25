@@ -246,7 +246,7 @@ LoadLevel: func [lv][
 ; Load default images for handling
 ;-------------------------------------------------------------------------
 LoadDfltImages: func [][
-	Ldata: to-file "DATA"
+	Ldata: to-file "data"
 
 	Thief-R1: load to-file (Ldata/thief-r1.png)
 	Thief-R2: load to-file (Ldata/thief-r2.png)
