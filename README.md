@@ -17,7 +17,7 @@ REQUIREMENTS: NONE on Windows & MacOs, just click on the executable file. For Li
 
 To run the game you need to copy the desired executable file from the right folder for your O.S. in the main game folder.
 
- ** The game also runs on interpreter! **
+ **The game also runs on interpreter!**
  
 To run the game on interpreter, you need the [Red](https://www.red-lang.org/p/download.html) toolchain in your path, just download/unpack the files & folders and click on cave.red file (sources must be at the main game folder in this case). This way you'll see a lot of messages in the gui console that help on debug.
 
