@@ -1,0 +1,34 @@
+# Level 27 items configuration file
+#
+# The program will load all of them and put in locations.
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+# ItemTypes start with: (A)gent (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (S)pider (T)ools (W)barrow (X)Sphere (Y)Tallman
+# Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
+# Location (Stop #)
+# Direction (1 Down/Right -1 Up/Left)
+# For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
+#
+# To modify default GameData/word values:  & word value   (value can be tuple! or logic!)
+#
+& CeilingDist 15
+& TerrainColor 69.43.29.0
+& StairsColor1 255.127.39.0
+& StairsColor2 181.51.213.0
+& HandleColor 195.195.195.0
+& LifterCable 2.2.2.0
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+CAVERN|cavern1|cave|1599x1200|0x0|0:0|0x0|0:0|0|0|cavern.png
+#
+#AGENT1|yagent1|age1|26x41|1250x950|0:0:0.05|0x0|0:0|0|1|tallman-l1.png|tallman-r1.png|tallman-l2.png|tallman-r2.png|tallman-l3.png|tallman-r3.png|tallman-s1.png|tallman-s2.png|tallman-s3.png|tallman-s4.png
+#
+GOLDBG|gold1|gld1|8x12|230x215|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold2|gld2|8x12|415x215|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold3|gld3|8x12|600x215|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold4|gld4|8x12|415x530|0:0|0x0|0:0|0|1|gold1.png
+#
+KART1|kart1|krt1|35x19|1478x159|0:0:0.0067|90x159,1478x159|0:0|-1|0|kart1.png
+KART2|kart2|krt2|35x19|90x753|0:0:0.0067|90x753,1478x753|0:0|1|0|kart1.png
+#
+JOHN|john|doe|22x34|190x210|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
