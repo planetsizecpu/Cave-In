@@ -109,6 +109,7 @@ LoadLevel: func [lv][
 				image: load (Ldata/(lin/11))
 				foreach p lin [if c > 10 [append images load (Ldata/(p))] c: add c 1]
 			]
+			; face: object! []
 		]
 	]
 	unset 'c
