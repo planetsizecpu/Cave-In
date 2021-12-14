@@ -3,7 +3,7 @@ Cave-In: [Bagman®](https://www.youtube.com/watch?v=HcVstQnHhSA) Arcade game seq
 
 ![Test Image 0](/scenes/bagman.jpg)
 
-There was an arcade machine game from the early 80's where I spent a lot of coins. As I'm learning Red language, I thought it would be a good training to design a similar game, just to learn while play, because I wanted to play again this game. Red lang allowed me to create the game from scratch, I never imagined it would be so easy & fun to make games (have I mentioned that wanted to play again?), I enjoyed a lot as it has been a long time since I did it this way (since my cobol epoch at 80's to be honest). 
+There was an arcade machine game from the early 80's where I spent a lot of coins. As I'm learning Red language, I thought it would be a good training to design a similar game, just to learn while play, because I wanted to play again this game. Red lang allowed me to create the game from scratch, I never imagined it would be so easy & fun to make games (have I mentioned that wanted to play again?), I enjoyed a lot as it has been a long time since I did it this way (since my COBOL epoch at 80's to be honest). 
 
 As it was a lot of work to do for only a person, design everything and put it all to run together was a challenge, I could hardly have done it with another language that was not **human oriented** 😃. Yes, it really make everything a bit easier, I'm sure you would like to [try](https://www.red-lang.org/p/download.html) it if you are, like me, tired of fighting against the tense syntax and semantics of traditional languages.
 
