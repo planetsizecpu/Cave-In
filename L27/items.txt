@@ -10,7 +10,7 @@
 # Direction (1 Down/Right -1 Up/Left)
 # For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
 #
-# To modify default GameData/word values:  & word value   (value can be tuple! or logic!)
+# To modify default GameData/word values:  & word value   (value can be integer, tuple! or logic!)
 #
 & CeilingDist 15
 & TerrainColor 69.43.29.0
