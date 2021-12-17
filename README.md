@@ -14,7 +14,7 @@ I know this game does not have the quality of the true arcade game, but the goal
 Official sound support is not available at this time, (you're already aware that Red is alpha stage) so no sound is provided by now. I remember the sound effects & melody [Turkey in the Straw](https://www.youtube.com/watch?v=Vr8QnkTwT_w) (ice cream truck song melody), some day music & sound will be available in Red and we could enjoy much more.
 
 **********************************************************************************************************
-REQUIREMENTS: NONE on Windows & MacOs, just click on the executable file. For Linux GTK Must be installed and running.
+REQUIREMENTS: None on Windows & MacOs, just click on the executable file. For Linux GTK Must be installed and running.
 
 **To run the game you need to copy the desired executable file from the right folder for your O.S. in the main game folder.**
 **********************************************************************************************************
