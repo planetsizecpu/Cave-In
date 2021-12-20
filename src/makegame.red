@@ -84,7 +84,7 @@ MakeGame: does [
 				print " NO MORE LEVELS! " 
 				print "***************************************************"		
 				Message "Congratulations you win the game"
-				alert "CONGRATULATIONS YOU WIN THE GAME"
+				alert "CONGRATS! YOU WIN THE GAME"
 				GameData/Curlevel: "L1"
 				write %curlevel.txt GameData/Curlevel
 				quit
