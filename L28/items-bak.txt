@@ -1,0 +1,64 @@
+# Level 28 items configuration file
+#
+# The program will load all of them and put in locations.
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+# ItemTypes start with: (A)gent (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (S)pider (T)ools (W)barrow
+# Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
+# Location (Stop #)
+# Direction (1 Down/Right -1 Up/Left)
+# For (B)and first stop indicates axis displacement 1x0 -> Horizontal  Other value -> Vertical
+# For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
+#
+# To modify default GameData/word values:  & word value   (value can be tuple! logic! or integer!)
+& CeilingDist 25
+& TerrainColor 89.89.89.0
+& StairsColor1 200.191.231
+& StairsColor2 63.72.204.0
+& DropGravity 1
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+CAVERN|cavern1|cave|1599x1200|0x0|0:0|0x0|0:0|0|0|cavern.png
+#
+AGENT1|agent1|age1|22x34|1555x20|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
+AGENT2|fagent2|age2|22x34|160x280|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
+AGENT3|agent3|age3|22x34|700x915|0:0:0.05|0x0|0:0|0|1|agent-l1.png|agent-r1.png|agent-l2.png|agent-r2.png|agent-l3.png|agent-r3.png|agent-s1.png|agent-s2.png|agent-s3.png|agent-s4.png
+AGENT4|fagent4|age4|22x34|1520x1060|0:0:0.04|0x0|0:0|0|1|fagent-l1.png|fagent-r1.png|fagent-l2.png|fagent-r2.png|fagent-l3.png|fagent-r3.png|fagent-s1.png|fagent-s2.png|fagent-s3.png|fagent-s4.png
+# Up Left Scr
+GOLDBG|gold01|gld01|8x12|100x200|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold02|gld02|8x12|485x200|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold03|gld03|8x12|720x100|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold04|gld04|8x12|870x100|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold05|gld05|8x12|485x350|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold06|gld06|8x12|1105x200|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold07|gld07|8x12|1370x100|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold08|gld08|8x12|1355x960|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold09|gld09|8x12|680x420|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold10|gld10|8x12|910x260|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|hgold11|gld11|8x12|25x900|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold12|gld12|8x12|25x1080|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|gold13|gld13|8x12|485x960|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|fgold14|gld14|8x12|700x960|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|fgold15|gld15|8x12|1105x350|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|fgold16|gld16|8x12|1105x900|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|hgold17|gld17|8x12|1055x960|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold18|gld18|8x12|1415x350|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold19|gld19|8x12|1405x810|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|fgold20|gld20|8x12|1470x1075|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|fgold21|gld21|8x12|670x1070|0:0|0x0|0:0|0|1|gold-.png
+GOLDBG|fgold22|gld22|8x12|1100x1070|0:0|0x0|0:0|0|1|gold!.png
+#
+TPICKAX|pickax1|pkx1|9x10|350x1150|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax2|pkx2|9x10|1330x1150|0:0|0x0|0:0:10|0|1|pickax1.png
+#
+KART1|kart2|krt2|35x19|382x1038|0:0:0.0067|382x1038,1345x1038|0:0|1|0|kart1.png
+#
+LIFT1|lifter1|lif1|35x10|333x227|0:0:0.0067|333x227,333x378,333x520,333x677,333x812,333x1113|0:0|1|0|lifter-2.png
+LIFT2|lifter2|lif2|35x10|606x520|0:0:0.0067|606x145,606x227,606x378,606x520|0:0|-1|0|lifter-2.png
+LIFT3|lifter3|lif3|35x10|957x145|0:0:0.0067|957x145,957x227,957x378,957x520|0:0|1|0|lifter-2.png
+LIFT4|lifter4|lif4|35x10|1228x985|0:0:0.0067|1228x227,1228x378,1228x520,1228x677,1228x812,1228x985|0:0|-1|0|lifter-2.png
+#
+WBARROW|wbarrow1|wba1|26x17|160x15|0:0|0x0|0:0|0|1|barrow-r1.png
+JOHN|john|doe|22x34|60x15|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
