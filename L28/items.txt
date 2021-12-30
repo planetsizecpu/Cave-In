@@ -49,6 +49,14 @@ GOLDBG|hgold19|gld19|8x12|1405x810|0:0|0x0|0:0|0|1|gold3.png
 GOLDBG|fgold20|gld20|8x12|1470x1075|0:0|0x0|0:0|0|1|gold+.png
 GOLDBG|fgold21|gld21|8x12|670x1070|0:0|0x0|0:0|0|1|gold-.png
 GOLDBG|fgold22|gld22|8x12|1100x1070|0:0|0x0|0:0|0|1|gold!.png
+GOLDBG|fgold23|gld23|8x12|185x1085|0:0|0x0|0:0|0|1|gold-.png
+GOLDBG|fgold24|gld24|8x12|170x495|0:0|0x0|0:0|0|1|gold-.png
+GOLDBG|fgold25|gld25|8x12|1325x810|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|fgold26|gld26|8x12|895x960|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|fgold27|gld27|8x12|750x645|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|hgold28|gld28|8x12|885x780|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold29|gld29|8x12|1490x810|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|gold30|gld30|8x12|420x960|0:0|0x0|0:0|0|1|gold!.png
 #
 TPICKAX|pickax1|pkx1|9x10|350x1150|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|1330x1150|0:0|0x0|0:0:10|0|1|pickax1.png
@@ -58,7 +66,7 @@ KART1|kart2|krt2|35x19|382x1038|0:0:0.0067|382x1038,1345x1038|0:0|1|0|kart1.png
 LIFT1|lifter1|lif1|35x10|333x227|0:0:0.0067|333x227,333x378,333x520,333x677,333x812,333x1113|0:0|1|0|lifter-2.png
 LIFT2|lifter2|lif2|35x10|606x520|0:0:0.0067|606x145,606x227,606x378,606x520|0:0|-1|0|lifter-2.png
 LIFT3|lifter3|lif3|35x10|957x145|0:0:0.0067|957x145,957x227,957x378,957x520|0:0|1|0|lifter-2.png
-LIFT4|lifter4|lif4|35x10|1228x985|0:0:0.0067|1228x227,1228x378,1228x520,1228x677,1228x812,1228x985|0:0|-1|0|lifter-2.png
+LIFT4|lifter4|lif4|35x10|1228x985|0:0:0.0067|1228x145,1228x227,1228x378,1228x520,1228x677,1228x812,1228x985|0:0|-1|0|lifter-2.png
 #
-WBARROW|wbarrow1|wba1|26x17|160x15|0:0|0x0|0:0|0|1|barrow-r1.png
+WBARROW|wbarrow1|wba1|26x17|220x15|0:0|0x0|0:0|0|1|barrow-r1.png
 JOHN|john|doe|22x34|60x15|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
