@@ -72,7 +72,7 @@ MakeGame: does [
 			print "***************************************************"
 			print
 			EraseLevel GameData/CaveFace
-			alert "Congratulations you ended this level!"
+			alert "CONGRATS! LEVEL FINISHED"
 			GameData/Levels: next find GameData/Levels GameData/Curlevel
 			GameData/Curlevel: first GameData/Levels
 			write %curlevel.txt GameData/Curlevel
