@@ -219,13 +219,13 @@ MakeGame: does [
 		return Ret
 	]
 	
-	; Check if some loaded kart face overlaps gold/pickax face, we call here only when action key pressed while on kart
+	; Check if some loaded kart face overlaps gold/pickax face, we call here when action key pressed while on kart
 	; so f argument should be a loaded kart face only to work properly, this is due to the fact that previous func
 	; not work while on kart as it detects the thief overlap on the same kart it goes before detecting other objects
 	CheckKartOverlaps: function [f [object!]][
 		Ret: none
 		foreach-face GameData/CaveFace [
-			if any [face/extra/type = "G" face/extra/type = "T"] [
+			if any [face/extra/type = "G" face/extra/type = "T" face/extra/type = "L"] [
 				if overlap? face f [Ret: face]
 			]
 		]
@@ -1113,12 +1113,14 @@ MakeGame: does [
 					"K" [if f/extra/onkart [	;The thief is on kart, check if overlaps gold/pickax
 							KartOverlap: CheckKartOverlaps OtherFace
 							if not none? KartOverlap [
-								Message "Load stuff on kart "
-								either KartOverlap/extra/type = "T" [f/extra/tool: true][f/extra/gold: true]
-								f/extra/getobject: KartOverlap  
-								KartOverlap/visible?: false
-								KartOverlap/offset: -75x-75
-								KartOverlap/extra/gravity: false
+								if KartOverlap/extra/type <> "L" [
+									Message "Load stuff on kart "
+									either KartOverlap/extra/type = "T" [f/extra/tool: true][f/extra/gold: true]
+									f/extra/getobject: KartOverlap  
+									KartOverlap/visible?: false
+									KartOverlap/offset: -75x-75
+									KartOverlap/extra/gravity: false
+								]
 							]
 						]
 					]
@@ -1147,7 +1149,13 @@ MakeGame: does [
 				]		
 			][
 				if OtherFace/extra/type = "J" [
-					if not OtherFace/extra/handle [
+					OnElevator: false
+					KartOverlap: none
+					KartOverlap: CheckKartOverlaps OtherFace ;Check if also is an elevator so thief is on
+					if not none? KartOverlap [
+						if KartOverlap/extra/type = "L" [OnElevator: true]
+					]
+					if all [not OtherFace/extra/handle not OnElevator] [
 						prin OtherFace/extra/name
 						print " DEAD BY KART"
 						Message "You dead by kart"
@@ -1230,7 +1238,6 @@ MakeGame: does [
 			
 				; If have barrow, we are on kart, or we hang on handle, can't take lifter other case yes
 				if all [not OtherFace/extra/wbarrow not OtherFace/extra/onkart not OtherFace/extra/handle] [
-					; OtherFace/offset/x: f/offset/x + (to-integer (f/size/x / 2) - 10) ; Centering jumping face this way is costly!
 					OtherFace/offset/x: f/offset/x + f/extra/halfsizex  - 10 ; Centering jumping face is costly!
 					OtherFace/offset/y: f/offset/y - 30
 					if OtherFace/extra/altitude > GameData/DeadAltitude [GoDead OtherFace return 0]
