@@ -111,7 +111,6 @@ CpuData: context [
 ; Set game screen layout
 GameScr: layout [
 	title "Cave-In"
-	; size 800x750
 	size 800x600
 	origin 0x0
 	space 0x0
@@ -156,12 +155,19 @@ CheckDifficulty: function [][
 	if Gdexpe/data [GameData/AgentRate: 0:00:00.03 SetAgentsRate GameData/AgentRate]
 ]
 
+; Set badge screen
+BadgeScr: layout [size 800x600 	
+	at 1x1 Splash: image 800x600 %data/badge.png 
+]
+
 ; View splash screen
-view/options [size 800x600 	
+SplashScr: layout [size 800x600 	
 	at 1x1 Splash: image 800x600 %data/cave-in.jpg 
 	at 374x267 bg: text 10x15 black white
-	at 650x450 button 100x50 white red center "P L A Y" on-click [bg/text: to-string CpuData/CpuIdx wait 2 unview]] [actors: context [on-up: func [face event][OpenBrowser face event]]
+	at 650x450 button 100x50 white red center "P L A Y" on-click [bg/text: to-string CpuData/CpuIdx wait 2 unview]
 ]
+view/options SplashScr [actors: context [on-up: func [face event][OpenBrowser face event]]]
+
 
 ; Check CPU index on faster machines to trim waiting time for karts & elevators
 if CpuData/CpuIdx > 0 [GameData/LifterStopDelay: 200 GameData/KartStopDelay: 200]
