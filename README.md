@@ -28,6 +28,8 @@ Meet us at the [Red forums](https://gitter.im/red/red) and ask whatever you want
 
 Red language is an open source project made by Full Stack/Redlake Technologies @ www.red-lang.org 
 
+Bagman game was a registered trade mark by Stern-Seeburg.
+
 **********************************************************************************************************
 INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
 **********************************************************************************************************
