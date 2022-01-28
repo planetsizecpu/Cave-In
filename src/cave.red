@@ -127,7 +127,7 @@ GameScr: layout [
 
 GameControl: layout [
 	below
-	at 10x5  Glevel: text 110x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
+	at 10x5  Glevel: text 130x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
 	at 150x5 Glives: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
 	at 290x5 Gstock: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]
 	at 430x5 Ggbags: text 100x21 yellow blue font [name: "Arial" size: 14 style: 'bold]										
