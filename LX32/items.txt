@@ -1,0 +1,61 @@
+# Level 24 "Phantasm Lair" items configuration file
+#
+# The program will load all of them and put in locations.
+#
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+#
+# ItemTypes start with: (A)gent (C)avern (D)rop (G)oldBags (J)ohnDoe (K)art (L)ifter (S)pider (T)ools (W)barrow (X)Sphere (Y)Tallman
+# Stops (for lifters (up-down) or karts (left-right) way 0x0,0x0,...) or 0x0 for other types
+# Location (Stop #)
+# Direction (1 Down/Right -1 Up/Left)
+# For (A)gents first ObjectName & image files letter must be "f" if agent is female so as "fagent3"
+#
+# To modify default GameData/word values:  & word value   (value can be tuple! or logic!)
+#
+& CeilingDist 25
+& TerrainColor 218.241.248.0
+& StairsColor1 200.191.231.0
+& StairsColor2 255.255.166.0
+& LifterCable 60.0.9.0
+& Slide true
+# ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
+CAVERN|cavern1|cave|1599x1200|0x0|0:0|0x0|0:0|0|0|cavern.png
+AGENT1|yagent1|age1|26x38|1540x10|0:0:0.05|0x0|0:0|0|1|tallman-l1.png|tallman-r1.png|tallman-l2.png|tallman-r2.png|tallman-l3.png|tallman-r3.png|tallman-s1.png|tallman-s2.png|tallman-s3.png|tallman-s4.png
+AGENT2|pagent2|age2|22x34|1430x1140|0:0:0.05|0x0|0:0|0|1|phant-l1.png|phant-r1.png|phant-l2.png|phant-r2.png|phant-l3.png|phant-r3.png|phant-s1.png|phant-s2.png|phant-s3.png|phant-s4.png
+AGENT3|pagent3|age3|22x34|140x1140|0:0:0.05|0x0|0:0|0|1|phant-l1.png|phant-r1.png|phant-l2.png|phant-r2.png|phant-l3.png|phant-r3.png|phant-s1.png|phant-s2.png|phant-s3.png|phant-s4.png
+AGENT4|pagent4|age4|22x34|650x20|0:0:0.05|0x0|0:0|0|1|phant-l1.png|phant-r1.png|phant-l2.png|phant-r2.png|phant-l3.png|phant-r3.png|phant-s1.png|phant-s2.png|phant-s3.png|phant-s4.png
+#
+GOLDBG|gold1|gld1|8x12|360x45|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold2|gld2|8x12|680x140|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold3|gld3|8x12|1150x140|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|fgold4|gld4|8x12|1540x140|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|gold5|gld5|8x12|280x430|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold6|gld6|8x12|730x430|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|gold7|gld7|8x12|850x430|0:0|0x0|0:0|0|1|gold1.png
+GOLDBG|fgold8|gld8|8x12|1390x430|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|hgold9|gld9|8x12|675x500|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold10|gld10|8x12|905x500|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|fgold11|gld11|8x12|30x530|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|fgold12|gld12|8x12|1540x530|0:0|0x0|0:0|0|1|gold2.png
+GOLDBG|gold13|gld13|8x12|30x730|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|gold14|gld14|8x12|1540x730|0:0|0x0|0:0|0|1|gold+.png
+GOLDBG|gold15|gld15|8x12|730x730|0:0|0x0|0:0|0|1|gold-.png
+GOLDBG|gold16|gld16|8x12|945x730|0:0|0x0|0:0|0|1|gold-.png
+GOLDBG|hgold17|gld17|8x12|30x1120|0:0|0x0|0:0|0|1|gold!.png
+GOLDBG|hgold18|gld18|8x12|1540x1030|0:0|0x0|0:0|0|1|gold!.png
+GOLDBG|hgold19|gld19|8x12|650x1090|0:0|0x0|0:0|0|1|gold!.png
+GOLDBG|hgold20|gld20|8x12|920x1090|0:0|0x0|0:0|0|1|gold!.png
+GOLDBG|hgold21|gld21|8x12|700x1150|0:0|0x0|0:0|0|1|gold3.png
+GOLDBG|hgold22|gld22|8x12|885x1150|0:0|0x0|0:0|0|1|gold3.png
+#
+LIFT1|lifter1|lif1|35x10|782x67|0:0:0.0067|782x67,782x268,782x454,782x664,782x866,782x1053,782x1182|0:0|1|0|lifter-1.png
+PASSAGE1|passage1|pas1|35x40|30x125|0:0:4|0x0|0:0|1|0|passage-G.png
+PASSAGE2|passage2|pas2|35x40|1530x1110|0:0:4|0x0|0:0|1|0|passage-G.png
+TPICKAX|pickax1|pkx1|9x10|450x430|0:0|0x0|0:0:10|0|1|pickax1.png
+TPICKAX|pickax2|pkx2|9x10|1126x1025|0:0|0x0|0:0:10|0|1|pickax1.png
+WBARROW|wbarrow1|wba1|26x17|150x30|0:0|0x0|0:0|0|1|barrow-r1.png
+#
+XSPHERE|sphere1|sph1|10x10|120x240|0:0:0.0067|120x240,1460x240|0:0|1|0|sphere1.png|sphere2.png|sphere3.png|sphere4.png
+XSPHERE|sphere2|sph2|10x10|120x1025|0:0:0.0067|120x1025,1460x1025|0:0|1|0|sphere1.png|sphere2.png|sphere3.png|sphere4.png
+#
+JOHN|john|doe|22x34|30x30|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
