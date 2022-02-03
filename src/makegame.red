@@ -220,9 +220,10 @@ MakeGame: does [
 		return Ret
 	]
 	
-	; Check if some loaded kart face overlaps gold/pickax face, we call here when action key pressed while on kart
+	; Check if some loaded kart face overlaps gold/pickax/elevator face, we call here when action key pressed while on kart
 	; so f argument should be a loaded kart face only to work properly, this is due to the fact that previous func
-	; not work while on kart as it detects the thief overlap on the same kart it goes before detecting other objects
+	; not work while on kart as it detects the thief overlap on the same kart it goes before detecting other objects.
+	; We also call here to detect battle spheres hit on the boy while on elevator because is the same behavior
 	CheckKartOverlaps: function [f [object!]][
 		Ret: none
 		foreach-face GameData/CaveFace [
@@ -1139,7 +1140,7 @@ MakeGame: does [
 		/local stp: 0
 		OtherFace: CheckOverlaps f			
 		
-		; Check for run over some face 
+		; Check for kart hit over some face 
 		if not none? OtherFace [
 			either f/extra/loaded [
 				if OtherFace/extra/type = "A" [
@@ -1151,10 +1152,10 @@ MakeGame: does [
 			][
 				if OtherFace/extra/type = "J" [
 					OnElevator: false
-					KartOverlap: none
-					KartOverlap: CheckKartOverlaps OtherFace ;Check if also is an elevator so thief is on
-					if not none? KartOverlap [
-						if KartOverlap/extra/type = "L" [OnElevator: true]
+					ElevatorOverlap: none
+					ElevatorOverlap: CheckKartOverlaps OtherFace ;Check if also is an elevator so thief is on and safe
+					if not none? ElevatorOverlap [
+						if ElevatorOverlap/extra/type = "L" [OnElevator: true]
 					]
 					if all [not OtherFace/extra/handle not OnElevator] [
 						prin OtherFace/extra/name
@@ -1649,24 +1650,21 @@ MakeGame: does [
 		/local stp: 0
 		OtherFace: CheckOverlaps f			
 		
-		; Check for run over some face 
+		; Check for sphere hit over some face 
 		if not none? OtherFace [
-			either f/extra/loaded [
-				if OtherFace/extra/type = "A" [
-					OtherFace/extra/dead: true
-					print " AGENT DEAD BY BATTLE SPHERE"
-					Message "Agent dead by battle sphere"
+			if OtherFace/extra/type = "J" [
+				OnElevator: false
+				ElevatorOverlap: none
+				ElevatorOverlap: CheckKartOverlaps OtherFace ;Check if also is an elevator so thief is on and safe
+				if not none? ElevatorOverlap [
+					if ElevatorOverlap/extra/type = "L" [OnElevator: true]
+				]
+				if not OnElevator [
+					prin OtherFace/extra/name
+					print " DEAD BY SPHERE"
+					Message "You dead by sphere"
+					GoDead OtherFace
 					exit
-				]		
-			][
-				if OtherFace/extra/type = "J" [
-					if not OtherFace/extra/handle [
-						prin OtherFace/extra/name
-						print " DEAD BY SPHERE"
-						Message "You dead by sphere"
-						GoDead OtherFace
-						exit
-					]
 				]
 			]
 		]
