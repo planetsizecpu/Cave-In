@@ -69,5 +69,6 @@ TPICKAX|pickax2|pkx2|9x10|1100x560|0:0|0x0|0:0:10|0|1|pickax1.png
 PASSAGE1|passage1|pas1|40x30|260x960|0:0:4|0x0|0:0|1|0|passage-G.png
 PASSAGE2|passage2|pas2|40x30|910x367|0:0:4|0x0|0:0|1|0|passage-G.png
 WBARROW|wbarrow1|wba1|26x17|960x370|0:0|0x0|0:0|0|1|barrow-r1.png
+WBARROW|wbarrow2|wba2|26x17|320x830|0:0|0x0|0:0|0|1|barrow-r1.png
 ROSE|rose|doer|22x34|500x28|0:0:0.06|0x0|0:0|0|1|rose-l1.png|rose-r1.png|rose-l2.png|rose-r2.png|rose-l3.png|rose-r3.png|rose-s1.png|rose-s2.png|rose-s3.png|rose-s4.png
 JOHN|john|doe|22x34|660x305|0:0|0x0|0:0|0|1|thief-l1.png|thief-r1.png|thief-l2.png|thief-r2.png|thief-l3.png|thief-r3.png|thief-s1.png|thief-s2.png|thief-s3.png|thief-s4.png|thief-bl1.png|thief-br1.png|thief-bl2.png|thief-br2.png|thief-bl3.png|thief-br3.png
