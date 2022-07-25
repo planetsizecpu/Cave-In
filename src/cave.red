@@ -182,7 +182,7 @@ if CpuData/CpuIdx > 7 [GameData/LifterStopDelay: 340 GameData/KartStopDelay: 340
 
 ; Level loading & start game play
 either exists? %curlevel.txt [
-	GameData/Curlevel: read %curlevel.txt
+	GameData/Curlevel: first read/lines %curlevel.txt
 ][
 	GameData/Curlevel: first GameData/Levels
 ]
