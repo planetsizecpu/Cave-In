@@ -11,7 +11,7 @@ In this game I explore the idea of writing the object names out of the source co
 
 I know this game does not have the quality of the true arcade game, but the goal is not to market it, but to learn, to play and share the code to others, so they can also enjoy and learn in his way. In addition there are some known functional concerns on behavior, as for example elevators & kart excessive speed on Linux and different computer speeds (what is itself a challenge), and for sure will discover more flawns, so the development continues, but slowly. 
 
-Official sound support is not available at this time, (you're already aware that Red is alpha stage) so no sound is provided by now. I remember the sound effects & melody [Turkey in the Straw](https://www.youtube.com/watch?v=Vr8QnkTwT_w) (ice cream truck song melody), some day music & sound will be available in Red and we could enjoy much more.
+Official sound support is not available at this time, (you're already aware that Red is alpha stage) so no sound is provided by now. I remember the sound effects & melody the arcade machine had, [Turkey in the Straw](https://www.youtube.com/watch?v=Vr8QnkTwT_w) (ice cream truck song melody), some day music & sound will be available in Red and we could enjoy much more.
 
 **********************************************************************************************************
 REQUIREMENTS: None on Windows & MacOs, just click on the executable file. For Linux GTK Must be installed and running.
