@@ -19,7 +19,7 @@ REQUIREMENTS: None on Windows & MacOs, just click on the executable file. For Li
 **To run the game you need to copy the desired executable file from the right folder for your O.S. in the main game folder.**
 **********************************************************************************************************
 
-**The game also runs on interpreter!**, you need the [Red](https://www.red-lang.org/p/download.html) toolchain in your path, just download/unpack the files & folders and click on cave.red file (sources must be at the main game folder in this case). This way you'll see a lot of messages in the gui console that help on debug.
+**The game also runs on interpreter!**, you need the [Red](https://www.red-lang.org/p/download.html) toolchain in your path, just download/unpack the files & folders and click on cave.red file (sources must be at the main game folder in this case). This way you'll see a lot of messages in the gui console that help on debug, because I use the gui console for development and testing.
 
 You can also cross-compile your exe going to the `src` folder with `[PATH to Red]red -r -t [target OS] cave.red`.
 
@@ -28,7 +28,7 @@ Meet us at the [Red forums](https://gitter.im/red/red) and ask whatever you want
 
 Red language is an open source project made by Full Stack/Redlake Technologies @ www.red-lang.org 
 
-Bagman game was a registered trade mark by Stern-Seeburg.
+Bagman game was a registered trade mark by Stern-Seeburg, all my acknowledgments for this great game!
 
 **********************************************************************************************************
 INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
