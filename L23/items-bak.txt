@@ -25,6 +25,9 @@ AGENT2|pagent2|age2|22x34|1430x120|0:0:0.05|0x0|0:0|0|1|phant-l1.png|phant-r1.pn
 AGENT3|pagent3|age3|22x34|650x990|0:0:0.05|0x0|0:0|0|1|phant-l1.png|phant-r1.png|phant-l2.png|phant-r2.png|phant-l3.png|phant-r3.png|phant-s1.png|phant-s2.png|phant-s3.png|phant-s4.png
 AGENT4|pagent4|age4|22x34|415x210|0:0:0.05|0x0|0:0|0|1|phant-l1.png|phant-r1.png|phant-l2.png|phant-r2.png|phant-l3.png|phant-r3.png|phant-s1.png|phant-s2.png|phant-s3.png|phant-s4.png
 #
+PASSAGE1|passage1|pas1|35x40|1161x200|0:0:4|0x0|0:0|1|0|passage-G.png
+PASSAGE2|passage2|pas2|35x40|1159x995|0:0:4|0x0|0:0|1|0|passage-G.png
+#
 GOLDBG|gold1|gld1|8x12|230x215|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold2|gld2|8x12|415x215|0:0|0x0|0:0|0|1|gold1.png
 GOLDBG|gold3|gld3|8x12|600x215|0:0|0x0|0:0|0|1|gold1.png
@@ -45,8 +48,6 @@ GOLDBG|hgold14|gld14|8x12|1075x850|0:0|0x0|0:0|0|1|gold!.png
 GOLDBG|hgold15|gld15|8x12|1260x850|0:0|0x0|0:0|0|1|gold!.png
 GOLDBG|hgold16|gld16|8x12|1265x1000|0:0|0x0|0:0|0|1|gold+.png
 #
-PASSAGE1|passage1|pas1|35x40|1161x200|0:0:4|0x0|0:0|1|0|passage-G.png
-PASSAGE2|passage2|pas2|35x40|1159x995|0:0:4|0x0|0:0|1|0|passage-G.png
 TPICKAX|pickax1|pkx1|9x10|580x130|0:0|0x0|0:0:10|0|1|pickax1.png
 TPICKAX|pickax2|pkx2|9x10|1170x1090|0:0|0x0|0:0:10|0|1|pickax1.png
 WBARROW|wbarrow1|wba1|26x17|1380x130|0:0|0x0|0:0|0|1|barrow-r1.png
