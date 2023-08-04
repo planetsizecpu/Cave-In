@@ -19,7 +19,7 @@ MakeGame: does [
 		if GameData/PlayerFace/extra/dead [if GoDead GameData/PlayerFace [ Message "No more lives" Ret: true ]]
 		if GameData/PlayerFace/extra/getup [GoGetup GameData/PlayerFace]
 
-		; Apply gravity to objects that can fall down
+		; Apply gravity to faces that can fall down
 		GoGravity
 		
 		; Check for screen roll
@@ -51,17 +51,13 @@ MakeGame: does [
 				GameData/PlayerFace/extra/getobject/offset: -50x-50	
 				GameData/PlayerFace/extra/getobject/extra/gravity: false
 				
-				; Delete used tools from the tree-of-faces to shorten the process loop
+				; Delete used tools from the face tree to shorten the process loop
 				alter GameData/CaveFace/pane (GameData/PlayerFace/extra/getobject)
 				
 				; Thief to leave tool
 				GameData/PlayerFace/extra/tool: false
 				GameData/PlayerFace/extra/getobject: copy []
-				either GameData/PlayerFace/extra/handle [
-					GameData/PlayerFace/image: ThiefHandle
-				][
-					GameData/PlayerFace/image: GameData/PlayerFace/extra/image
-				]
+				GameData/PlayerFace/image: GameData/PlayerFace/extra/image
 			]
 		]
 		
@@ -72,7 +68,7 @@ MakeGame: does [
 			print "***************************************************"
 			print
 			EraseLevel GameData/CaveFace
-			alert "CONGRATS! LEVEL FINISHED"
+			alert "Congratulations you ended this level!"
 			GameData/Levels: next find GameData/Levels GameData/Curlevel
 			GameData/Curlevel: first GameData/Levels
 			write %curlevel.txt GameData/Curlevel
@@ -84,8 +80,7 @@ MakeGame: does [
 				print " NO MORE LEVELS! " 
 				print "***************************************************"		
 				Message "Congratulations you win the game"
-				view BadgeScr
-				alert "CONGRATS! YOU WIN THE GAME"
+				alert "CONGRATULATIONS YOU WIN THE GAME"
 				GameData/Curlevel: "L1"
 				write %curlevel.txt GameData/Curlevel
 				quit
@@ -110,15 +105,15 @@ MakeGame: does [
 	]
 	
 	; Check keyboard for handling
-	CheckKeyboard: function [f key][
+	CheckKeyboard: function [face key][
 		switch key [
 			left [GoLeft GameData/PlayerFace]
 			right [GoRight GameData/PlayerFace]
 			up [GoUp GameData/PlayerFace]
 			down [GoDown GameData/PlayerFace]
 			#" " [GoAction GameData/PlayerFace]
-			#"#" [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat
-			#"%" [AskLevel] ;Cheat
+			#"#" [GameData/Stock: 1 Gstock/text: copy "STOCK: "	append Gstock/text to-string GameData/Stock message "Oh my god!"] ;Cheat! 
+			#"%" [AskLevel] ;Cheat!
 			#"@" [SetDemoMode] ;Cheat
 		]	
 	]
@@ -195,7 +190,7 @@ MakeGame: does [
 	; Set agents difficulty level rate 
 	SetAgentsRate: function [r [time!]][
 		foreach-face GameData/CaveFace [
-			; Check if object is visible 
+			; Check if face is visible 
 			if face/visible? [
 				; If there is an agent or a spider, then apply difficulty level rate
 				if any [face/extra/type = "A" face/extra/type = "S"] [
@@ -209,7 +204,7 @@ MakeGame: does [
 	; Miscellaneous checking functions
 	;-------------------------------------------------------------------------	
 	
-	; Check if some object overlaps other object in the whole cave
+	; Check if some face overlaps other face in the whole cave
 	CheckOverlaps: function [f [object!]][
 		Ret: none
 		foreach-face GameData/CaveFace [
@@ -220,28 +215,27 @@ MakeGame: does [
 		return Ret
 	]
 	
-	; Check if some loaded kart overlaps gold/pickax/elevator, we call here when action key pressed while on kart
-	; so f argument should be a loaded kart only to work properly, this is due to the fact that previous func
-	; not work while on kart as it detects the thief overlap on the same kart it goes before detecting other objects.
-	; We also call here to detect battle spheres hit on the boy while on elevator because is the same behavior
+	; Check if some loaded kart face overlaps gold/pickax face, we call here only when action key pressed while on kart
+	; so f argument should be a loaded kart face only to work properly, this is due to the fact that previous func
+	; not work while on kart as it detects the thief overlap on the same kart it goes before detecting other objects
 	CheckKartOverlaps: function [f [object!]][
 		Ret: none
 		foreach-face GameData/CaveFace [
-			if any [face/extra/type = "G" face/extra/type = "T" face/extra/type = "L"] [
+			if any [face/extra/type = "G" face/extra/type = "T"] [
 				if overlap? face f [Ret: face]
 			]
 		]
 		return Ret
 	]
 
-	; Check if it is terrain at left from some object
-	CheckTerrainLT: function [f [object!]][
+	; Check if it is terrain at left from some face
+	CheckTerrainLT: function [face [object!]][
 		Ret: false
-		FSize: f/size
-		FOffset: f/offset
-		CheckPointU: (((FOffset/y + 3) * GameData/CaveFace/size/x) + FOffset/x ) - 2
-		CheckPointC: (((FOffset/y + (to-integer (FSize/y / 2))) * GameData/CaveFace/size/x) + FOffset/x ) - 5		
-		CheckPointD: (((FOffset/y + (FSize/y - 3 )) * GameData/CaveFace/size/x) + FOffset/x ) - 2
+		FSize: face/size
+		FOffset: face/offset
+		CheckPointU: to-integer (((FOffset/y + 3) * GameData/CaveFace/size/x) + FOffset/x ) - 2
+		CheckPointC: to-integer (((FOffset/y + (to-integer (FSize/y / 2))) * GameData/CaveFace/size/x) + FOffset/x ) - 5		
+		CheckPointD: to-integer (((FOffset/y + (FSize/y - 3 )) * GameData/CaveFace/size/x) + FOffset/x ) - 2
 		TerrainU: GameData/CaveFace/image/(CheckPointU)
 		TerrainC: GameData/CaveFace/image/(CheckPointC)		
 		TerrainD: GameData/CaveFace/image/(CheckPointD)
@@ -249,14 +243,14 @@ MakeGame: does [
 		return Ret
 	]
 
-	; Check if it is terrain at right from some object
-	CheckTerrainRT: function [f [object!]][
+	; Check if it is terrain at right from some face
+	CheckTerrainRT: function [face [object!]][
 		Ret: false
-		FSize: f/size
-		FOffset: f/offset
-		CheckPointU: (((FOffset/y + 3) * GameData/CaveFace/size/x) + FOffset/x + Fsize/x ) + 2
-		CheckPointC: (((FOffset/y + (to-integer (FSize/y / 2))) * GameData/CaveFace/size/x) + FOffset/x + Fsize/x ) + 5				
-		CheckPointD: (((FOffset/y + (FSize/y - 3 )) * GameData/CaveFace/size/x) + FOffset/x + Fsize/x ) + 2		
+		FSize: face/size
+		FOffset: face/offset
+		CheckPointU: to-integer (((FOffset/y + 3) * GameData/CaveFace/size/x) + FOffset/x + Fsize/x ) + 2
+		CheckPointC: to-integer (((FOffset/y + (to-integer (FSize/y / 2))) * GameData/CaveFace/size/x) + FOffset/x + Fsize/x ) + 5				
+		CheckPointD: to-integer (((FOffset/y + (FSize/y - 3 )) * GameData/CaveFace/size/x) + FOffset/x + Fsize/x ) + 2		
 		TerrainU: GameData/CaveFace/image/(CheckPointU)
 		TerrainC: GameData/CaveFace/image/(CheckPointC)		
 		TerrainD: GameData/CaveFace/image/(CheckPointD)
@@ -264,126 +258,128 @@ MakeGame: does [
 		return Ret
 	]
 	
-	; Check if it is a climbing slope at left from some object
-	CheckSlopeLT: function [f [object!]][
+	; Check if it is a climbing slope at left from some face
+	CheckSlopeLT: function [face [object!]][
 		Ret: false
-		FSize: f/size
-		FOffset: f/offset
-		CheckPoint: (((FOffset/y + (FSize/y)) * GameData/CaveFace/size/x) + FOffset/x ) - 8
+		FSize: face/size
+		FOffset: face/offset
+		CheckPoint: to-integer (((FOffset/y + (FSize/y)) * GameData/CaveFace/size/x) + FOffset/x ) - 8
 		Terrain: GameData/CaveFace/image/(CheckPoint)
 		if any [Terrain = GameData/TerrainColor Terrain = GameData/StairsColor1 Terrain = GameData/StairsColor2] [Ret: true]
 		return Ret
 	]
 
-	; Check if it is a climbing slope at right from some object
-	CheckSlopeRT: function [f [object!]][
+	; Check if it is a climbing slope at right from some face
+	CheckSlopeRT: function [face [object!]][
 		Ret: false
-		FSize: f/size
-		FOffset: f/offset
-		CheckPoint: (((FOffset/y + (FSize/y)) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x + 8
+		FSize: face/size
+		FOffset: face/offset
+		CheckPoint: to-integer (((FOffset/y + (FSize/y)) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x + 8
 		Terrain: GameData/CaveFace/image/(CheckPoint)
 		if any [Terrain = GameData/TerrainColor Terrain = GameData/StairsColor1 Terrain = GameData/StairsColor2] [Ret: true]
 		return Ret
 	]
 	
-	; Check if it is ceiling over some object
-	CheckCeiling: function [f [object!]][
+	; Check if it is ceiling over some face
+	CheckCeiling: function [face [object!]][
 		Ret: false
-		FSize: f/size
-		FOffset: f/offset
-		CheckPointL: (((FOffset/y - GameData/CeilingDist) * GameData/CaveFace/size/x) + FOffset/x )
-		CheckPointR: (((FOffset/y - GameData/CeilingDist) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x		
+		FSize: face/size
+		FOffset: face/offset
+		CheckPointL: to-integer (((FOffset/y - GameData/CeilingDist) * GameData/CaveFace/size/x) + FOffset/x )
+		CheckPointR: to-integer (((FOffset/y - GameData/CeilingDist) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x		
 		TerrainL: GameData/CaveFace/image/(CheckPointL)
 		TerrainR: GameData/CaveFace/image/(CheckPointR)	
 		if any [TerrainL = GameData/TerrainColor TerrainR = GameData/TerrainColor] [Ret: true]
 		return Ret
 	]	
 
-	; Check if it is floor under some object
-	CheckFloor: function [f [object!]][
+	; Check if it is floor under some face
+	CheckFloor: function [face [object!]][
 		Ret: false
-		FSize: f/size
-		FOffset: f/offset
-		CheckPointL: (((FOffset/y + FSize/y + 1) * GameData/CaveFace/size/x) + FOffset/x )
-		CheckPointR: (((FOffset/y + FSize/y + 1) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x
+		FSize: face/size
+		FOffset: face/offset
+		CheckPointL: to-integer (((FOffset/y + FSize/y + 1) * GameData/CaveFace/size/x) + FOffset/x )
+		CheckPointR: to-integer (((FOffset/y + FSize/y + 1) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x
 		TerrainL: GameData/CaveFace/image/(CheckPointL)
 		TerrainR: GameData/CaveFace/image/(CheckPointR)	
 		if any [TerrainL = GameData/TerrainColor TerrainR = GameData/TerrainColor] [Ret: true]
 		return Ret
 	]
 
-	; Check if it is stairs over some object
-	CheckStairsUP: function [f [object!]][
+	; Check if it is stairs over some face
+	CheckStairsUP: function [face [object!]][
 		Ret: false
-		FSize: f/size
-		FOffset: f/offset
+		FSize: face/size
+		FOffset: face/offset
 	
-		; Compute points to check over the object using coordinates on cave image
-		CheckPointOL: (((FOffset/y - 1) * GameData/CaveFace/size/x) + FOffset/x )
-		CheckPointOR: (((FOffset/y - 1) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x
+		; Compute points to check over the face using coordinates on cave image
+		CheckPointOL: to-integer (((FOffset/y - 1) * GameData/CaveFace/size/x) + FOffset/x )
+		CheckPointOR: to-integer (((FOffset/y - 1) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x
 	
 		; Get terrain color
 		TerrainOL: GameData/CaveFace/image/(CheckPointOL)
 		TerrainOR: GameData/CaveFace/image/(CheckPointOR)
 	
-		; Check stairs over the object 
+		; Check stairs over the face 
 		if ((TerrainOL = GameData/StairsColor1) or (TerrainOL = GameData/StairsColor2)) and
 				((TerrainOR = GameData/StairsColor1) or (TerrainOR = GameData/StairsColor2)) [Ret: true]
 	
 		return Ret
 	]
 	
-	; Check if it is stairs under some object
-	CheckStairsDN: function [f [object!]][
+	; Check if it is stairs under some face
+	CheckStairsDN: function [face [object!]][
 		Ret: false
-		FSize: f/size
-		FOffset: f/offset
+		FSize: face/size
+		FOffset: face/offset
 	
-		; Compute points to check under the object using coordinates on cave image
-		CheckPointUL: (((FOffset/y + FSize/y + 2) * GameData/CaveFace/size/x) + FOffset/x )
-		CheckPointUR: (((FOffset/y + FSize/y + 2) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x
+		; Compute points to check under the face using coordinates on cave image
+		CheckPointUL: to-integer (((FOffset/y + FSize/y + 2) * GameData/CaveFace/size/x) + FOffset/x )
+		CheckPointUR: to-integer (((FOffset/y + FSize/y + 2) * GameData/CaveFace/size/x) + FOffset/x ) + FSize/x
 	
 		; Get terrain color
 		TerrainUL: GameData/CaveFace/image/(CheckPointUL)
 		TerrainUR: GameData/CaveFace/image/(CheckPointUR)	
 
-		; Check stairs under the object
+		; Check stairs under the face
 		if ((TerrainUL = GameData/StairsColor1) or (TerrainUL = GameData/StairsColor2)) and
 				((TerrainUR = GameData/StairsColor1) or (TerrainUR = GameData/StairsColor2)) [Ret: true]
 	
 		return Ret
 	]
 			
-	; Check if it is handle over some object
-	CheckHandle: function [f [object!]][
+	; Check if it is handle over some face
+	CheckHandle: function [face [object!]][
 		Ret: false
-		FSize: f/size
-		FOffset: f/offset
+		FSize: face/size
+		FOffset: face/offset
 		c: 0
 		
-		; Compute points to check over the object using coordinates on cave image
+		; Compute points to check over the face using coordinates on cave image
 		while [c < 45] [
-			CheckPointY: (((FOffset/y - c) * GameData/CaveFace/size/x) + FOffset/x + (to-integer (FSize/x / 2)))
+			CheckPointY: to-integer (((FOffset/y - c) * GameData/CaveFace/size/x) + FOffset/x + (to-integer (FSize/x / 2)))
 			TerrainY: GameData/CaveFace/image/(CheckPointY)
 			if (TerrainY = GameData/HandleColor) [Ret: true]		
 			c: add c 1
+			
 		]
+		
 		return Ret
 	]
 	
-	; Look to left of object coordinates for lifter
-	LookForElevatorLT: function [f [object!]][
+	; Look to left of face coordinates for lifter
+	LookForElevatorLT: function [face [object!]][
 		Ret: false
-		FSize: f/size
-		FOffset: f/offset
+		FSize: face/size
+		FOffset: face/offset
 
-		; Loop to left from object
-		CheckPointY: FOffset/y * GameData/CaveFace/size/x ;We check at object eye level
-		CheckPointX: FOffset/x
+		; Loop to left from face
+		CheckPointY: to-integer FOffset/y * GameData/CaveFace/size/x ;We check at face eye level
+		CheckPointX: to-integer FOffset/x
 		pxl: 0
 		repeat pxl 12 [
-			CheckPointX: subtract CheckPointX 1
-			CheckPoint: (CheckPointY + CheckPointX )
+			CheckPointX: to-integer subtract CheckPointX 1
+			CheckPoint: to-integer (CheckPointY + CheckPointX )
 			Terrain: GameData/CaveFace/image/(CheckPoint)
 			if  Terrain = GameData/LifterCable [
 				Ret: true
@@ -393,19 +389,19 @@ MakeGame: does [
 		return Ret
 	]
 
-	; Look to right of object coordinates for lifter
-	LookForElevatorRT: function [f [object!]][
+	; Look to right of face coordinates for lifter
+	LookForElevatorRT: function [face [object!]][
 		Ret: false
-		FSize: f/size
-		FOffset: f/offset
+		FSize: face/size
+		FOffset: face/offset
 		
-		; Loop to right from object
-		CheckPointY: FOffset/y * GameData/CaveFace/size/x ;We check at object eye level
-		CheckPointX: FOffset/x + FSize/x
+		; Loop to right from face
+		CheckPointY: to-integer FOffset/y * GameData/CaveFace/size/x ;We check at face eye level
+		CheckPointX: to-integer FOffset/x + FSize/x
 		pxl: 0
 		repeat pxl 12 [
-			CheckPointX: add CheckPointX 1
-			CheckPoint: (CheckPointY + CheckPointX )
+			CheckPointX: to-integer add CheckPointX 1
+			CheckPoint: to-integer (CheckPointY + CheckPointX )
 			Terrain: GameData/CaveFace/image/(CheckPoint)
 			if  Terrain = GameData/LifterCable [
 				Ret: true
@@ -481,7 +477,8 @@ MakeGame: does [
 		if f/extra/type = "J" [
 			Message "You dead"
 			either f/extra/lives > 0 [f/extra/lives: subtract f/extra/lives 1][return true]
-			;Play dead sequence
+			;If thief is dead on air wait for hit the ground
+			while [(not CheckFloor f) and (not CheckOverlaps f)] [GoGravity wait 0.01]
 			foreach img GameData/ThiefDead [f/image: get img wait GameData/ThiefDeadDelay]		
 		]		
 		
@@ -501,11 +498,11 @@ MakeGame: does [
 		; If it is some object on hands leave them at place and make it visible
 		if any [f/extra/gold f/extra/tool f/extra/wbarrow] [
 			f/extra/getobject/offset: f/offset
-			f/extra/getobject/visible?: true
 			f/extra/getobject/extra/gravity: true
+			f/extra/getobject/visible?: true
 		]
 		
-		; Set defaults for object
+		; Set defaults for face
 		f/extra/walking: 0
 		f/extra/altitude: 0
 		f/extra/gravity: true
@@ -527,9 +524,8 @@ MakeGame: does [
 			prin f/extra/name print " HAS NO MORE LIVES"
 			Ret: true
 		]
-		; Set object at his starting point & size
+		; Set face at his starting point
 		f/offset: f/extra/offset
-		f/size: f/extra/size
 		f/image: f/extra/image
 		
 		Glives/text: copy "LIVES:  " 
@@ -543,14 +539,16 @@ MakeGame: does [
 		; Check if we come from passage travel to do effects
 		if GameData/PlayerFace/extra/passage [
 			GameData/PlayerFace/extra/passage: false
+			;GameData/PlayerFace/size: ThiefVanish-X1/size    got compiler error
 			foreach img GameData/ThiefUnVanish [GameData/PlayerFace/image: get img wait GameData/ThiefDeadDelay]
+			;GameData/PlayerFace/size: GameData/PlayerFace/extra/size   got compiler error
 			GameData/PlayerFace/offset/x: GameData/PlayerFace/offset/x + 5
 			GameData/PlayerFace/offset/y: GameData/PlayerFace/offset/y - 5
 			GameData/PlayerFace/image: Thief-S4
 		]
 		foreach-face GameData/CaveFace [
 			
-			; If object has gravity apply them when no floor no stairs and no lifter under the object
+			; If object has gravity apply them when no floor no stairs and no lifter under the face
 			if all [face/visible? face/extra/gravity] [
 
 				; Check for overlaps when falling
@@ -634,14 +632,7 @@ MakeGame: does [
 							face/extra/gravity: false
 							face/offset: -25x-25
 							; Delete carryed bag from the face tree to shorten the process loop
-							;alter GameData/CaveFace/pane (face)
-							either alter GameData/CaveFace/pane (face) [
-								prin "ADDED OBJECT: " 
-								print face/extra/facename
-								][
-								prin "DELETED OBJECT: " 
-								print face/extra/facename
-							]						
+							alter GameData/CaveFace/pane (face)
 						]
 					]
 				]	
@@ -680,7 +671,7 @@ MakeGame: does [
 					if face/extra/type = "J" [
 						if face/extra/altitude > GameData/FallingFaceAltitude [if not face/extra/wbarrow [face/image: Thief-S4]]
 						if face/extra/altitude > GameData/GetupAltitude and (not face/extra/wbarrow) [face/extra/getup: true]
-						if face/extra/altitude > GameData/DeadAltitude [face/extra/altitude: 0 GoDead face]
+						if face/extra/altitude > GameData/DeadAltitude [face/extra/wbarrow: false face/extra/dead: true]
 					]					
 					if face/extra/type = "R" [
 							if face/extra/altitude > GameData/FallingFaceAltitude [if not face/extra/wbarrow [face/image: Girl-S4]]
@@ -716,7 +707,7 @@ MakeGame: does [
 		]
 	]
 	
-	; Some object going left
+	; Some face going left
 	GoLeft: function [f [object!]][
 		if f/extra/handle [exit]
 		if f/extra/type = "J" [f/extra/direction: -1]
@@ -738,7 +729,7 @@ MakeGame: does [
 		]		
 	]
 
-	; Some object going right
+	; Some face going right
 	GoRight: function [f [object!]][
 		if f/extra/handle [exit]
 		if f/extra/type = "J" [f/extra/direction: 1]
@@ -760,7 +751,7 @@ MakeGame: does [
 		]
 	]
 
-	; Some object going up
+	; Some face going up
 	GoUp: function [f [object!]][
 		if f/extra/handle [exit]
 		if CheckCeiling f [exit]	
@@ -774,7 +765,7 @@ MakeGame: does [
 		GoWalkStairs f
 	]
 
-	; Some object going down
+	; Some face going down
 	GoDown: function [f [object!]][
 		if f/extra/handle [exit]			
 		if CheckFloor f [exit]	
@@ -787,7 +778,7 @@ MakeGame: does [
 		GoWalkStairs f 
 	]
 
-	; Some object walking on stairs 
+	; Some face walking on stairs 
 	GoWalkStairs: function [f [object!]][
 		f/extra/blockedLT: false
 		f/extra/blockedRT: false
@@ -802,10 +793,10 @@ MakeGame: does [
 		]
 	]
 	
-	; Some object walking on floor
+	; Some face walking on floor
 	GoWalkFloor: function [f [object!] dir [integer!]][
 		
-		; Check if object has something loaded on hands 
+		; Check if face has something loaded on hands 
 		OnHands: " "
 		if f/extra/gold [OnHands: "G"]
 		if f/extra/tool [OnHands: "T"]
@@ -864,7 +855,7 @@ MakeGame: does [
 	; Thief interaction some object
 	GoAction: function [f [object!]][
 
-		; Check if it is overlap on this object
+		; Check if it is overlap on this face
 		OtherFace: CheckOverlaps f 
 	
 		; BEFORE TAKING SOMETHING WE MUST LEAVE WHAT WE HAVE ON HANDS
@@ -921,16 +912,8 @@ MakeGame: does [
 					f/extra/getobject/visible?: false
 					f/extra/getobject/extra/gravity: false
 					f/extra/getobject/offset: -25x-25
-					; Delete carryed bag from the object tree to shorten the process loop
-					;alter GameData/CaveFace/pane (f/extra/getobject
-					either alter GameData/CaveFace/pane (f/extra/getobject) [
-						prin "ADDED OBJECT: " 
-						print f/extra/getobject/extra/facename
-						][
-						prin "DELETED OBJECT: " 
-						print f/extra/getobject/extra/facename
-						
-					]
+					; Delete carryed bag from the face tree to shorten the process loop
+					alter GameData/CaveFace/pane (f/extra/getobject)
 					
 					; Set defaults
 					f/extra/getobject: copy []
@@ -988,7 +971,7 @@ MakeGame: does [
 		if all [f/extra/wbarrow (not CheckHandle f) (none? OtherFace)] [
 			OtherFace: f/extra/getobject
 			OtherFace/offset/x: f/offset/x + 5
-			OtherFace/offset/y: f/offset/y + 10
+			OtherFace/offset/y: f/offset/y + (f/size/y - OtherFace/size/y) 
 			OtherFace/visible?: true
 			OtherFace/extra/gravity: true
 			f/extra/wbarrow: false
@@ -1000,7 +983,7 @@ MakeGame: does [
 			OtherFace: none
 		]					
 		
-		; Check if object has handle, and left them
+		; Check if face has handle, and left them
 		either f/extra/handle [
 			f/extra/handle: false
 			f/extra/gravity: true
@@ -1008,25 +991,26 @@ MakeGame: does [
 			f/extra/altitude: 0
 			f/offset/y: add f/offset/y 8
 			f/size: f/extra/size
-			f/image: f/extra/images/7	
+			f/image: f/extra/images/7		
 			print "LEAVE HANDLE"
 			Message "Leave handle"
 			
-			; Check if we take the (OtherFace) kart
+			; Check if we take the kart
 			if not none? OtherFace [
 				if OtherFace/extra/type = "K" [
 					KartJumpIn OtherFace f
-					f/visible?: false
 					exit
 				]
 			]
 		][
-			; Check if object is under handle and grab them
+			; Check if face is under handle and grab them
 			if (CheckHandle f) [ 
-				if all [not f/extra/wbarrow not f/extra/onkart] [
-					f/visible?: false
+				if not f/extra/wbarrow [
+					f/visible?: true
 					f/extra/gravity: false
-					f/extra/handle: true				
+					f/extra/handle: true
+					f/offset/y: subtract f/offset/y 8
+						
 					if f/extra/gold [
 						f/size: ThiefHandleb/size
 						f/image: ThiefHandleb
@@ -1039,9 +1023,6 @@ MakeGame: does [
 						f/size: ThiefHandle/size
 						f/image: ThiefHandle
 					]
-					f/offset/y: subtract f/offset/y 8
-					f/visible?: true
-
 					print "GRAB HANDLE"	
 					Message "Ill grab this ceiling beam..."
 				]
@@ -1050,20 +1031,6 @@ MakeGame: does [
 				if not none? OtherFace [
 					if OtherFace/extra/type = "K" [
 						KartJumpOut OtherFace f
-						if f/extra/gold [
-							f/size: ThiefHandleb/size
-							f/image: ThiefHandleb
-						]
-						if f/extra/tool [
-							f/size: ThiefHandlet/size
-							f/image: ThiefHandlet
-						]
-						if (not f/extra/gold) and (not f/extra/tool) [
-							f/size: ThiefHandle/size
-							f/image: ThiefHandle
-						]						
-						f/offset/y: OtherFace/offset/y - 21
-						f/visible?: true
 						exit
 					]
 				]
@@ -1072,7 +1039,7 @@ MakeGame: does [
 		
 		; NOW IF WE DON'T HAVE ANYTHING IN HANDS WE CAN TAKE SOMETING
 		
-		; Check overlap on other object and get it if we can
+		; Check overlap on other face and get it if we can
 		if (not none? OtherFace) [
 			if all [(not f/extra/handle) (not f/extra/tool) (not f/extra/gold) (not f/extra/wbarrow)] [
 				;prin "*** OVERLAP OTHERFACE: " print OtherFace/extra/name
@@ -1114,14 +1081,12 @@ MakeGame: does [
 					"K" [if f/extra/onkart [	;The thief is on kart, check if overlaps gold/pickax
 							KartOverlap: CheckKartOverlaps OtherFace
 							if not none? KartOverlap [
-								if KartOverlap/extra/type <> "L" [
-									Message "Load stuff on kart "
-									either KartOverlap/extra/type = "T" [f/extra/tool: true][f/extra/gold: true]
-									f/extra/getobject: KartOverlap  
-									KartOverlap/visible?: false
-									KartOverlap/offset: -75x-75
-									KartOverlap/extra/gravity: false
-								]
+								Message "Load stuff on kart "
+								either KartOverlap/extra/type = "T" [f/extra/tool: true][f/extra/gold: true]
+								f/extra/getobject: KartOverlap  
+								KartOverlap/visible?: false
+								KartOverlap/offset: -75x-75
+								KartOverlap/extra/gravity: false
 							]
 						]
 					]
@@ -1139,7 +1104,7 @@ MakeGame: does [
 		/local stp: 0
 		OtherFace: CheckOverlaps f			
 		
-		; Check for kart hit over some object 
+		; Check for run over some face 
 		if not none? OtherFace [
 			either f/extra/loaded [
 				if OtherFace/extra/type = "A" [
@@ -1150,13 +1115,7 @@ MakeGame: does [
 				]		
 			][
 				if OtherFace/extra/type = "J" [
-					OnElevator: false
-					ElevatorOverlap: none
-					ElevatorOverlap: CheckKartOverlaps OtherFace ;Check if also is an elevator so thief is on and safe
-					if not none? ElevatorOverlap [
-						if ElevatorOverlap/extra/type = "L" [OnElevator: true]
-					]
-					if all [not OtherFace/extra/handle not OnElevator] [
+					if not OtherFace/extra/handle [
 						prin OtherFace/extra/name
 						print " DEAD BY KART"
 						Message "You dead by kart"
@@ -1172,7 +1131,7 @@ MakeGame: does [
 			f/extra/stopdelay: subtract f/extra/stopdelay 1
 			exit
 		][
-			; No on stop delay, overlapping (boy) object (hidden) must follow the kart when moving
+			; No on stop delay, overlapping (boy) face (hidden) must follow the kart when moving
 			if f/extra/loaded [
 				f/extra/getobject/offset: f/offset	
 			]
@@ -1184,18 +1143,18 @@ MakeGame: does [
 		if f/offset/x >= lst/x [f/extra/direction: -3 f/extra/stopdelay: GameData/KartStopDelay]
 	]
 	
-	; Kart jump-in (from handle status) Here (OtherFace) is the thief
+	; Kart jump-in (from handle status)
 	KartJumpIn: function [f [object!] OtherFace [object!]][
-		OtherFace/extra/handle: false	 ;Clear jumping object handle status
+		OtherFace/extra/handle: false	 ;Clear jumping face handle status
 		OtherFace/extra/blockedLT: false ;Clear locks
 		OtherFace/extra/blockedRT: false ;Clear locks 
-		OtherFace/offset: f/offset  	 ;The jumping object follows kart hidden
-		OtherFace/visible?: false		 ;Make jumping object not visible
+		OtherFace/offset: f/offset  	 ;The jumping face follows kart hidden
+		OtherFace/visible?: false		 ;Make jumping face not visible
 		OtherFace/extra/gravity: false   ;Gravity does not affect on kart
 		OtherFace/extra/wound: false	 ;Clear wound status as kart have medkit
-		OtherFace/extra/onkart: true     ;Signal jumping object as loaded on kart
+		OtherFace/extra/onkart: true     ;Signal jumping face as loaded on kart
 		f/extra/loaded: true 			 ;Signal kart as loaded
-		f/extra/getobject: OtherFace	 ;Save thief object as loaded on kart
+		f/extra/getobject: OtherFace	 ;Save thief face as loaded on kart
 		f/extra/altitude: 0 			 ;Don't use altitude on kart
 		either f/extra/direction > 0 [f/image: Kart-TR1][f/image: Kart-TL1]	;Set loaded kart image
 		print "ON KART"
@@ -1205,12 +1164,12 @@ MakeGame: does [
 	; Kart jump-out (to handle status on GoAction function)
 	KartJumpOut: function [f [object!] OtherFace [object!]][
 		f/extra/loaded: false			;Signal kart as unloaded
-		f/extra/getobject: copy []		;Erase thief object from kart
+		f/extra/getobject: copy []		;Erase thief face from kart
 		f/extra/altitude: 0 			;Don't use altitude on kart
 		f/image: f/extra/image 			;Set unloaded kart image 
-		OtherFace/visible?: true		;Make jumping object visible
-		OtherFace/extra/handle: true    ;Signal jumping object as on handle
-		OtherFace/extra/onkart: false	;Signal jumping object as not loaded on kart
+		OtherFace/visible?: true		;Make jumping face visible
+		OtherFace/extra/handle: true    ;Signal jumping face as on handle
+		OtherFace/extra/onkart: false	;Signal jumping face as not loaded on kart
 		OtherFace/offset/y: subtract OtherFace/offset/y 16 ;Vertical adjust as we leave the kart
 		print "LEAVE KART"
 		message "Hoppla..."
@@ -1233,13 +1192,14 @@ MakeGame: does [
 			exit
 		]
 
-		; Check for altitude and force horizontal center jumping object on lifter to avoid walls 
+		; Check for altitude and force horizontal center jumping face on lifter to avoid walls 
 		if not none? OtherFace [
 			if any [OtherFace/extra/type = "J" OtherFace/extra/type = "A" OtherFace/extra/type = "R"] [
 			
 				; If have barrow, we are on kart, or we hang on handle, can't take lifter other case yes
 				if all [not OtherFace/extra/wbarrow not OtherFace/extra/onkart not OtherFace/extra/handle] [
-					OtherFace/offset/x: f/offset/x + f/extra/halfsizex  - 10 ; Centering jumping object is costly!
+					; OtherFace/offset/x: f/offset/x + (to-integer (f/size/x / 2) - 10) ; Centering jumping face this way is costly!
+					OtherFace/offset/x: f/offset/x + f/extra/halfsizex  - 10 ; Centering jumping face is costly!
 					OtherFace/offset/y: f/offset/y - 30
 					if OtherFace/extra/altitude > GameData/DeadAltitude [GoDead OtherFace return 0]
 				]
@@ -1271,7 +1231,7 @@ MakeGame: does [
 		OtherFace: CheckOverlaps f 
 		if not none? OtherFace [
 
-			; Check if other object is agent and push them away if not on stairs (on lifter is unnecesary)
+			; Check if other face is agent and push them away if not on stairs (on lifter is unnecesary)
 			if OtherFace/extra/type = "A" [
 				if all [not CheckStairsDN f  not CheckStairsUP f] [
 					; Push away first agent
@@ -1316,7 +1276,7 @@ MakeGame: does [
 				]
 			]
 			
-			; Check if other object is thief
+			; Check if other face is thief
 			if OtherFace/extra/type = "J" [
 				; Check if thief has tool or is on kart and kill agent, otherwise kill thief
 				either any [OtherFace/extra/tool OtherFace/extra/onkart] [
@@ -1437,19 +1397,19 @@ MakeGame: does [
 		; Check for spider overlap  
 		OtherFace: CheckOverlaps f 
 		if not none? OtherFace [
-			; Check if other object is agent and guide them away
+			; Check if other face is agent and guide them away
 			if OtherFace/extra/type = "A" [
 					OtherFace/extra/getup: true
 					f/extra/dead: true
 					exit
 			]
-			; Check if other object is girl to kill the spider 			
+			; Check if other face is girl to kill the spider 			
 			if OtherFace/extra/type = "R" [
 					print "THE GIRL HAS FLY SWATTER, NO FEAR."
 					f/extra/dead: true
 					exit
 			]
-			; Check if other object is thief
+			; Check if other face is thief
 			if OtherFace/extra/type = "J" [
 				; Check if thief has tool or barrow or is on kart and kill thief if not
 				either any [OtherFace/extra/tool /OtherFace/extra/wbarrow OtherFace/extra/onkart] [
@@ -1514,14 +1474,14 @@ MakeGame: does [
 		; Check for drop overlap  
 		OtherFace: CheckOverlaps f 
 		if not none? OtherFace [
-			; Check if other object is agent and guide them away
+			; Check if other face is agent and guide them away
 			if OtherFace/extra/type = "A" [
 					OtherFace/extra/getup: true
 					f/extra/dead: true
 					exit
 			]
 			
-			; Check if other object is thief
+			; Check if other face is thief
 			if OtherFace/extra/type = "J" [
 				either OtherFace/extra/wound [
 					OtherFace/extra/dead: true
@@ -1583,7 +1543,7 @@ MakeGame: does [
 		; Do nothing if start passage is loaded 
 		if sp/extra/loaded [exit]
 		
-		; Do nothing if object is not allowed to travel
+		; Do nothing if face is not allowed to travel
 		if all [f/extra/type <> "A" f/extra/type <> "J" f/extra/type <> "R"] [exit]
 		
 		; Init destination passage
@@ -1625,7 +1585,7 @@ MakeGame: does [
 			OldSize: 0x0
 		]
 		
-		; Travel the passing object
+		; Travel the passing face
 		f/offset: dp/offset
 		
 		; Start passage pair timers
@@ -1649,21 +1609,24 @@ MakeGame: does [
 		/local stp: 0
 		OtherFace: CheckOverlaps f			
 		
-		; Check for sphere hit over some object 
+		; Check for run over some face 
 		if not none? OtherFace [
-			if OtherFace/extra/type = "J" [
-				OnElevator: false
-				ElevatorOverlap: none
-				ElevatorOverlap: CheckKartOverlaps OtherFace ;Check if also is an elevator so thief is on and safe
-				if not none? ElevatorOverlap [
-					if ElevatorOverlap/extra/type = "L" [OnElevator: true]
-				]
-				if not OnElevator [
-					prin OtherFace/extra/name
-					print " DEAD BY SPHERE"
-					Message "You dead by sphere"
-					GoDead OtherFace
+			either f/extra/loaded [
+				if OtherFace/extra/type = "A" [
+					OtherFace/extra/dead: true
+					print " AGENT DEAD BY BATTLE SPHERE"
+					Message "Agent dead by battle sphere"
 					exit
+				]		
+			][
+				if OtherFace/extra/type = "J" [
+					if not OtherFace/extra/handle [
+						prin OtherFace/extra/name
+						print " DEAD BY SPHERE"
+						Message "You dead by sphere"
+						GoDead OtherFace
+						exit
+					]
 				]
 			]
 		]
