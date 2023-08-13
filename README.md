@@ -1,7 +1,5 @@
 # Cave-In
-Cave-In: [Bagman®](https://www.youtube.com/watch?v=HcVstQnHhSA) Arcade game sequel: **still alpha as [Red](https://www.red-lang.org/p/download.html) lang itself**
-
-![Test Image 0](/scenes/bagman.jpg)
+Cave-In: Bagman Arcade game sequel: **still alpha as [Red](https://www.red-lang.org/p/download.html) lang itself**
 
 There was this arcade machine game from the early 80's where I spent a lot of coins. As I'm learning Red language, I thought it would be a good training to design a similar game, just to learn while play, because I wanted to play again this game. Red lang allowed me to create the game from scratch, I never imagined it would be so easy & fun to make games (have I mentioned that wanted to play again?), I enjoyed a lot as it has been a long time since I did it this way (since my COBOL epoch at 80's to be honest). 
 
@@ -27,8 +25,6 @@ You can also cross-compile your exe going to the `src` folder with `[PATH to Red
 Meet us at the [Red forums](https://gitter.im/red/red) and ask whatever you want to ask, here is the Red dev team ready for answer, and of course me too. Have fun! 😉 
 
 Red language is an open source project made by Full Stack/Redlake Technologies @ www.red-lang.org 
-
-Bagman game was a registered trade mark by Stern-Seeburg, all my acknowledgments for this great game!
 
 **********************************************************************************************************
 INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
