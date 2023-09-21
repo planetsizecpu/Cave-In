@@ -1,5 +1,5 @@
 # Cave-In
-Cave-In: Bagman Arcade game sequel: **still alpha as [Red](https://www.red-lang.org/p/download.html) lang itself**
+Cave-In: [Bagman Arcade game sequel: **still alpha as [Red](https://www.red-lang.org/p/download.html) lang itself** ]
 
 There was this arcade machine game from the early 80's where I spent a lot of coins. As I'm learning Red language, I thought it would be a good training to design a similar game, just to learn while play, because I wanted to play again this game. Red lang allowed me to create the game from scratch, I never imagined it would be so easy & fun to make games (have I mentioned that wanted to play again?), I enjoyed a lot as it has been a long time since I did it this way (since my COBOL epoch at 80's to be honest). 
 
