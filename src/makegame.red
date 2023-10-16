@@ -497,7 +497,8 @@ MakeGame: does [
 		
 		; If it is some object on hands leave them at place and make it visible
 		if any [f/extra/gold f/extra/tool f/extra/wbarrow] [
-			f/extra/getobject/offset: f/offset
+		    ; If the object was hidden out of screen we use original coordinates
+			either f/offset > 0x0 [f/extra/getobject/offset: f/offset][f/extra/getobject/offset: f/extra/getobject/extra/offset]
 			f/extra/getobject/extra/gravity: true
 			f/extra/getobject/visible?: true
 		]
@@ -590,9 +591,9 @@ MakeGame: does [
 					if OtherFace/extra/type = "P" [
 						PassageMotion face OtherFace
 					]
-					; Check for gold hit on band so we can't finish this level,					
+					; Check for gold  barrow hit on band so we can't finish this level,					
 					if OtherFace/extra/type = "B" [			
-						if any [face/extra/type = "G" face/extra/type = "W"][
+						if face/extra/type = "G" [
 							print "ITEM LOST ON LAVA, WE CAN'T FINISH THIS LEVEL SO RESTART"
 							alert "ITEM LOST ON LAVA (RESTART)"
 							OldLevel: GameData/Curlevel
@@ -602,6 +603,16 @@ MakeGame: does [
 							LoadLevel GameData/Curlevel
 							info/rate: GameData/GameRate
 						]
+						if face/extra/type = "W" [
+							print "ITEM LOST ON LAVA, WE CAN'T FINISH THIS LEVEL SO RESTART"
+							alert "ITEM LOST ON LAVA (RESTART)"
+							OldLevel: GameData/Curlevel
+							info/rate: none
+							EraseLevel GameData/CaveFace 
+							GameData/Curlevel: OldLevel
+							LoadLevel GameData/Curlevel
+							info/rate: GameData/GameRate
+						]						
 					]
 					; Check for gold hit on barrow so we carry
 					if OtherFace/extra/type = "W" [
