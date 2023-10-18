@@ -16,6 +16,7 @@
 & TerrainColor 89.89.89.0
 & StairsColor1 200.191.231
 & StairsColor2 63.72.204.0
+& LifterCable: 128.64.64.0
 & DropGravity 1
 #
 # ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
