@@ -24,7 +24,7 @@ You can also cross-compile your exe going to the `src` folder with `[PATH to Red
 
 Meet us at the [Red forums](https://gitter.im/red/red) and ask whatever you want to ask, here is the Red dev team ready for answer, and of course me too. Have fun! 😉 
 
-Red language is an open source project made by Full Stack/Redlake Technologies @ www.red-lang.org 
+Red language is an open source project made by Full Stack Technologies @ www.red-lang.org 
 
 **********************************************************************************************************
 INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
