@@ -13,6 +13,8 @@
 # To modify default GameData/word values:  & word value   (value can be tuple! or logic!)
 & CeilingDist 18
 & TerrainColor 220.242.248.0
+& StairsColor1 127.127.127.0
+& StairsColor2 68.68.68.0
 & Slide true
 #
 # ItemType|ObjectName|FaceName|FaceSize|FaceOffset|Rate|Stops|TimeOfTool|Direction|Gravity|ImageFiles
