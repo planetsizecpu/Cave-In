@@ -1,6 +1,8 @@
 # Cave-In
 Cave-In: [Bagman Arcade game sequel: **still alpha as [Red](https://www.red-lang.org/p/download.html) lang itself** ]
 
+![Test Image 0](/scenes/bagman.jpg)
+
 There was this arcade machine game from the early 80's where I spent a lot of coins. As I'm learning Red language, I thought it would be a good training to design a clone, just to learn while play, because I wanted to play again this game. Red lang allowed me to create the game from scratch, I never imagined it would be so easy & fun to make games (have I mentioned that wanted to play again?), I really enjoyed doing it, it had been a long time since I did it this way. (since my COBOL epoch at 80's to be honest). 
 
 As it was a lot of work to do for only a person, design everything and put it all to run together was a challenge, I could hardly have done it with another language that was not **human oriented** 😃. Yes, [Red](https://www.red-lang.org/p/download.html) really makes everything a bit easier, I'm sure you would like to [try](https://www.red-lang.org/p/download.html) it if you are, like me, tired of fighting against the tense syntax and semantics of traditional languages. [Red](https://www.red-lang.org/p/download.html) is a data format first, so you write relative expressions and decide what is code and what is data, (because everything is data in [Red](https://www.red-lang.org/p/download.html) ), and so the expressions evaluation runs fluent accordingly. 
