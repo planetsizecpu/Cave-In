@@ -23,8 +23,7 @@ REQUIREMENTS: None on Windows & MacOs, just click on the executable file. For Li
 
 You can also cross-compile your exe going to the `src` folder with `[PATH to Red]red -r -t [target OS] cave.red`.
 
-
-Meet us at the [Red forums](https://gitter.im/red/red) and ask whatever you want to ask, here is the Red dev team ready for answer, and of course me too. Have fun! 😉 
+Enjoy & meet us at the [Red forums](https://gitter.im/red/red) and ask whatever you want to ask, here is the Red dev team ready for answer, and of course me too. Have fun! 😉 
 
 CREDITS:
 
