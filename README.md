@@ -29,7 +29,7 @@ CREDITS:
 
 Red language is an open source project made by Full Stack Technologies @ www.red-lang.org
 
-Bagman original game by Valadon Automation & Jacques Brisse, thanks a lot
+Bagman original game by Stern Seeburg, Valadon Automation & Jacques Brisse, thanks a lot
 
 **********************************************************************************************************
 INSTRUCTIONS FOR CREATING NEW LEVELS: Read file  zLevelsDesign.txt   please
